@@ -1,0 +1,45 @@
+//
+// Prefix header for all source files of the 'OnTV' target in the 'OnTV' project
+//
+
+#ifdef __OBJC__
+
+    #import <Foundation/Foundation.h>
+    #import <UIKit/UIKit.h>
+	#import "Constants.h"
+	#import "URL.h"
+    #import "DeviceUtils.h"
+    #import "UIUtils.h"
+    #import "AppDelegate_iPhone.h"
+    #import "UIControls.h" 
+    #import "MenuBarEnums.h"
+    #import "GADBannerView.h"
+    #import "UIImageView+WebCache.h"
+
+    #ifdef TESTFLIGHT
+        #import "TestFlight.h"
+        #define NSLog(__FORMAT__, ...) TFLog((@"%s [Line %d] " __FORMAT__), __PRETTY_FUNCTION__, __LINE__, ##__VA_ARGS__)
+        #define TESTFLIGHT_TEAM_ID [[[NSBundle mainBundle] infoDictionary] objectForKey:@"ONTVTestFlightTeamID"] 
+    #endif
+
+    #ifdef DEBUG
+        #define DLog(...) NSLog(@"%s %@", __PRETTY_FUNCTION__, [NSString stringWithFormat:__VA_ARGS__])
+        #ifdef TESTFLIGHT
+            #define TFLog(__FORMAT__, ...) [TestFlight passCheckpoint:[NSString stringWithFormat:__FORMAT__, __VA_ARGS__]]
+            #define ALog(...) TFLog(...)
+        #else
+            #define ALog(...) [[NSAssertionHandler currentHandler] handleFailureInFunction:[NSString stringWithCString:__PRETTY_FUNCTION__ encoding:NSUTF8StringEncoding] file:[NSString stringWithCString:__FILE__ encoding:NSUTF8StringEncoding] lineNumber:__LINE__ description:__VA_ARGS__] 
+            #define TFLog(...) DLog(...)
+        #endif
+    #else
+        #define DLog(...) do { } while (0)
+        #ifndef NS_BLOCK_ASSERTIONS
+            #define NS_BLOCK_ASSERTIONS
+        #endif
+        #define ALog(...) NSLog(@"%s %@", __PRETTY_FUNCTION__, [NSString stringWithFormat:__VA_ARGS__])
+        #define TFLog(...) ALog(...)
+    #endif
+
+    #define ZAssert(condition, ...) do { if (!(condition)) { ALog(__VA_ARGS__); }} while(0)
+
+#endif

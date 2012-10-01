@@ -1,0 +1,129 @@
+10
+
+dir
+729
+http://artem@svn.xion.dk/iphone/ontv6.1/trunk/iPhone/Classes
+http://artem@svn.xion.dk/iphone
+
+
+
+2012-09-18T11:24:51.869021Z
+729
+artem
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+5906d4b0-215c-470f-a670-c3b33a9be4c5
+
+Repository
+dir
+
+Model
+dir
+
+Utils
+dir
+
+Viewcontrollers
+dir
+
+AppDelegate_iPhone.h
+file
+
+
+
+
+2012-09-18T08:37:00.000000Z
+1d29bfd45927a9336cfebf105f3233df
+2012-09-18T11:24:51.869021Z
+729
+artem
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+2407
+
+Categories
+dir
+
+CustomView
+dir
+
+DB
+dir
+
+Images
+dir
+
+AppDelegate_iPhone.m
+file
+
+
+
+
+2012-09-18T10:33:04.000000Z
+8527f3b3408ba0356456f93aedc63f70
+2012-09-18T11:24:51.869021Z
+729
+artem
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+22887
+
+3rdPartyFrameworks
+dir
+
+Network
+dir
+
+HeaderFiles
+dir
+

@@ -1,0 +1,71 @@
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/iphone/!svn/ver/594/ontv6.1/trunk/iPhone/Classes/3rdPartyFrameworks/GoogleAdMobAds
+END
+GADAdSize.h
+K 25
+svn:wc:ra_dav:version-url
+V 95
+/iphone/!svn/ver/572/ontv6.1/trunk/iPhone/Classes/3rdPartyFrameworks/GoogleAdMobAds/GADAdSize.h
+END
+GADBannerView.h
+K 25
+svn:wc:ra_dav:version-url
+V 99
+/iphone/!svn/ver/572/ontv6.1/trunk/iPhone/Classes/3rdPartyFrameworks/GoogleAdMobAds/GADBannerView.h
+END
+GADRequestError.h
+K 25
+svn:wc:ra_dav:version-url
+V 101
+/iphone/!svn/ver/572/ontv6.1/trunk/iPhone/Classes/3rdPartyFrameworks/GoogleAdMobAds/GADRequestError.h
+END
+GADAdNetworkExtras.h
+K 25
+svn:wc:ra_dav:version-url
+V 104
+/iphone/!svn/ver/572/ontv6.1/trunk/iPhone/Classes/3rdPartyFrameworks/GoogleAdMobAds/GADAdNetworkExtras.h
+END
+GADInterstitialDelegate.h
+K 25
+svn:wc:ra_dav:version-url
+V 109
+/iphone/!svn/ver/572/ontv6.1/trunk/iPhone/Classes/3rdPartyFrameworks/GoogleAdMobAds/GADInterstitialDelegate.h
+END
+GADRequest.h
+K 25
+svn:wc:ra_dav:version-url
+V 96
+/iphone/!svn/ver/572/ontv6.1/trunk/iPhone/Classes/3rdPartyFrameworks/GoogleAdMobAds/GADRequest.h
+END
+GADAdMobExtras.h
+K 25
+svn:wc:ra_dav:version-url
+V 100
+/iphone/!svn/ver/572/ontv6.1/trunk/iPhone/Classes/3rdPartyFrameworks/GoogleAdMobAds/GADAdMobExtras.h
+END
+README.txt
+K 25
+svn:wc:ra_dav:version-url
+V 94
+/iphone/!svn/ver/572/ontv6.1/trunk/iPhone/Classes/3rdPartyFrameworks/GoogleAdMobAds/README.txt
+END
+GADBannerViewDelegate.h
+K 25
+svn:wc:ra_dav:version-url
+V 107
+/iphone/!svn/ver/572/ontv6.1/trunk/iPhone/Classes/3rdPartyFrameworks/GoogleAdMobAds/GADBannerViewDelegate.h
+END
+GADInterstitial.h
+K 25
+svn:wc:ra_dav:version-url
+V 101
+/iphone/!svn/ver/572/ontv6.1/trunk/iPhone/Classes/3rdPartyFrameworks/GoogleAdMobAds/GADInterstitial.h
+END
+libGoogleAdMobAds.a
+K 25
+svn:wc:ra_dav:version-url
+V 103
+/iphone/!svn/ver/594/ontv6.1/trunk/iPhone/Classes/3rdPartyFrameworks/GoogleAdMobAds/libGoogleAdMobAds.a
+END

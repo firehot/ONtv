@@ -1,0 +1,181 @@
+//
+//  iPadChannelView.m
+//  OnTV
+//
+//  Created by Andreas Hirszhorn on 24/7/12.
+//  Copyright (c) 2012 Touch Logic I/S. All rights reserved.
+//
+
+#import "iPadChannelView.h"
+#import "Program.h"
+#import "ChannelCategory.h"
+#import "iPadProgramView.h"
+#import "FavoriteChannelsIPadViewController.h"
+#import <QuartzCore/QuartzCore.h>
+#import "UIUtils.h"
+#import "URL.h"
+#import <SDWebImage/UIImageView+WebCache.h>
+
+@interface iPadChannelView ()
+
+- (void) addChannelHeaderView;
+- (void)createLogoImageViewOnView :(UIView*)view;
+- (void)createChannelImageViewOnView :(UIView*)view;
+- (void)createAccessoryImageViewOnView :(UIView*)view withFrame:(CGRect)frame;
+
+- (void) addProgramSubviews;
+
+@end
+
+@implementation iPadChannelView
+@synthesize channel=_channel;
+@synthesize header=_header;
+@synthesize channelLabel=_channelLabel;
+@synthesize accessoryImageView=_accessoryImageView;
+@synthesize channelImageView=_channelImageView;
+@synthesize logoImageView=_logoImageView;
+@synthesize logoBackgroundImageView=_logoBackgroundImageView;
+
+- (id)initWithFrame:(CGRect)frame andChannel:(Channel*)c  andTag:(NSInteger)tag{
+    self = [super initWithFrame:frame];
+    if (self) {
+        self.channel = c;
+        self.tag = tag;
+        
+        [self addChannelHeaderView];
+        
+        [self addProgramSubviews];
+        
+        self.backgroundColor = [UIColor whiteColor];
+        self.layer.cornerRadius = 5;
+    }
+    return self;
+}
+
+#pragma mark - 
+#pragma mark Channel Header View
+
+int TOP_MARGIN = 5;
+int HEADER_HEIGHT = 60;
+int HEADER_LABEL_WIDTH = 200;
+
+- (void) addChannelHeaderView {
+    UIView *h = [[UIView alloc] initWithFrame:CGRectMake(0, 0, self.frame.size.width, HEADER_HEIGHT)];
+    h.backgroundColor = [UIUtils colorFromHexColor:LIGHTGRAY];
+    h.layer.cornerRadius = 5;
+    
+    UIView *lineView = [[UIView alloc] initWithFrame:CGRectMake(0, HEADER_HEIGHT-1, self.frame.size.width, 1)];
+    lineView.backgroundColor = [UIColor lightGrayColor];  
+    [h addSubview:lineView];
+
+    
+	UILabel *nameLabel = [[UILabel alloc]initWithFrame:CGRectMake(h.bounds.size.width-HEADER_LABEL_WIDTH-20, 19, HEADER_LABEL_WIDTH, 20)];
+	nameLabel.font = [UIFont boldSystemFontOfSize:14];
+	nameLabel.textColor = [UIUtils colorFromHexColor:@"117890"];
+	nameLabel.backgroundColor = [UIColor clearColor];
+    nameLabel.textAlignment = UITextAlignmentRight;
+    nameLabel.text = self.channel.title;    
+	self.channelLabel = nameLabel;
+    [h addSubview:self.channelLabel];
+    
+    CGRect f = CGRectMake(self.bounds.size.width-17, 25, 8, 11);
+    [self createAccessoryImageViewOnView:h withFrame:f];
+    
+    [self createLogoImageViewOnView:h];
+//    [self createChannelImageViewOnView:h];
+    
+    
+    [h addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(handleSingleTap:)]];
+    
+    self.header = h;
+	[self addSubview:self.header];
+}
+
+
+- (void)createLogoImageViewOnView :(UIView*)view{
+    //Adding the logo background image
+    UIImageView *logoBackgroundImageViewTemp = [[UIImageView alloc] initWithFrame:CGRectMake(10, 10, 84, 40)];
+    self.logoBackgroundImageView = logoBackgroundImageViewTemp;
+    self.logoBackgroundImageView.image = [UIImage imageNamed:@"imageBackground.png"];
+    [view addSubview:self.logoBackgroundImageView];
+    
+    //Adding the channel logo
+    UIImageView *logoImageViewTemp = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"bigChannelLogo"]];	
+    logoImageViewTemp.frame = CGRectMake(15, 15, 74, 30); //CGRectMake(16+10, 11+5, 50, 20);	
+    logoImageViewTemp.contentMode = UIViewContentModeScaleAspectFit;
+    
+    self.logoImageView = logoImageViewTemp;    
+    
+    NSMutableString *url = [[NSMutableString alloc] initWithString:BASEURL];
+    Image *imageObject = [self.channel.imageObjectsArray objectAtIndex:1];
+    if(imageObject.src != nil) [url appendString:imageObject.src];
+    [self.logoImageView setImageWithURL:[NSURL URLWithString:url] placeholderImage:[UIImage imageNamed:@"bigChannelLogo"]];
+    
+    [view addSubview:self.logoImageView];
+}
+
+- (void)createChannelImageViewOnView :(UIView*)view {
+    UIImageView *channelImageViewTemp = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"bigChannelLogo"]];	
+	self.channelImageView = channelImageViewTemp; 
+    self.channelImageView.frame = CGRectMake(view.frame.size.width - 115, 20, 45, 20);	
+    self.channelImageView.autoresizingMask=UIViewAutoresizingFlexibleLeftMargin;
+    [view addSubview:self.channelImageView];
+}
+
+#pragma mark - 
+#pragma mark Program View
+
+int TOP_PROGRAM_VIEW_HEIGHT = 60;
+int PROGRAM_VIEW_HEIGHT = 50;
+
+- (void) addProgramSubviews {    
+    NSArray *programs = self.channel.programs;
+    
+    Program *p1 = programs.count > 0 ? [programs objectAtIndex:0] : nil;
+    Program *p2 = programs.count > 1 ? [programs objectAtIndex:1] : nil;
+    Program *p3 = programs.count > 2 ? [programs objectAtIndex:2] : nil;
+    
+    iPadProgramView *pv1 = [[iPadProgramView alloc] initWithFrame:CGRectMake(0, HEADER_HEIGHT, self.frame.size.width, TOP_PROGRAM_VIEW_HEIGHT) timeline:YES program:p1 andTag:self.tag];
+    [pv1 addBottomLine];
+    [self addSubview:pv1];    
+    
+    iPadProgramView *pv2 = [[iPadProgramView alloc] initWithFrame:CGRectMake(0, HEADER_HEIGHT+TOP_PROGRAM_VIEW_HEIGHT, self.frame.size.width, PROGRAM_VIEW_HEIGHT) timeline:NO program:p2 andTag:self.tag];
+    [pv2 addBottomLine];
+    [self addSubview:pv2];
+    
+    iPadProgramView *pv3 = [[iPadProgramView alloc] initWithFrame:CGRectMake(0, HEADER_HEIGHT+TOP_PROGRAM_VIEW_HEIGHT+PROGRAM_VIEW_HEIGHT, self.frame.size.width, PROGRAM_VIEW_HEIGHT) timeline:NO program:p3 andTag:self.tag];
+    [self addSubview:pv3];
+}
+
+
+#pragma mark - 
+#pragma mark Helper View Methods
+
+- (void)createAccessoryImageViewOnView :(UIView*)view withFrame:(CGRect)frame{
+    self.accessoryImageView =[UIControls createUIImageViewWithFrame:frame];                    
+    [self.accessoryImageView setImage:[UIImage imageNamed:@"CellArrow"]];
+    self.accessoryImageView.autoresizingMask=UIViewAutoresizingFlexibleLeftMargin;
+    [view addSubview:self.accessoryImageView];
+}
+
+
+#pragma mark - 
+#pragma mark Touch event methods
+
+- (void)handleSingleTap:(UITapGestureRecognizer *)recognizer {
+    [[self viewController] userDidSelectChannelWithTag:self.tag];
+}
+
+
+- (FavoriteChannelsIPadViewController*)viewController {
+    for (UIView* next = [self superview]; next; next = next.superview) {
+        UIResponder* nextResponder = [next nextResponder];
+        if ([nextResponder isKindOfClass:[FavoriteChannelsIPadViewController class]]) {
+            return (FavoriteChannelsIPadViewController*)nextResponder;
+        }
+    }
+    return nil;
+}
+
+
+@end

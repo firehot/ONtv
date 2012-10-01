@@ -1,0 +1,17 @@
+K 25
+svn:wc:ra_dav:version-url
+V 52
+/iphone/!svn/ver/572/ontv6.1/trunk/iPhone/Classes/DB
+END
+migration-0.sql
+K 25
+svn:wc:ra_dav:version-url
+V 68
+/iphone/!svn/ver/572/ontv6.1/trunk/iPhone/Classes/DB/migration-0.sql
+END
+OnTV.sqlite
+K 25
+svn:wc:ra_dav:version-url
+V 64
+/iphone/!svn/ver/572/ontv6.1/trunk/iPhone/Classes/DB/OnTV.sqlite
+END

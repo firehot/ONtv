@@ -1,0 +1,190 @@
+
+/* Back Button Title */
+"Back" = "Tilbage";
+
+/* Login Screen, Continue  Button Title */
+"Continue" = "Fortsæt uden";
+
+/* Login Screen, create New User Button Title */
+"create New User" = "Opret ny profil";
+
+/* Create New User Screen,Create New User Info Label Text */
+"Create New User Info" = "Du kan her oprette en personlig ONTV proil. Med en profil kan du gemme dine indstillinger mellem dine enheder og få adgang til ekstra muligheder som fx påmindelser og planlægning.";
+
+/* Create New User Screen, Create Your New Account Button Title */
+"create Your New Account" = "Opret din nye profil";
+
+/* Login Screen, Email Address Label Text */
+"Email Address" = "E-mail adresse";
+
+/* Creat New User Screen, Email Address Label Text */
+"Your Email Address" = "Din e-mail adresse";
+
+/* Login Screen, Login Button Title */
+"Login" = "Log ind";
+
+/* Login Screen, Subscribtion Info Label Text */
+"Login Subscribtion Info" = "For at få adgang til alle funktioner i ONTV anbefaler vi, at du logger ind med en profil.";
+
+/* Create New User Screen, Mobile Label Text */
+"Mobile" = "Dit mobilnr.*";
+
+/* Create New User Screen, Name Label Text */
+"Name" = "Navn";
+
+/* Login Screen & Creat New User Screen, Password Label Text */
+"Password" = "Adgangskode";
+
+/* Create New User Screen, Register Mobile for SMS Info Label Text */
+"Register Mobile for SMS Info" = "*Dit mobilnr. vil blive brugt, hvis du ønsker at modtage SMS påmindelser. Se venligst ontv.dk/sms for detaljerede information og vilkår.";
+
+/* Add Channels Screen, Navigation Bar Title  */
+"Add Channels" = "Tilføj kanaler";
+
+/* Home Screen, channels Button title Text */
+"Channels" = "Kanaler";
+
+"Channel.no.air.1" = "Denne kanal";
+"Channel.no.air.2" = "sender pt. ikke";
+
+"Channel.no.transmission.1" = "Ingen udsendelse nu";
+"Channel.no.transmission.2" = "Tryk for at se hele dagen";
+
+/* Edit Channels Screen, Navigation Bar Title */
+"Edit Channels Navigation Title " = "Redigér kanaler";
+
+/* Add Channels Screen, Please Select Channels before Adding Alert Message */
+"Please Select Channels before Adding" = "Vælg venligst kanaler før du tilføjer";
+
+/* Save Button Title */
+"Save" = "Gem";
+
+/* Add Channels Screen, Search Channel PlaceHolder Text */
+"Search Channel" = "Søg kanal";
+
+/* Search Favorite Program, Search Bar Place Holder */
+"Search Programs" = "Søg programmer";
+
+/* Search Favorite Program Screen, Search Header Search Label Text */
+"Searched" = "Søg";
+
+/* Search Favorite Program Screen, Search Header Shows Label Text */
+"Shows" = "Viser:";
+
+/* Add Channels Screen, Synching Channels HUD Label Text */
+"Synching Channels" = "Synkroniserer kanaler";
+
+/* Search Favorite Program, Search Header Search Date Label Text */
+"Today" = "I dag";
+
+
+/* User Screen, Logout Button Title Text */
+"Logout" = "Log ud";
+
+
+/* User Screen, Logout Cell Header Text */
+"Logout Cell" = "Du er logget ind som";
+
+
+/* User Screen, Push Notification Cell Header Text */
+"Push Notification Cell" = "Push notifikation modtagere";
+
+
+/* Pro User Required Screen, No Commercial Label Text */
+"No Commercial" = "Ingen reklamer!";
+
+/* Pro User Required Screen, OnTv Full Access Label Text */
+"OnTv Full Access" = "Med ONTV+ for kun 29,- kr/årligt får du fuld adgang til ONTV til:";
+
+/* Pro User Required Screen, ONTV Pro Or ONTV required Label Text */
+"ONTVProOrONTVrequired " = "ONTV Pro eller ONTV+ krævet";
+
+/* Pro User Required Screen, read More Label Text */
+"Read More" = "Læs mere på ontv.dk/subscriptions";
+
+/* Pro User Required Screen, you Need ONTV ProLabel Label Info */
+"You Need ONTV Pro" = "Du skal have et ONTV Pro eller ONTV+ abonnement for at få fuld adgang til ONTV. Fra kun 29,- kr/årligt.";
+
+
+/* HeaderView Title, RecommendationScreen */
+
+"Recommendation" = "Anbefalinger";
+"Recommend" = "Anbefal";
+"Don't recommend" = "Anbefal ikke";
+
+/* Custom cell text */
+"Select Date" = "Vælg Dato";
+"By Agent" = "Af agent";
+
+/* keyboard text */
+"Keyboard.done" = "Færdig";
+
+/* segmented text */
+"Segment.planned" = "Planlagt";
+"Segment.agents" = "Agenter";
+
+"Edit planning" = "Redigér planlægning";
+"Add planning" = "Tilføj planlægning";
+"Edit" = "Redigér";
+"Edit agent" = "Redigér agent";
+
+"Search in" = "Søg i";
+
+"Original Title" = "Original Titel";
+
+"Title" = "Titel";
+"Summary" = "Omtale";
+"All" = "Alle";
+"Title or summary" = "Title eller omtale";
+
+"Remind me" = "Påmind mig";
+"Remind me via" = "Påmind mig via";
+"Remind Time" = "Påmindelsestidspunkt";
+"Remind me when it's aired" = "Påmind mig når det sendes";
+"Plan every time it's aired" = "Planlæg hver gang det sendes";
+"Select Days" = "Vælg Dage";
+"Search Target" = "Search Target";
+"Search Type" = "Søge Type";
+"Select Channel" = "Vælg Kanal";
+
+"Minutes before" = "Minutter før";
+"Hours before" = "Timer før";
+"Days before" = "Dage før";
+"On days" = "På dage";
+
+"Weekdays(mon-fri)" = "Hverdage(man-fre)";
+"Weekends(sat-sun)" = "Weekender(lør-søn)";
+"Mondays" = "Mandage";
+"Tuesdays" = "Tirsdage";
+"Wednesdays" = "Onsdage";
+"Thursdays" = "Torsdage";
+"Fridays" = "Fredage";
+"Saturdays" = "Lørdage";
+"Sundays" = "Søndage";
+"All weekdays" = "Alle ugedage";
+
+"Is" = "Er";
+"Contains" = "Indeholder";
+"Begins with" = "Begyder med";
+"Ends with" = "Ender med";
+"Between" = "Imellem";
+"On" = "på";
+
+"Show short summary in listings" = "Vis omtale i lister";
+"Settings" = "Indstillinger";
+
+"From" = "Fra";
+
+"On channels" = "On channels";
+
+"Plan all airings where" = "Planlæg alle udsendelse hvor";
+"Limitations" = "Begrænsning";
+
+"Plans" = "Planer";
+"Plan" = "Planlæg";
+
+"Find on IMDB" = "Find på IMDB";
+"Share on Facebook" = "Del på Facebook";
+"You post is now shared"="Dit indlæg er nu delt";
+
+"No records found" = "Ingen resultater fundet";

@@ -1,0 +1,232 @@
+//
+//  FavoriteChannelLandscapeView.m
+//  OnTV
+//
+//  Created by Andreas Hirszhorn on 25/7/12.
+//  Copyright (c) 2012 Touch Logic I/S. All rights reserved.
+//
+
+#import "FavoriteChannelLandscapeView.h"
+#import "ChannelLandscapeView.h"
+
+@implementation FavoriteChannelLandscapeView
+@synthesize channels=_channels;
+@synthesize programScrollView=_programScrollView;
+@synthesize timeScrollView=_timeScrollView;
+@synthesize channelScrollView=_channelScrollView;
+@synthesize lineView=_lineView;
+//@synthesize lineView2=_lineView2;
+
+- (id)initWithFrame:(CGRect)frame andChannels:(NSArray*)channels{
+    self = [super initWithFrame:frame];
+    if (self) {       
+        self.channels = channels;
+        [self createScrollviews];
+        self.backgroundColor = [UIColor grayColor];
+    }
+    return self;
+}
+
+
+#pragma mark -
+#pragma mark - Create Scroll Views
+
+int PROGRAM_TAG = 11;
+int TIME_TAG = 12;
+int CHANNEL_TAG = 13;
+
+int TIME_HEIGHT = 30;
+int CHANNEL_WIDTH = 104;
+int CHANNEL_HEIGHT = 60;
+int MARGIN_BETWEEN_VIEWS = 5;
+
+- (void) createScrollviews{        
+    int sizeOfHours = (self.frame.size.width-CHANNEL_WIDTH-MARGIN_BETWEEN_VIEWS)/3;
+    
+    [self createProgramScrollView:sizeOfHours];
+    [self createTimeScrollView:sizeOfHours];
+    [self createChannelHeadline];
+    [self createChannelScrollView];
+    [self drawVerticalTimeLine:sizeOfHours];
+    
+    [self scrollToNearestHourOfDay:sizeOfHours];
+}
+
+- (void) createProgramScrollView:(NSInteger)sizeOfHours{
+    CGRect scrollFrame = CGRectMake(CHANNEL_WIDTH+MARGIN_BETWEEN_VIEWS, TIME_HEIGHT, self.frame.size.width-CHANNEL_WIDTH-MARGIN_BETWEEN_VIEWS, self.frame.size.height-TIME_HEIGHT);
+
+    UIScrollView *programScrollView = [[UIScrollView alloc] initWithFrame:scrollFrame];
+    programScrollView.contentSize = CGSizeMake(sizeOfHours*24, ([self.channels count]+1)*CHANNEL_HEIGHT);
+    programScrollView.delegate = self;
+    programScrollView.backgroundColor = [UIColor whiteColor];
+    programScrollView.tag = PROGRAM_TAG;
+    self.programScrollView = programScrollView;
+    [self addSubview:self.programScrollView];
+    
+    NSLog(@"Channels: %d - programs:%d",[self.channels count], [[[self.channels objectAtIndex:0] programs] count]);
+    
+    int i = 0;
+    for (Channel *c in self.channels) {
+        CGRect rect = CGRectMake(0, i*CHANNEL_HEIGHT, programScrollView.contentSize.width, CHANNEL_HEIGHT);
+        ChannelLandscapeView *cView = [[ChannelLandscapeView alloc] initWithFrame:rect channel:c tag:i++ andSizeOfHours:sizeOfHours];
+        [self.programScrollView addSubview:cView];
+    }
+}
+
+- (void) scrollToNearestHourOfDay:(NSInteger)sizeOfHours{
+    // scroll to nearest hour of the day
+    NSCalendar *cal = [[NSCalendar alloc] initWithCalendarIdentifier:NSGregorianCalendar];
+    NSDate* now = [NSDate date];
+    NSDateComponents* nowHourMin = [cal components:(NSHourCalendarUnit|NSMinuteCalendarUnit) fromDate:now];
+    NSInteger position = sizeOfHours * nowHourMin.hour;
+    self.programScrollView.contentOffset = CGPointMake(position, 0);
+}
+
+
+- (void) createTimeScrollView:(int)sizeOfHours{
+    CGRect scrollFrame = CGRectMake(CHANNEL_WIDTH+MARGIN_BETWEEN_VIEWS, 0, self.frame.size.width-CHANNEL_WIDTH-MARGIN_BETWEEN_VIEWS, TIME_HEIGHT);    
+    UIScrollView * timeScrollView = [[UIScrollView alloc] initWithFrame:scrollFrame];
+    timeScrollView.tag = TIME_TAG;
+    timeScrollView.scrollEnabled = NO;
+    
+    //Do we need to use the phone time settings to support AM/PM here?
+    NSArray* times = [[NSArray alloc] initWithObjects:@"00:00", @"01:00", @"02:00", @"03:00", @"04:00",
+                           @"05:00", @"06:00", @"07:00", @"08:00", @"09:00", @"10:00", @"11:00", @"12:00", 
+                           @"13:00", @"14:00", @"15:00", @"16:00", @"17:00", @"18:00", @"19:00", @"20:00", 
+                           @"21:00", @"22:00", @"23:00", @"24:00", nil];
+    
+    for (int i = 0; i<24; i++) {
+        int width = sizeOfHours;
+        CGRect rect = CGRectMake(i*width, 0, width, TIME_HEIGHT);
+        UILabel *lbl = [UIControls createUILabelWithFrame:rect FondSize:14 FontName:@"System Bold" FontHexColor:@"117890" 
+                                                LabelText:[NSString stringWithFormat:@"%@ - %@",[times objectAtIndex:i],[times objectAtIndex:i+1]]];
+        lbl.textAlignment = UITextAlignmentCenter;
+        lbl.backgroundColor = [UIColor lightGrayColor];
+        lbl.layer.borderColor = [UIColor grayColor].CGColor;
+        lbl.layer.borderWidth = 1.0;
+        [timeScrollView addSubview:lbl];
+    }
+        
+    timeScrollView.contentSize = CGSizeMake(sizeOfHours*24, scrollFrame.size.height);    
+    
+    self.timeScrollView = timeScrollView;
+    [self addSubview:self.timeScrollView];
+}
+
+- (void) createChannelHeadline{
+    CGRect rect = CGRectMake(0, 0, CHANNEL_WIDTH, TIME_HEIGHT);
+    UILabel *lbl = [UIControls createUILabelWithFrame:rect FondSize:14 FontName:@"System Bold" FontHexColor:@"117890" 
+                                            LabelText:[NSString stringWithFormat:NSLocalizedString(@"Channels",@"Home Screen, channels Button title Text")]];
+    lbl.textAlignment = UITextAlignmentCenter;
+    lbl.backgroundColor = [UIColor lightGrayColor];
+    lbl.layer.borderColor = [UIColor grayColor].CGColor;
+    lbl.layer.borderWidth = 1.0;
+    [self addSubview:lbl];
+
+}
+
+- (void) createChannelScrollView{
+    CGRect scrollFrame = CGRectMake(0, TIME_HEIGHT, CHANNEL_WIDTH, self.frame.size.height-TIME_HEIGHT);    
+    UIScrollView * channelScrollView = [[UIScrollView alloc] initWithFrame:scrollFrame];
+    channelScrollView.contentSize = CGSizeMake(scrollFrame.size.width, scrollFrame.size.height*2);
+    channelScrollView.backgroundColor = [UIColor lightGrayColor];
+    channelScrollView.tag = CHANNEL_TAG;
+    channelScrollView.scrollEnabled = NO;
+    channelScrollView.layer.borderColor = [UIColor grayColor].CGColor;
+    channelScrollView.layer.borderWidth = 1.0;
+    
+    int i = 0;
+    for (Channel* c in self.channels) {
+        CGRect frame = CGRectMake(0, CHANNEL_HEIGHT * i++, CHANNEL_WIDTH, CHANNEL_HEIGHT);         
+        UIView* channelView = [[UIView alloc] initWithFrame:frame];
+        channelView.layer.borderColor = [UIColor grayColor].CGColor;
+        channelView.layer.borderWidth = 1.0;
+        [self createLogoImageViewOnView:channelView andChannel:c];
+        [channelScrollView addSubview:channelView];
+    }    
+    
+    self.channelScrollView = channelScrollView;
+    [self addSubview:self.channelScrollView];
+}
+
+
+- (void)createLogoImageViewOnView :(UIView*)view andChannel:(Channel*)channel{
+    //Adding the logo background image
+    UIImageView *back = [[UIImageView alloc] initWithFrame:CGRectMake(10, 10, 84, 40)];
+    back.image = [UIImage imageNamed:@"imageBackground.png"];
+    [view addSubview:back];
+    
+    //Adding the channel logo
+    UIImageView *logo = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"bigChannelLogo"]];	
+    logo.frame = CGRectMake(15, 15, 74, 30); //CGRectMake(16+10, 11+5, 50, 20);	
+    logo.contentMode = UIViewContentModeScaleAspectFit;  
+    
+    NSMutableString *url = [[NSMutableString alloc] initWithString:BASEURL];
+    Image *imageObject = [channel.imageObjectsArray objectAtIndex:1];
+    if(imageObject.src != nil) [url appendString:imageObject.src];
+    [logo setImageWithURL:[NSURL URLWithString:url] placeholderImage:[UIImage imageNamed:@"bigChannelLogo"]];
+    [view addSubview:logo];
+}
+
+- (void) drawVerticalTimeLine:(int)sizeOfHours{
+    NSCalendar *cal = [[NSCalendar alloc] initWithCalendarIdentifier:NSGregorianCalendar];
+    NSDate* now = [NSDate date];
+    NSDateComponents* nowHourMin = [cal components:(NSHourCalendarUnit|NSMinuteCalendarUnit) fromDate:now];
+    NSInteger position = sizeOfHours*nowHourMin.hour + sizeOfHours*(nowHourMin.minute/60.0);
+    
+    UIView *lineView = [[UIView alloc] initWithFrame:CGRectMake(position, 0, 3, self.programScrollView.contentSize.height)];
+    [lineView setBackgroundColor:[UIUtils colorFromHexColor:@"117890" ]];
+    self.lineView = lineView;    
+    [self.programScrollView addSubview:self.lineView];
+
+    
+//    UIView *lineView2 = [[UIView alloc] initWithFrame:CGRectMake(position, 0, 3, self.timeScrollView.frame.size.height)];
+//    [lineView2 setBackgroundColor:[UIUtils colorFromHexColor:@"117890" ]];
+//    self.lineView2 = lineView2;    
+//    [self.timeScrollView addSubview:self.lineView2];
+}
+
+
+#pragma mark -
+#pragma mark - Update Scroll Views
+
+
+- (void) updateScrollViewsWithFrame:(CGRect)frame andChannels:(NSArray*)channels{
+    self.frame = frame;
+    self.channels = channels;
+    
+    int sizeOfHours = (self.frame.size.width-CHANNEL_WIDTH-MARGIN_BETWEEN_VIEWS)/3;
+    
+    [self.channelScrollView removeFromSuperview];
+    self.channelScrollView = nil;
+    [self createChannelScrollView];
+    
+    [self.programScrollView removeFromSuperview];
+    self.programScrollView = nil;
+    [self createProgramScrollView:sizeOfHours];
+    
+    [self.lineView removeFromSuperview];
+    self.lineView = nil;
+    [self drawVerticalTimeLine:sizeOfHours];
+    
+    [self scrollToNearestHourOfDay:sizeOfHours];
+}
+
+
+#pragma mark -
+#pragma mark - Scroll view delegate methods
+
+- (void)scrollViewDidScroll:(UIScrollView *)scrollView{
+    if (scrollView.tag = PROGRAM_TAG) {
+        [self.timeScrollView setContentOffset:CGPointMake(scrollView.contentOffset.x, self.timeScrollView.contentOffset.y) animated:NO];
+        [self.channelScrollView setContentOffset:CGPointMake(self.channelScrollView.contentOffset.x, scrollView.contentOffset.y) animated:NO];
+    }
+//    else if (scrollView.tag == TIME_TAG && scrollView.contentOffset.x!=self.programScrollView.contentOffset.x) {
+//        [self.programScrollView setContentOffset:CGPointMake(scrollView.contentOffset.x, self.programScrollView.contentOffset.y) animated:NO];
+//    }
+//    else if (scrollView.tag == CHANNEL_TAG && scrollView.contentOffset.y!=self.programScrollView.contentOffset.y) {
+//        [self.programScrollView setContentOffset:CGPointMake(self.programScrollView.contentOffset.x, scrollView.contentOffset.y) animated:NO];
+//    }
+}
+
+@end

@@ -1,0 +1,47 @@
+K 25
+svn:wc:ra_dav:version-url
+V 88
+/iphone/!svn/ver/634/ontv6.1/trunk/iPhone/Classes/3rdPartyFrameworks/PLWeakCompatibility
+END
+MAZeroingWeakRefNativeZWRNotAllowedTable.h
+K 25
+svn:wc:ra_dav:version-url
+V 131
+/iphone/!svn/ver/634/ontv6.1/trunk/iPhone/Classes/3rdPartyFrameworks/PLWeakCompatibility/MAZeroingWeakRefNativeZWRNotAllowedTable.h
+END
+LICENSE
+K 25
+svn:wc:ra_dav:version-url
+V 96
+/iphone/!svn/ver/634/ontv6.1/trunk/iPhone/Classes/3rdPartyFrameworks/PLWeakCompatibility/LICENSE
+END
+PLWeakCompatibilityStubs.h
+K 25
+svn:wc:ra_dav:version-url
+V 115
+/iphone/!svn/ver/634/ontv6.1/trunk/iPhone/Classes/3rdPartyFrameworks/PLWeakCompatibility/PLWeakCompatibilityStubs.h
+END
+MAZeroingWeakRef.h
+K 25
+svn:wc:ra_dav:version-url
+V 107
+/iphone/!svn/ver/634/ontv6.1/trunk/iPhone/Classes/3rdPartyFrameworks/PLWeakCompatibility/MAZeroingWeakRef.h
+END
+PLWeakCompatibilityStubs.m
+K 25
+svn:wc:ra_dav:version-url
+V 115
+/iphone/!svn/ver/634/ontv6.1/trunk/iPhone/Classes/3rdPartyFrameworks/PLWeakCompatibility/PLWeakCompatibilityStubs.m
+END
+MAZeroingWeakRef.m
+K 25
+svn:wc:ra_dav:version-url
+V 107
+/iphone/!svn/ver/634/ontv6.1/trunk/iPhone/Classes/3rdPartyFrameworks/PLWeakCompatibility/MAZeroingWeakRef.m
+END
+README.markdown
+K 25
+svn:wc:ra_dav:version-url
+V 104
+/iphone/!svn/ver/634/ontv6.1/trunk/iPhone/Classes/3rdPartyFrameworks/PLWeakCompatibility/README.markdown
+END

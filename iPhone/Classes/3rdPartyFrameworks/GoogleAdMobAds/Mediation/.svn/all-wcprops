@@ -1,0 +1,41 @@
+K 25
+svn:wc:ra_dav:version-url
+V 93
+/iphone/!svn/ver/572/ontv6.1/trunk/iPhone/Classes/3rdPartyFrameworks/GoogleAdMobAds/Mediation
+END
+GADCustomEventBannerDelegate.h
+K 25
+svn:wc:ra_dav:version-url
+V 124
+/iphone/!svn/ver/572/ontv6.1/trunk/iPhone/Classes/3rdPartyFrameworks/GoogleAdMobAds/Mediation/GADCustomEventBannerDelegate.h
+END
+GADCustomEventBanner.h
+K 25
+svn:wc:ra_dav:version-url
+V 116
+/iphone/!svn/ver/572/ontv6.1/trunk/iPhone/Classes/3rdPartyFrameworks/GoogleAdMobAds/Mediation/GADCustomEventBanner.h
+END
+GADCustomEventExtras.h
+K 25
+svn:wc:ra_dav:version-url
+V 116
+/iphone/!svn/ver/572/ontv6.1/trunk/iPhone/Classes/3rdPartyFrameworks/GoogleAdMobAds/Mediation/GADCustomEventExtras.h
+END
+GADCustomEventInterstitialDelegate.h
+K 25
+svn:wc:ra_dav:version-url
+V 130
+/iphone/!svn/ver/572/ontv6.1/trunk/iPhone/Classes/3rdPartyFrameworks/GoogleAdMobAds/Mediation/GADCustomEventInterstitialDelegate.h
+END
+GADCustomEventRequest.h
+K 25
+svn:wc:ra_dav:version-url
+V 117
+/iphone/!svn/ver/572/ontv6.1/trunk/iPhone/Classes/3rdPartyFrameworks/GoogleAdMobAds/Mediation/GADCustomEventRequest.h
+END
+GADCustomEventInterstitial.h
+K 25
+svn:wc:ra_dav:version-url
+V 122
+/iphone/!svn/ver/572/ontv6.1/trunk/iPhone/Classes/3rdPartyFrameworks/GoogleAdMobAds/Mediation/GADCustomEventInterstitial.h
+END
