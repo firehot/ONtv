@@ -10,7 +10,11 @@
 
 #define kONTVContainerViewControllerAdsAnimationDuration 0.3f
 
-
+#define UIViewAutoresizingFlexibleMargins                 \
+UIViewAutoresizingFlexibleBottomMargin    | \
+UIViewAutoresizingFlexibleLeftMargin      | \
+UIViewAutoresizingFlexibleRightMargin     | \
+UIViewAutoresizingFlexibleTopMargin
 
 //static void * kAppDelegateUserObservationContext = &kAppDelegateUserObservationContext;
 
@@ -71,11 +75,10 @@
 
     // content view
     UIView *containerView = [[UIView alloc] initWithFrame:self.view.bounds];
-    containerView.autoresizingMask = UIViewAutoresizingFlexibleWidth|UIViewAutoresizingFlexibleHeight;
+    containerView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
     containerView.clipsToBounds = YES;
     containerView.autoresizesSubviews = YES;
-
-  
+      
     
     [self.view addSubview:containerView];
     self.containerView = containerView;

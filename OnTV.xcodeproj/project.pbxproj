@@ -13,6 +13,7 @@
 		0433EB851608AA5A00FBE123 /* MBProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 0433EB841608AA5A00FBE123 /* MBProgressHUD.m */; };
 		0445A2AC1618A19A00BAD6F8 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0445A2AB1618A19A00BAD6F8 /* Default-568h@2x.png */; };
 		0489B9371612548C00CBCB6E /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0489B9361612548C00CBCB6E /* MapKit.framework */; };
+		04D7AAA9161B777C0030D80E /* RecommendedBtn2.png in Resources */ = {isa = PBXBuildFile; fileRef = 04D7AAA8161B777C0030D80E /* RecommendedBtn2.png */; };
 		1D60589F0D05DD5A006BFB54 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1D30AB110D05D00D00671497 /* Foundation.framework */; };
 		1DF5F4E00D08C38300B7A737 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1DF5F4DF0D08C38300B7A737 /* UIKit.framework */; };
 		2860E329111B887F00E27156 /* MainWindow_iPhone.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2860E327111B887F00E27156 /* MainWindow_iPhone.xib */; };
@@ -288,6 +289,7 @@
 		0433EB841608AA5A00FBE123 /* MBProgressHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBProgressHUD.m; sourceTree = "<group>"; };
 		0445A2AB1618A19A00BAD6F8 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		0489B9361612548C00CBCB6E /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
+		04D7AAA8161B777C0030D80E /* RecommendedBtn2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = RecommendedBtn2.png; sourceTree = "<group>"; };
 		1D30AB110D05D00D00671497 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		1D6058910D05DD3D006BFB54 /* ONTV.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ONTV.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1DF5F4DF0D08C38300B7A737 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
@@ -873,6 +875,7 @@
 		4610F57514A464E400961480 /* 1x */ = {
 			isa = PBXGroup;
 			children = (
+				04D7AAA8161B777C0030D80E /* RecommendedBtn2.png */,
 				46CB697214C068AD009206F9 /* Unrecommend.png */,
 				4610F57614A464E400961480 /* planBtn.png */,
 				4610F57714A464E400961480 /* RecommendedBtn.png */,
@@ -1896,6 +1899,7 @@
 				E4AC0B8A15C934150031D1B4 /* MainWindow_iPad.xib in Resources */,
 				04088D9316078459005EF73E /* FacebookSDKResources.bundle in Resources */,
 				0445A2AC1618A19A00BAD6F8 /* Default-568h@2x.png in Resources */,
+				04D7AAA9161B777C0030D80E /* RecommendedBtn2.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

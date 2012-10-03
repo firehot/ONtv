@@ -201,13 +201,20 @@
 
 - (void)configureCreateNewAccountView 
 {
-    self.view.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"loginBackground.png"]];
+    //self.view.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"loginBackground.png"]];
+    UIImageView *backgroundView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"loginBackground.png"]];
+    backgroundView.contentMode = UIViewContentModeScaleToFill;
+    backgroundView.frame = self.view.bounds;
+    backgroundView.autoresizingMask = UIViewAutoresizingFlexibleWidth|UIViewAutoresizingFlexibleHeight;
+    [self.view addSubview:backgroundView];
+    backgroundView = nil;
 	
     TPKeyboardAvoidingTableView *tableView = [[TPKeyboardAvoidingTableView alloc] initWithFrame:self.view.bounds style:UITableViewStyleGrouped];
     tableView.autoresizingMask = UIViewAutoresizingFlexibleWidth|UIViewAutoresizingFlexibleHeight;
     tableView.delegate = self;
     tableView.dataSource = self;
     tableView.backgroundColor = [UIColor clearColor];
+    tableView.backgroundView=nil;
     
     [self.view addSubview:tableView];
     self.tableView = tableView;
@@ -370,15 +377,15 @@
 
 -(void) createButtonClicked : (UIButton *) sender {
     
-    if([self.name isEqualToString:@""] || [self.email isEqualToString:@""] || [self.mobile isEqualToString:@""] || [self.password isEqualToString:@""] || self.name == nil || self.email == nil || self.mobile == nil || self.password == nil || ![self validateEmail:self.email]) {
+    if([self.name isEqualToString:@""] || [self.email isEqualToString:@""] || [self.mobile isEqualToString:@""] || [self.password isEqualToString:@""] || self.name == nil || self.email == nil  || self.password == nil || ![self validateEmail:self.email]) {
         NSString *alertMessege;
         
         if (![self validateEmail:self.email]) {
-            alertMessege = @"Please provide us with a valid email address";
+            alertMessege = NSLocalizedString(@"Please provide us with a valid email address", nil);
         } else {
             alertMessege=@" ";
         }
-        NSString *emptyFieldsWarning =@"  Please enter details in all the fields";
+        NSString *emptyFieldsWarning =NSLocalizedString(@"Please fill name, email and password as minimum", nil);
         NSString *resultMessege = [alertMessege stringByAppendingString:emptyFieldsWarning];
         [UIUtils alertView:resultMessege withTitle:@"Info"];
                 

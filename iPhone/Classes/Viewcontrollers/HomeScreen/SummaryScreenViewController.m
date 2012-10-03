@@ -320,7 +320,7 @@
  
     self.recommendedBtn = [UIControls createUIButtonWithFrame:CGRectZero];
     [self.recommendedBtn addTarget:self action:@selector(recommendationButtonClicked) forControlEvents:UIControlEventTouchUpInside];
-    [self.recommendedBtn setBackgroundImage:[[UIImage imageNamed:@"RecommendedBtn"] stretchableImageWithLeftCapWidth:40 topCapHeight:10] forState:UIControlStateNormal];
+    [self.recommendedBtn setBackgroundImage:[[UIImage imageNamed:@"RecommendedBtn2"] stretchableImageWithLeftCapWidth:40 topCapHeight:10] forState:UIControlStateNormal];
     [self.recommendedBtn setTitle:NSLocalizedString(@"Recommend",nil) forState:UIControlStateNormal];
     NSLog(@"****************************************************Current LOCATE IS%@",[[NSLocale preferredLanguages] objectAtIndex:0]);
     [self.recommendedBtn setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
@@ -330,14 +330,8 @@
    
     self.recommendedBtn.contentEdgeInsets = UIEdgeInsetsMake(0.0f, 45.0f, 0.0f, 15.0f);
    
-   // if ([[[NSLocale preferredLanguages] objectAtIndex:0]isEqualToString:@"da"]) {
-        
-        // self.recommendedBtn.contentEdgeInsets = UIEdgeInsetsMake(0.0f, 45.0f, 0.0f, 15.0f);
-        
-    //    self.recommendedBtn.contentEdgeInsets = (UIEdgeInsets){.left=8,.right=8};
-  //  }
 
-       self.recommendedBtn.frame = CGRectOffset(self.recommendedBtn.frame, CGRectGetMaxX(planBtn.frame) + 15.0f, CGRectGetMinY(planBtn.frame));
+    self.recommendedBtn.frame = CGRectOffset(self.recommendedBtn.frame, CGRectGetMaxX(planBtn.frame) + 15.0f, CGRectGetMinY(planBtn.frame));
     [self.recommendedBtn sizeToFit];
     [_summaryScrollView addSubview:planBtn];
     [_summaryScrollView addSubview:self.recommendedBtn];
