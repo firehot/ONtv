@@ -624,6 +624,7 @@
     }
     
     [self.loginProxy setLoginProxyDelegate:self];
+  
     
 }
 
