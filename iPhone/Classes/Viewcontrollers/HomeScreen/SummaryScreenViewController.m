@@ -920,14 +920,14 @@
     
     if(isrecommend) {
         
-        [self.recommendedBtn setBackgroundImage:[[UIImage imageNamed:@"Unrecommend"] stretchableImageWithLeftCapWidth:40 topCapHeight:10] forState:UIControlStateNormal];
+        [self.recommendedBtn setBackgroundImage:[[UIImage imageNamed:@"Unrecommend2"] stretchableImageWithLeftCapWidth:40 topCapHeight:10] forState:UIControlStateNormal];
         
         [self.recommendedBtn setTitle:NSLocalizedString(@"Don't recommend", nil) forState:UIControlStateNormal];
         [self.recommendedBtn sizeToFit];
         
     } else {
         
-        [self.recommendedBtn setBackgroundImage:[[UIImage imageNamed:@"RecommendedBtn"] stretchableImageWithLeftCapWidth:40 topCapHeight:10] forState:UIControlStateNormal];
+        [self.recommendedBtn setBackgroundImage:[[UIImage imageNamed:@"RecommendedBtn2"] stretchableImageWithLeftCapWidth:40 topCapHeight:10] forState:UIControlStateNormal];
         
         [self.recommendedBtn setTitle:NSLocalizedString(@"Recommend", nil) forState:UIControlStateNormal];
         [self.recommendedBtn sizeToFit];

@@ -376,8 +376,8 @@
 }
 
 -(void) createButtonClicked : (UIButton *) sender {
-    
-    if([self.name isEqualToString:@""] || [self.email isEqualToString:@""] || [self.mobile isEqualToString:@""] || [self.password isEqualToString:@""] || self.name == nil || self.email == nil  || self.password == nil || ![self validateEmail:self.email]) {
+
+    if([self.name isEqualToString:@""] || [self.email isEqualToString:@""]  || [self.password isEqualToString:@""] || self.name == nil || self.email == nil  || self.password == nil || ![self validateEmail:self.email]) {
         NSString *alertMessege;
         
         if (![self validateEmail:self.email]) {
@@ -393,7 +393,7 @@
     } else {
         
         [self fetchDefaultFavoriteChannels];
-    }
+            }
 
 }
 #pragma mark -

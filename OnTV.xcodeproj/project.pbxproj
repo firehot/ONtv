@@ -10,8 +10,12 @@
 		04088D9116078449005EF73E /* FacebookSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 04088D9016078449005EF73E /* FacebookSDK.framework */; };
 		04088D9316078459005EF73E /* FacebookSDKResources.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 04088D9216078459005EF73E /* FacebookSDKResources.bundle */; };
 		041F058B1611A58F00105735 /* libSDWebImageARC.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 041F05861611A58100105735 /* libSDWebImageARC.a */; };
+		0429346C1622460C00EF3196 /* Unrecommend2.png in Resources */ = {isa = PBXBuildFile; fileRef = 0429346B1622460C00EF3196 /* Unrecommend2.png */; };
+		0429346F162248F400EF3196 /* Unrecommend2@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0429346D162248F400EF3196 /* Unrecommend2@2x.png */; };
+		04293470162248F400EF3196 /* RecommendedBtn2@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0429346E162248F400EF3196 /* RecommendedBtn2@2x.png */; };
 		0433EB851608AA5A00FBE123 /* MBProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 0433EB841608AA5A00FBE123 /* MBProgressHUD.m */; };
 		0445A2AC1618A19A00BAD6F8 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0445A2AB1618A19A00BAD6F8 /* Default-568h@2x.png */; };
+		04756AFA161DB707003591FE /* SplashScreenViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 04756AF9161DB707003591FE /* SplashScreenViewController.xib */; };
 		0489B9371612548C00CBCB6E /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0489B9361612548C00CBCB6E /* MapKit.framework */; };
 		04D7AAA9161B777C0030D80E /* RecommendedBtn2.png in Resources */ = {isa = PBXBuildFile; fileRef = 04D7AAA8161B777C0030D80E /* RecommendedBtn2.png */; };
 		1D60589F0D05DD5A006BFB54 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1D30AB110D05D00D00671497 /* Foundation.framework */; };
@@ -25,7 +29,6 @@
 		4610F57F14A464E400961480 /* planBtn.png in Resources */ = {isa = PBXBuildFile; fileRef = 4610F57614A464E400961480 /* planBtn.png */; };
 		4610F58014A464E400961480 /* RecommendedBtn.png in Resources */ = {isa = PBXBuildFile; fileRef = 4610F57714A464E400961480 /* RecommendedBtn.png */; };
 		4610F58114A464E400961480 /* planBtn@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 4610F57914A464E400961480 /* planBtn@2x.png */; };
-		4610F58214A464E400961480 /* RecommendedBtn@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 4610F57A14A464E400961480 /* RecommendedBtn@2x.png */; };
 		4610F58514A46F0B00961480 /* SummaryScreenViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4610F58414A46F0B00961480 /* SummaryScreenViewController.m */; };
 		4613852B14E3CC35004D8E43 /* default.caf in Resources */ = {isa = PBXBuildFile; fileRef = 4613852A14E3CC35004D8E43 /* default.caf */; };
 		4613852F14E3D731004D8E43 /* migration-0.sql in Resources */ = {isa = PBXBuildFile; fileRef = 4613852E14E3D731004D8E43 /* migration-0.sql */; };
@@ -213,7 +216,6 @@
 		46F53B5B14BC5F6A009C88A6 /* RadioButtonCheck.png in Resources */ = {isa = PBXBuildFile; fileRef = 46F53B5A14BC5F6A009C88A6 /* RadioButtonCheck.png */; };
 		46F53B5D14BC5F77009C88A6 /* RadioButtonCheck@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 46F53B5C14BC5F76009C88A6 /* RadioButtonCheck@2x.png */; };
 		46F5FFCC150F68E600FE60DC /* CacheRepository.m in Sources */ = {isa = PBXBuildFile; fileRef = 46F5FFCB150F68E600FE60DC /* CacheRepository.m */; };
-		46F5FFCE150F845F00FE60DC /* SplashScreenViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 46F5FFCD150F845F00FE60DC /* SplashScreenViewController.xib */; };
 		46F63CCD14CD49D000FA18E0 /* DoneDown.png in Resources */ = {isa = PBXBuildFile; fileRef = 46F63CCB14CD49D000FA18E0 /* DoneDown.png */; };
 		46F63CCE14CD49D000FA18E0 /* DoneUp.png in Resources */ = {isa = PBXBuildFile; fileRef = 46F63CCC14CD49D000FA18E0 /* DoneUp.png */; };
 		9AB912BA158A507B005526C3 /* ONTVUIViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9AB912B9158A507A005526C3 /* ONTVUIViewController.m */; };
@@ -285,9 +287,13 @@
 		04088D9016078449005EF73E /* FacebookSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FacebookSDK.framework; path = ../../../../Documents/FacebookSDK/FacebookSDK.framework; sourceTree = "<group>"; };
 		04088D9216078459005EF73E /* FacebookSDKResources.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = FacebookSDKResources.bundle; path = ../../../../Documents/FacebookSDK/FacebookSDK.framework/Versions/A/Resources/FacebookSDKResources.bundle; sourceTree = "<group>"; };
 		041F057A1611A58100105735 /* SDWebImage.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = SDWebImage.xcodeproj; path = "../../../../Downloads/rs-SDWebImage-cac29dc/SDWebImage.xcodeproj"; sourceTree = "<group>"; };
+		0429346B1622460C00EF3196 /* Unrecommend2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Unrecommend2.png; sourceTree = "<group>"; };
+		0429346D162248F400EF3196 /* Unrecommend2@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Unrecommend2@2x.png"; sourceTree = "<group>"; };
+		0429346E162248F400EF3196 /* RecommendedBtn2@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "RecommendedBtn2@2x.png"; sourceTree = "<group>"; };
 		0433EB831608AA5500FBE123 /* MBProgressHUD.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MBProgressHUD.h; sourceTree = "<group>"; };
 		0433EB841608AA5A00FBE123 /* MBProgressHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBProgressHUD.m; sourceTree = "<group>"; };
 		0445A2AB1618A19A00BAD6F8 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
+		04756AF9161DB707003591FE /* SplashScreenViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SplashScreenViewController.xib; sourceTree = "<group>"; };
 		0489B9361612548C00CBCB6E /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		04D7AAA8161B777C0030D80E /* RecommendedBtn2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = RecommendedBtn2.png; sourceTree = "<group>"; };
 		1D30AB110D05D00D00671497 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -326,7 +332,6 @@
 		4610F57614A464E400961480 /* planBtn.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = planBtn.png; sourceTree = "<group>"; };
 		4610F57714A464E400961480 /* RecommendedBtn.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = RecommendedBtn.png; sourceTree = "<group>"; };
 		4610F57914A464E400961480 /* planBtn@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "planBtn@2x.png"; sourceTree = "<group>"; };
-		4610F57A14A464E400961480 /* RecommendedBtn@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "RecommendedBtn@2x.png"; sourceTree = "<group>"; };
 		4610F58314A46F0B00961480 /* SummaryScreenViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SummaryScreenViewController.h; sourceTree = "<group>"; };
 		4610F58414A46F0B00961480 /* SummaryScreenViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SummaryScreenViewController.m; sourceTree = "<group>"; };
 		4613852A14E3CC35004D8E43 /* default.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = default.caf; sourceTree = "<group>"; };
@@ -594,7 +599,6 @@
 		46F53B5C14BC5F76009C88A6 /* RadioButtonCheck@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "RadioButtonCheck@2x.png"; sourceTree = "<group>"; };
 		46F5FFCA150F68E600FE60DC /* CacheRepository.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CacheRepository.h; sourceTree = "<group>"; };
 		46F5FFCB150F68E600FE60DC /* CacheRepository.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CacheRepository.m; sourceTree = "<group>"; };
-		46F5FFCD150F845F00FE60DC /* SplashScreenViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SplashScreenViewController.xib; sourceTree = "<group>"; };
 		46F63CCB14CD49D000FA18E0 /* DoneDown.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = DoneDown.png; sourceTree = "<group>"; };
 		46F63CCC14CD49D000FA18E0 /* DoneUp.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = DoneUp.png; sourceTree = "<group>"; };
 		8D1107310486CEB800E47090 /* OnTV-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "OnTV-Info.plist"; plistStructureDefinitionIdentifier = "com.apple.xcode.plist.structure-definition.iphone.info-plist"; sourceTree = "<group>"; };
@@ -875,6 +879,7 @@
 		4610F57514A464E400961480 /* 1x */ = {
 			isa = PBXGroup;
 			children = (
+				0429346B1622460C00EF3196 /* Unrecommend2.png */,
 				04D7AAA8161B777C0030D80E /* RecommendedBtn2.png */,
 				46CB697214C068AD009206F9 /* Unrecommend.png */,
 				4610F57614A464E400961480 /* planBtn.png */,
@@ -886,9 +891,10 @@
 		4610F57814A464E400961480 /* 2x */ = {
 			isa = PBXGroup;
 			children = (
+				0429346D162248F400EF3196 /* Unrecommend2@2x.png */,
+				0429346E162248F400EF3196 /* RecommendedBtn2@2x.png */,
 				46CB697614C068ED009206F9 /* Unrecommend@2x.png */,
 				4610F57914A464E400961480 /* planBtn@2x.png */,
-				4610F57A14A464E400961480 /* RecommendedBtn@2x.png */,
 			);
 			path = 2x;
 			sourceTree = "<group>";
@@ -1338,7 +1344,7 @@
 		46AB277814474E1800F729D2 /* LoginScreen */ = {
 			isa = PBXGroup;
 			children = (
-				46F5FFCD150F845F00FE60DC /* SplashScreenViewController.xib */,
+				04756AF9161DB707003591FE /* SplashScreenViewController.xib */,
 				46AB277914474E1800F729D2 /* LoginScreenViewController.h */,
 				46AB277A14474E1800F729D2 /* LoginScreenViewController.m */,
 				A7F019C81487A6200086487C /* CreateNewAccountViewController.h */,
@@ -1856,7 +1862,6 @@
 				4610F57F14A464E400961480 /* planBtn.png in Resources */,
 				4610F58014A464E400961480 /* RecommendedBtn.png in Resources */,
 				4610F58114A464E400961480 /* planBtn@2x.png in Resources */,
-				4610F58214A464E400961480 /* RecommendedBtn@2x.png in Resources */,
 				46E19ECA14A9E0F400E4FAF3 /* ApplicationLogo.png in Resources */,
 				46E19ECC14A9E10000E4FAF3 /* ApplicationLogo@2x.png in Resources */,
 				4629039714AC65E500365590 /* LogoutButton.png in Resources */,
@@ -1895,11 +1900,14 @@
 				4613852F14E3D731004D8E43 /* migration-0.sql in Resources */,
 				46F4FE6314FE34D900DB2F4E /* FacebookButton.png in Resources */,
 				46F4FE6414FE34D900DB2F4E /* FacebookButton@2x.png in Resources */,
-				46F5FFCE150F845F00FE60DC /* SplashScreenViewController.xib in Resources */,
 				E4AC0B8A15C934150031D1B4 /* MainWindow_iPad.xib in Resources */,
 				04088D9316078459005EF73E /* FacebookSDKResources.bundle in Resources */,
 				0445A2AC1618A19A00BAD6F8 /* Default-568h@2x.png in Resources */,
 				04D7AAA9161B777C0030D80E /* RecommendedBtn2.png in Resources */,
+				04756AFA161DB707003591FE /* SplashScreenViewController.xib in Resources */,
+				0429346C1622460C00EF3196 /* Unrecommend2.png in Resources */,
+				0429346F162248F400EF3196 /* Unrecommend2@2x.png in Resources */,
+				04293470162248F400EF3196 /* RecommendedBtn2@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2071,7 +2079,7 @@
 					"-lsqlite3.0",
 				);
 				PRODUCT_NAME = ONTV;
-				PROVISIONING_PROFILE = "B5C1F971-A514-47B9-9787-E681DC45CB52";
+				PROVISIONING_PROFILE = "EA7BEA32-ACFD-44F7-9617-C2F45C8C65DB";
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;

@@ -177,7 +177,8 @@
 +(NSString *)localTimeStringForGMTDateString:(NSString *)gmtDateString {
     
 	NSDateFormatter *gmtDateFormat = [[NSDateFormatter alloc] init];
-    [gmtDateFormat setLocale:[[NSLocale alloc] initWithLocaleIdentifier:@"en_US"]];
+   [gmtDateFormat setLocale:[[NSLocale alloc] initWithLocaleIdentifier:@"en_US"]];
+    
 	[gmtDateFormat setDateFormat:@"EEE, dd MMM yyyy HH:mm:ss z"];
 	NSDate *gmtDate = [gmtDateFormat dateFromString:gmtDateString];
     NSDateFormatter *localDateFormat = [[NSDateFormatter alloc] init]; 
@@ -185,8 +186,7 @@
     
     NSLocale *locale = [NSLocale currentLocale];
     [localDateFormat setLocale:locale];
-    
-	[localDateFormat setDateFormat:@"HH:mm"];
+    [localDateFormat setDateFormat:@"HH:mm"];
     NSString * localDateStr = [localDateFormat stringFromDate:gmtDate];
     
      DLog(@"Date %@",localDateStr);
@@ -232,6 +232,7 @@
     [dateFormat setLocale:[[NSLocale alloc] initWithLocaleIdentifier: localeIdentifier]];
 	[dateFormat setDateFormat: format];
 	[dateFormat setTimeZone:[NSTimeZone timeZoneWithName:@"GMT"]];
+    NSLog(@"Current local timezone  is  %@",[NSTimeZone systemTimeZone]);
 	
 	NSString *dateStr = [dateFormat stringFromDate:givenDate];
     
@@ -312,7 +313,7 @@
     dateFormatter.dateFormat = @"yyyy-MM-dd hh:mm:ss";
     
     //update for the end date
-    [comps setHour:29];
+    [comps setHour:23];
     [comps setMinute:59];
     [comps setSecond:0];
     NSDate *eDate = [calendar dateFromComponents:comps];
@@ -346,7 +347,7 @@
     NSDateFormatter *dateFormat = [[NSDateFormatter alloc] init];
     
     [dateFormat setLocale:[[NSLocale alloc] initWithLocaleIdentifier:@"en_US"]];
-    [dateFormat setTimeZone:[NSTimeZone timeZoneWithName:@"GMT"]];
+    [dateFormat setTimeZone:[NSTimeZone systemTimeZone]];
     [dateFormat setDateFormat:format];
     
     NSString *dateString = [dateFormat stringFromDate:givenDate];

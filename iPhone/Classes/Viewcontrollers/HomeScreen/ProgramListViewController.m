@@ -98,8 +98,26 @@ NSString *searchHeaderTodayLabelStr;
     //only if not set already
     if(!self.startDateString && !self.endDateString)
     {
-        self.startDateString = [UIUtils stringFromGivenDate:[NSDate date] withLocale: @"en_US" andFormat: @"EEEddMMMyyyy hh:mm:ss"];
+     //  self.startDateString = [UIUtils stringFromGivenDate:[NSDate date] withLocale: @"en_US" andFormat: @"EEEddMMMyyyy hh:mm:ss"];
+     //   self.startDateString = [UIUtils stringFromGivenGMTDate:[NSDate date] WithFormat:@"EEEddMMMyyyy hh:mm:ss"];
         
+     
+//        NSString *temp =[UIUtils stringFromGivenGMTDate:[NSDate date] WithFormat:@"EEEddMMMyyyy hh:mm:ss"];
+//        self.startDateString=[UIUtils localTimeStringForGMTDateString:temp];
+        
+        
+//       
+//        NSDate *startDate=[NSDate date];
+//        
+//        NSDateFormatter *localDateFormat = [[NSDateFormatter alloc] init];
+//        [localDateFormat setTimeZone:[NSTimeZone localTimeZone]];
+//        [localDateFormat setDateFormat:@"EEEddMMMyyyy hh:mm:ss"];
+//      
+//          
+//        NSString * localDateStr = [localDateFormat stringFromDate:startDate];
+//        self.startDateString=localDateStr;
+        
+        self.startDateString=[UIUtils startTimeFromGivenDate:[NSDate date]];
         self.endDateString =  [UIUtils endTimeFromGivenDate:[NSDate date]];
         
         [self  callServerRequestMethod];
@@ -1186,15 +1204,16 @@ NSString *searchHeaderTodayLabelStr;
 
 
 - (void)noProgramRecordsFound {
-    
-    noRecordFound = YES;
-    
-    [self.programArray removeAllObjects];
-    
-    [self.programTableView reloadData];
-    
-    [self reloadTableView];
 
+        noRecordFound = YES;
+        
+        [self.programArray removeAllObjects];
+        
+        [self.programTableView reloadData];
+        
+        [self reloadTableView];
+  
+    
 }
 
 
