@@ -102,22 +102,22 @@ NSString *searchHeaderTodayLabelStr;
      //   self.startDateString = [UIUtils stringFromGivenGMTDate:[NSDate date] WithFormat:@"EEEddMMMyyyy hh:mm:ss"];
         
      
-//        NSString *temp =[UIUtils stringFromGivenGMTDate:[NSDate date] WithFormat:@"EEEddMMMyyyy hh:mm:ss"];
-//        self.startDateString=[UIUtils localTimeStringForGMTDateString:temp];
+       NSString *temp =[UIUtils stringFromGivenGMTDate:[NSDate date] WithFormat:@"EEEddMMMyyyy hh:mm:ss"];
+       self.startDateString=[UIUtils localTimeStringForGMTDateString:temp];
         
         
-//       
-//        NSDate *startDate=[NSDate date];
-//        
+       
+//       NSDate *startDate=[NSDate date];
+//      
 //        NSDateFormatter *localDateFormat = [[NSDateFormatter alloc] init];
-//        [localDateFormat setTimeZone:[NSTimeZone localTimeZone]];
-//        [localDateFormat setDateFormat:@"EEEddMMMyyyy hh:mm:ss"];
+//       [localDateFormat setTimeZone:[NSTimeZone localTimeZone]];
+//       [localDateFormat setDateFormat:@"EEEddMMMyyyy hh:mm:ss"];
 //      
 //          
-//        NSString * localDateStr = [localDateFormat stringFromDate:startDate];
+//       NSString * localDateStr = [localDateFormat stringFromDate:startDate];
 //        self.startDateString=localDateStr;
         
-        self.startDateString=[UIUtils startTimeFromGivenDate:[NSDate date]];
+       // self.startDateString=[UIUtils startTimeFromGivenDate:[NSDate date]];
         self.endDateString =  [UIUtils endTimeFromGivenDate:[NSDate date]];
         
         [self  callServerRequestMethod];

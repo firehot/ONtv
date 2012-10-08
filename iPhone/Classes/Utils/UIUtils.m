@@ -313,7 +313,7 @@
     dateFormatter.dateFormat = @"yyyy-MM-dd hh:mm:ss";
     
     //update for the end date
-    [comps setHour:23];
+    [comps setHour:29];
     [comps setMinute:59];
     [comps setSecond:0];
     NSDate *eDate = [calendar dateFromComponents:comps];

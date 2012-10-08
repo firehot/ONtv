@@ -8,11 +8,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "iPhone/Classes/Viewcontrollers/HomeScreen/FavoriteChannelsViewController.m"
-         timestampString = "369479846.009417"
+         timestampString = "371377967.685901"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "978"
-         endingLineNumber = "978"
+         startingLineNumber = "992"
+         endingLineNumber = "992"
          landmarkName = "-tableView:didSelectRowAtIndexPath:"
          landmarkType = "5">
       </FileBreakpoint>
