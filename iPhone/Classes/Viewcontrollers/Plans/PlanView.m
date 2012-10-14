@@ -803,6 +803,8 @@ UILabel *titleLabel;
             
             
             NSMutableArray *planArray  = [self.planAgentDictionary objectForKey:key];
+            if (planArray.count != 0) {
+          
             Program *programObj = [planArray objectAtIndex:0];
             
             NSDate *reminderDate = [UIUtils dateFromGivenGMTString:programObj.start WithFormat:@"EEE,ddMMMyyyyHH:mm:ss z"];
@@ -814,6 +816,7 @@ UILabel *titleLabel;
             NSString *dateString = [UIUtils stringFromGivenGMTDate:reminderDate WithFormat:@"dd/MM"];
             
             sectionTitle = [NSString stringWithFormat:@"%@ d. %@",dayString,dateString];
+            }
             
         }   
         

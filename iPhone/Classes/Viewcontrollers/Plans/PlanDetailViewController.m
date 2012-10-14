@@ -1229,7 +1229,7 @@
     
     customPickerViewController.customPickerViewDelegate = self; 
     
-    //[customPickerViewController release];
+    
 }
 
 // Gets Called when user clicks the done button on picker view, to update the hour cell.

@@ -6,6 +6,7 @@
 #import "NotificationTypes.h"
 #import "CustomListViewController.h"
 #import "Channel.h"
+#import "CustomPickerViewController.h"
 
 @interface  AgentsDetailsViewController ()
 
@@ -1123,15 +1124,16 @@ BOOL isNumberPad;
     customPickerViewController.selectedHoursSecondComponent = [hoursItems objectAtIndex:1];
     
     [self.view addSubview:customPickerViewController.view];
+   
     
     customPickerViewController.customPickerViewDelegate = self; 
     
-    //[customPickerViewController release];
 }
 
 // Gets Called when user clicks the done button on picker view, to update the hour cell.
 
-- (void)doneClicked:(NSString *)selectedHours {
+- (void)doneClicked:(NSString *)selectedHours
+ {
     
     self.agent.reminderHours = selectedHours;
     [_agentDetailTableView reloadData];

@@ -262,7 +262,7 @@ NSString *const FBSessionStateChangedNotification = @"com.example.Login:FBSessio
 
     [self registerforPushNotification:launchOptions];
 	[self initializeDatabase];
-    [self showSplashScreen];       
+    [self showSplashScreen];
     [window makeKeyAndVisible];
     
 
@@ -278,9 +278,12 @@ NSString *const FBSessionStateChangedNotification = @"com.example.Login:FBSessio
      */
     
     DLog(@"*****************applicationWillResignActive*************************");
-
+    
 }
 
+- (void)application:(UIApplication *)application didChangeStatusBarFrame:(CGRect)newStatusBarFrame {
+    
+}
 
 - (void)applicationDidEnterBackground:(UIApplication *)application {
     /*

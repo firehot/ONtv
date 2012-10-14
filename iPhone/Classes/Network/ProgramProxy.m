@@ -191,9 +191,11 @@
 - (void)getProgramsForCategory:(NSString*)categoryType andFavoriteChannelIds:(NSString*)channnelId AndStartDate:(NSString*)sDate AndEndDate:(NSString*)eDate
 {
     
+    
     NSDate *startdate = [UIUtils dateFromGivenGMTString:sDate WithFormat:@"EEEddMMMyyyy HH:mm:ss"];
     
     NSString *startDateString = [UIUtils stringFromGivenGMTDate:startdate WithFormat:@"EEEddMMMyyyy"];
+
     
     NSString *requestName = [NSString stringWithFormat:@"GetAllProgramsForCategory%@%@",categoryType,startDateString];
 

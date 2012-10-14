@@ -98,26 +98,23 @@ NSString *searchHeaderTodayLabelStr;
     //only if not set already
     if(!self.startDateString && !self.endDateString)
     {
-     //  self.startDateString = [UIUtils stringFromGivenDate:[NSDate date] withLocale: @"en_US" andFormat: @"EEEddMMMyyyy hh:mm:ss"];
-     //   self.startDateString = [UIUtils stringFromGivenGMTDate:[NSDate date] WithFormat:@"EEEddMMMyyyy hh:mm:ss"];
+                   
+//        NSString *toDaysString = [UIUtils stringFromGivenGMTDate:[NSDate date] WithFormat:@"EEEddMMMyyyy HH:mm:ss"];
+//        self.startDateString =toDaysString;
         
-     
-       NSString *temp =[UIUtils stringFromGivenGMTDate:[NSDate date] WithFormat:@"EEEddMMMyyyy hh:mm:ss"];
-       self.startDateString=[UIUtils localTimeStringForGMTDateString:temp];
         
+        NSDate *startDate=[NSDate date];
+        
+        NSDateFormatter *localDateFormat = [[NSDateFormatter alloc] init];
+        [localDateFormat setTimeZone:[NSTimeZone localTimeZone]];
+        [localDateFormat setDateFormat:@"EEEddMMMyyyy HH:mm:ss"];
+        [localDateFormat setLocale:[[NSLocale alloc] initWithLocaleIdentifier:@"en_US"]];
+        
+        NSString * localDateStr = [localDateFormat stringFromDate:startDate];
+        self.startDateString=localDateStr;
         
        
-//       NSDate *startDate=[NSDate date];
-//      
-//        NSDateFormatter *localDateFormat = [[NSDateFormatter alloc] init];
-//       [localDateFormat setTimeZone:[NSTimeZone localTimeZone]];
-//       [localDateFormat setDateFormat:@"EEEddMMMyyyy hh:mm:ss"];
-//      
-//          
-//       NSString * localDateStr = [localDateFormat stringFromDate:startDate];
-//        self.startDateString=localDateStr;
-        
-       // self.startDateString=[UIUtils startTimeFromGivenDate:[NSDate date]];
+      
         self.endDateString =  [UIUtils endTimeFromGivenDate:[NSDate date]];
         
         [self  callServerRequestMethod];

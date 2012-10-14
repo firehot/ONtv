@@ -28,8 +28,8 @@
 @property (nonatomic, strong) ProgramProxy *programProxy;
 @property (nonatomic, weak) UITableView *programTableView;
 
-@property (nonatomic, copy) NSString *startDateString;
-@property (nonatomic, copy) NSString *endDateString;
+@property (nonatomic, strong) NSString *startDateString;
+@property (nonatomic, strong) NSString *endDateString;
 
 
 -(void) setArray:(NSMutableArray *)array AndCurrentSelectedIndex:(int)currentIndex AndSeletedMenuType:(MenuBarButton)type;

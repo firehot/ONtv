@@ -2,15 +2,19 @@
 
 #import <UIKit/UIKit.h>
 
-@protocol CustomPickerViewDelegate;
+@protocol CustomPickerViewDelegate <NSObject>
 
-@interface CustomPickerViewController : ONTVUIViewController <UIPickerViewDelegate, UIPickerViewDataSource > {
+- (void)doneClicked:(NSString *)selectedHours;
 
+@end
+
+@interface CustomPickerViewController : UIViewController <UIPickerViewDelegate, UIPickerViewDataSource > {
+    id<CustomPickerViewDelegate> customPickerViewDelegate;
 }
 
-@property(nonatomic,weak) id<CustomPickerViewDelegate> customPickerViewDelegate;
+@property(nonatomic,assign) id<CustomPickerViewDelegate> customPickerViewDelegate;
 
-@property(nonatomic, weak) UIPickerView *picker;
+@property(nonatomic) UIPickerView *picker;
 @property(nonatomic, copy) NSString *selectedHoursFirstComponent;
 @property(nonatomic, copy) NSString *selectedHoursSecondComponent;
 @property(nonatomic, strong) NSMutableArray *hoursArrayOne;
@@ -21,8 +25,5 @@
 @end
 
 
-@protocol CustomPickerViewDelegate <NSObject>
 
-- (void)doneClicked:(NSString *)selectedHours;
 
-@end

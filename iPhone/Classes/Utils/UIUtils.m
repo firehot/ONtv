@@ -177,11 +177,11 @@
 +(NSString *)localTimeStringForGMTDateString:(NSString *)gmtDateString {
     
 	NSDateFormatter *gmtDateFormat = [[NSDateFormatter alloc] init];
-   [gmtDateFormat setLocale:[[NSLocale alloc] initWithLocaleIdentifier:@"en_US"]];
+    [gmtDateFormat setLocale:[[NSLocale alloc] initWithLocaleIdentifier:@"en_US"]];
     
 	[gmtDateFormat setDateFormat:@"EEE, dd MMM yyyy HH:mm:ss z"];
 	NSDate *gmtDate = [gmtDateFormat dateFromString:gmtDateString];
-    NSDateFormatter *localDateFormat = [[NSDateFormatter alloc] init]; 
+    NSDateFormatter *localDateFormat = [[NSDateFormatter alloc] init];
     [localDateFormat setTimeZone:[NSTimeZone localTimeZone]];
     
     NSLocale *locale = [NSLocale currentLocale];
@@ -189,7 +189,7 @@
     [localDateFormat setDateFormat:@"HH:mm"];
     NSString * localDateStr = [localDateFormat stringFromDate:gmtDate];
     
-     DLog(@"Date %@",localDateStr);
+    DLog(@"Date %@",localDateStr);
     
     return  localDateStr;
 }

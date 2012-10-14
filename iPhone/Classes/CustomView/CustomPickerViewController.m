@@ -60,7 +60,7 @@
     UIBarButtonItem *doneBarItem = [[UIBarButtonItem alloc] initWithTitle:@" Done "
                                                                     style:UIBarButtonItemStyleBordered
                                                                    target:self
-                                                                   action:@selector(doneButtonClicked)];
+                                                                   action:@selector(doneButton)];
     
     
     UIBarButtonItem *flexibleWidthButton = [[UIBarButtonItem alloc]initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace target:nil action:nil];
@@ -114,6 +114,8 @@
     [self.picker  selectRow:(23 - currentSecectedValues2) inComponent:1 animated:YES];
     		
 }	
+#pragma mark -
+#pragma mark Actions
 
 - (void)cancelButtonClicked {
 	
@@ -121,11 +123,11 @@
 
 }	
 
-- (void)doneButtonClicked {
+- (void)doneButton {
 	
-	if (self.customPickerViewDelegate && [self.customPickerViewDelegate respondsToSelector:@selector(doneClicked:)]) {
+	if (customPickerViewDelegate && [customPickerViewDelegate respondsToSelector:@selector(doneClicked:)]) {
 		
-		[self.customPickerViewDelegate doneClicked:[NSString stringWithFormat:@"%@-%@",self.selectedHoursFirstComponent,self.selectedHoursSecondComponent]];		
+		[customPickerViewDelegate doneClicked:[NSString stringWithFormat:@"%@-%@",self.selectedHoursFirstComponent,self.selectedHoursSecondComponent]];		
 	}
     
      [self.view removeFromSuperview];	
