@@ -115,20 +115,13 @@
     [headerView addSubview:backBtn];
     backButton = backBtn;
     
-    
-    // logo
-    UIImageView *ivTemp = [[UIImageView alloc] initWithFrame:CGRectMake(floorf(0.5f*(headerView.bounds.size.width - 150)), CGRectGetMaxY(backBtn.frame)+10, 150, 50)];	
-	[ivTemp setImage:[UIImage imageNamed:@"loginLogo.png"]];
-    ivTemp.autoresizingMask=UIViewAutoresizingFlexibleLeftMargin|UIViewAutoresizingFlexibleRightMargin;
-    
-	[headerView addSubview:ivTemp];
-    
+  
     
     
     // labels
     CGSize suggestedSize = [createPersonalAccountInfo sizeWithFont:[UIFont fontWithName:@"Helvetica" size:12.0f] constrainedToSize:CGSizeMake(headerView.bounds.size.width-50.0f, 60) lineBreakMode:UILineBreakModeWordWrap];  
     
-	UILabel *createDetailsLabel = [[UILabel alloc]initWithFrame:CGRectMake(25, CGRectGetMaxY(ivTemp.frame)+20, headerView.bounds.size.width-50.0f, suggestedSize.height)];
+	UILabel *createDetailsLabel = [[UILabel alloc]initWithFrame:CGRectMake(25, CGRectGetMaxY(backBtn.frame)+20, headerView.bounds.size.width-50.0f, suggestedSize.height)];
     createDetailsLabel.lineBreakMode = UILineBreakModeWordWrap;
     createDetailsLabel.numberOfLines = 0;
     createDetailsLabel.font = [UIFont fontWithName:@"Helvetica" size:12.0f];
@@ -202,7 +195,7 @@
 - (void)configureCreateNewAccountView 
 {
     //self.view.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"loginBackground.png"]];
-    UIImageView *backgroundView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"loginBackground.png"]];
+    UIImageView *backgroundView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"bg_log"]];
     backgroundView.contentMode = UIViewContentModeScaleToFill;
     backgroundView.frame = self.view.bounds;
     backgroundView.autoresizingMask = UIViewAutoresizingFlexibleWidth|UIViewAutoresizingFlexibleHeight;

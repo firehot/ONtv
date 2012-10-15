@@ -9,7 +9,7 @@
 "create New User" = "Opret ny profil";
 
 /* Create New User Screen,Create New User Info Label Text */
-"Create New User Info" = "Du kan her oprette en personlig ONTV proil. Med en profil kan du gemme dine indstillinger mellem dine enheder og få adgang til ekstra muligheder som fx påmindelser og planlægning.";
+"Create New User Info" = "Du kan her oprette en personlig TimeFor.TV proil. Med en profil kan du gemme dine indstillinger mellem dine enheder og få adgang til ekstra muligheder som fx påmindelser og planlægning.";
 
 /* Create New User Screen, Create Your New Account Button Title */
 "create Your New Account" = "Opret din nye profil";
@@ -24,7 +24,7 @@
 "Login" = "Log ind";
 
 /* Login Screen, Subscribtion Info Label Text */
-"Login Subscribtion Info" = "For at få adgang til alle funktioner i ONTV anbefaler vi, at du logger ind med en profil.";
+"Login Subscribtion Info" = "For at få adgang til alle funktioner i TimeFor.TV anbefaler vi, at du logger ind med en profil.";
 
 /* Create New User Screen, Mobile Label Text */
 "Mobile" = "Dit mobilnr.*";
