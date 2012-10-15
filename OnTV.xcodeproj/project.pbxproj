@@ -7,12 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		04088D9116078449005EF73E /* FacebookSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 04088D9016078449005EF73E /* FacebookSDK.framework */; };
-		04088D9316078459005EF73E /* FacebookSDKResources.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 04088D9216078459005EF73E /* FacebookSDKResources.bundle */; };
-		041F058B1611A58F00105735 /* libSDWebImageARC.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 041F05861611A58100105735 /* libSDWebImageARC.a */; };
 		0429346C1622460C00EF3196 /* Unrecommend2.png in Resources */ = {isa = PBXBuildFile; fileRef = 0429346B1622460C00EF3196 /* Unrecommend2.png */; };
 		0429346F162248F400EF3196 /* Unrecommend2@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0429346D162248F400EF3196 /* Unrecommend2@2x.png */; };
 		04293470162248F400EF3196 /* RecommendedBtn2@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0429346E162248F400EF3196 /* RecommendedBtn2@2x.png */; };
+		042E61BC162C0DBD001D4FCB /* FacebookSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 042E61BB162C0DBD001D4FCB /* FacebookSDK.framework */; };
+		042E61CE162C0E1D001D4FCB /* libSDWebImageARC.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 042E61C9162C0E09001D4FCB /* libSDWebImageARC.a */; };
 		0433EB851608AA5A00FBE123 /* MBProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 0433EB841608AA5A00FBE123 /* MBProgressHUD.m */; };
 		0445A2AC1618A19A00BAD6F8 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0445A2AB1618A19A00BAD6F8 /* Default-568h@2x.png */; };
 		04756AFA161DB707003591FE /* SplashScreenViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 04756AF9161DB707003591FE /* SplashScreenViewController.xib */; };
@@ -253,30 +252,30 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		041F05831611A58100105735 /* PBXContainerItemProxy */ = {
+		042E61C6162C0E09001D4FCB /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = 041F057A1611A58100105735 /* SDWebImage.xcodeproj */;
+			containerPortal = 042E61BD162C0E08001D4FCB /* SDWebImage.xcodeproj */;
 			proxyType = 2;
 			remoteGlobalIDString = 53922D6F148C55820056699D;
 			remoteInfo = SDWebImage;
 		};
-		041F05851611A58100105735 /* PBXContainerItemProxy */ = {
+		042E61C8162C0E09001D4FCB /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = 041F057A1611A58100105735 /* SDWebImage.xcodeproj */;
+			containerPortal = 042E61BD162C0E08001D4FCB /* SDWebImage.xcodeproj */;
 			proxyType = 2;
 			remoteGlobalIDString = 53761325155AD0D5005750A4;
 			remoteInfo = "SDWebImage ARC";
 		};
-		041F05871611A58100105735 /* PBXContainerItemProxy */ = {
+		042E61CA162C0E09001D4FCB /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = 041F057A1611A58100105735 /* SDWebImage.xcodeproj */;
+			containerPortal = 042E61BD162C0E08001D4FCB /* SDWebImage.xcodeproj */;
 			proxyType = 2;
 			remoteGlobalIDString = 531041E0157EAFA400BBABC3;
 			remoteInfo = "SDWebImage ARC+MKAnnotation";
 		};
-		041F05891611A58900105735 /* PBXContainerItemProxy */ = {
+		042E61CC162C0E19001D4FCB /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = 041F057A1611A58100105735 /* SDWebImage.xcodeproj */;
+			containerPortal = 042E61BD162C0E08001D4FCB /* SDWebImage.xcodeproj */;
 			proxyType = 1;
 			remoteGlobalIDString = 53761307155AD0D5005750A4;
 			remoteInfo = "SDWebImage ARC";
@@ -284,12 +283,11 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		04088D9016078449005EF73E /* FacebookSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FacebookSDK.framework; path = ../../../../Documents/FacebookSDK/FacebookSDK.framework; sourceTree = "<group>"; };
-		04088D9216078459005EF73E /* FacebookSDKResources.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = FacebookSDKResources.bundle; path = ../../../../Documents/FacebookSDK/FacebookSDK.framework/Versions/A/Resources/FacebookSDKResources.bundle; sourceTree = "<group>"; };
-		041F057A1611A58100105735 /* SDWebImage.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = SDWebImage.xcodeproj; path = "../../../../Downloads/rs-SDWebImage-cac29dc/SDWebImage.xcodeproj"; sourceTree = "<group>"; };
 		0429346B1622460C00EF3196 /* Unrecommend2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Unrecommend2.png; sourceTree = "<group>"; };
 		0429346D162248F400EF3196 /* Unrecommend2@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Unrecommend2@2x.png"; sourceTree = "<group>"; };
 		0429346E162248F400EF3196 /* RecommendedBtn2@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "RecommendedBtn2@2x.png"; sourceTree = "<group>"; };
+		042E61BB162C0DBD001D4FCB /* FacebookSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FacebookSDK.framework; sourceTree = "<group>"; };
+		042E61BD162C0E08001D4FCB /* SDWebImage.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = SDWebImage.xcodeproj; path = SDWebImage/SDWebImage.xcodeproj; sourceTree = "<group>"; };
 		0433EB831608AA5500FBE123 /* MBProgressHUD.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MBProgressHUD.h; sourceTree = "<group>"; };
 		0433EB841608AA5A00FBE123 /* MBProgressHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBProgressHUD.m; sourceTree = "<group>"; };
 		0445A2AB1618A19A00BAD6F8 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
@@ -668,8 +666,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				042E61CE162C0E1D001D4FCB /* libSDWebImageARC.a in Frameworks */,
 				0489B9371612548C00CBCB6E /* MapKit.framework in Frameworks */,
-				041F058B1611A58F00105735 /* libSDWebImageARC.a in Frameworks */,
 				E42B5BCD15B7CD0A00C08E5A /* ImageIO.framework in Frameworks */,
 				E433B2BD1589F350008790F5 /* libz.dylib in Frameworks */,
 				46F538CF14BC2F68009C88A6 /* MessageUI.framework in Frameworks */,
@@ -685,19 +683,19 @@
 				46AB277214474DA400F729D2 /* libsqlite3.0.dylib in Frameworks */,
 				E4A0645C157CAB77007C83CF /* libGoogleAdMobAds.a in Frameworks */,
 				E435A6A51591D69A003BEBD1 /* libTestFlight.a in Frameworks */,
-				04088D9116078449005EF73E /* FacebookSDK.framework in Frameworks */,
+				042E61BC162C0DBD001D4FCB /* FacebookSDK.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		041F057B1611A58100105735 /* Products */ = {
+		042E61BE162C0E08001D4FCB /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				041F05841611A58100105735 /* libSDWebImage.a */,
-				041F05861611A58100105735 /* libSDWebImageARC.a */,
-				041F05881611A58100105735 /* libSDWebImageARC+MKAnnotation.a */,
+				042E61C7162C0E09001D4FCB /* libSDWebImage.a */,
+				042E61C9162C0E09001D4FCB /* libSDWebImageARC.a */,
+				042E61CB162C0E09001D4FCB /* libSDWebImageARC+MKAnnotation.a */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -744,9 +742,8 @@
 		29B97314FDCFA39411CA2CEA /* CustomTemplate */ = {
 			isa = PBXGroup;
 			children = (
-				0445A2AB1618A19A00BAD6F8 /* Default-568h@2x.png */,
-				0489B9361612548C00CBCB6E /* MapKit.framework */,
-				041F057A1611A58100105735 /* SDWebImage.xcodeproj */,
+				042E61BD162C0E08001D4FCB /* SDWebImage.xcodeproj */,
+				042E61BB162C0DBD001D4FCB /* FacebookSDK.framework */,
 				2860E32A111B888700E27156 /* iPad */,
 				2860E324111B887F00E27156 /* iPhone */,
 				28EEBF621118D79A00187D67 /* Shared */,
@@ -760,6 +757,7 @@
 		29B97315FDCFA39411CA2CEA /* Other Sources */ = {
 			isa = PBXGroup;
 			children = (
+				0445A2AB1618A19A00BAD6F8 /* Default-568h@2x.png */,
 				461E1A89150DD69A000B1DB6 /* main.m */,
 				46AB27C61447681100F729D2 /* DB */,
 				4613852A14E3CC35004D8E43 /* default.caf */,
@@ -773,8 +771,7 @@
 		29B97323FDCFA39411CA2CEA /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				04088D9216078459005EF73E /* FacebookSDKResources.bundle */,
-				04088D9016078449005EF73E /* FacebookSDK.framework */,
+				0489B9361612548C00CBCB6E /* MapKit.framework */,
 				E42B5BCC15B7CD0A00C08E5A /* ImageIO.framework */,
 				46F538CE14BC2F68009C88A6 /* MessageUI.framework */,
 				46F538CC14BC2F4D009C88A6 /* AudioToolbox.framework */,
@@ -1709,7 +1706,7 @@
 			buildRules = (
 			);
 			dependencies = (
-				041F058A1611A58900105735 /* PBXTargetDependency */,
+				042E61CD162C0E19001D4FCB /* PBXTargetDependency */,
 			);
 			name = OnTV;
 			productName = OnTV;
@@ -1740,8 +1737,8 @@
 			projectDirPath = "";
 			projectReferences = (
 				{
-					ProductGroup = 041F057B1611A58100105735 /* Products */;
-					ProjectRef = 041F057A1611A58100105735 /* SDWebImage.xcodeproj */;
+					ProductGroup = 042E61BE162C0E08001D4FCB /* Products */;
+					ProjectRef = 042E61BD162C0E08001D4FCB /* SDWebImage.xcodeproj */;
 				},
 			);
 			projectRoot = "";
@@ -1752,25 +1749,25 @@
 /* End PBXProject section */
 
 /* Begin PBXReferenceProxy section */
-		041F05841611A58100105735 /* libSDWebImage.a */ = {
+		042E61C7162C0E09001D4FCB /* libSDWebImage.a */ = {
 			isa = PBXReferenceProxy;
 			fileType = archive.ar;
 			path = libSDWebImage.a;
-			remoteRef = 041F05831611A58100105735 /* PBXContainerItemProxy */;
+			remoteRef = 042E61C6162C0E09001D4FCB /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
-		041F05861611A58100105735 /* libSDWebImageARC.a */ = {
+		042E61C9162C0E09001D4FCB /* libSDWebImageARC.a */ = {
 			isa = PBXReferenceProxy;
 			fileType = archive.ar;
 			path = libSDWebImageARC.a;
-			remoteRef = 041F05851611A58100105735 /* PBXContainerItemProxy */;
+			remoteRef = 042E61C8162C0E09001D4FCB /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
-		041F05881611A58100105735 /* libSDWebImageARC+MKAnnotation.a */ = {
+		042E61CB162C0E09001D4FCB /* libSDWebImageARC+MKAnnotation.a */ = {
 			isa = PBXReferenceProxy;
 			fileType = archive.ar;
 			path = "libSDWebImageARC+MKAnnotation.a";
-			remoteRef = 041F05871611A58100105735 /* PBXContainerItemProxy */;
+			remoteRef = 042E61CA162C0E09001D4FCB /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
 /* End PBXReferenceProxy section */
@@ -1901,7 +1898,6 @@
 				46F4FE6314FE34D900DB2F4E /* FacebookButton.png in Resources */,
 				46F4FE6414FE34D900DB2F4E /* FacebookButton@2x.png in Resources */,
 				E4AC0B8A15C934150031D1B4 /* MainWindow_iPad.xib in Resources */,
-				04088D9316078459005EF73E /* FacebookSDKResources.bundle in Resources */,
 				0445A2AC1618A19A00BAD6F8 /* Default-568h@2x.png in Resources */,
 				04D7AAA9161B777C0030D80E /* RecommendedBtn2.png in Resources */,
 				04756AFA161DB707003591FE /* SplashScreenViewController.xib in Resources */,
@@ -2021,10 +2017,10 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		041F058A1611A58900105735 /* PBXTargetDependency */ = {
+		042E61CD162C0E19001D4FCB /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			name = "SDWebImage ARC";
-			targetProxy = 041F05891611A58900105735 /* PBXContainerItemProxy */;
+			targetProxy = 042E61CC162C0E19001D4FCB /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -2052,6 +2048,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)/../../../../Documents/FacebookSDK\"",
+					"\"$(SRCROOT)\"",
 				);
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_OPTIMIZATION_LEVEL = 0;
@@ -2095,6 +2092,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)/../../../../Documents/FacebookSDK\"",
+					"\"$(SRCROOT)\"",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = OnTV_Prefix.pch;
@@ -2264,6 +2262,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)/../../../../Documents/FacebookSDK\"",
+					"\"$(SRCROOT)\"",
 				);
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_OPTIMIZATION_LEVEL = s;
