@@ -98,22 +98,20 @@ NSString *searchHeaderTodayLabelStr;
     //only if not set already
     if(!self.startDateString && !self.endDateString)
     {
-                   
-//        NSString *toDaysString = [UIUtils stringFromGivenGMTDate:[NSDate date] WithFormat:@"EEEddMMMyyyy HH:mm:ss"];
-//        self.startDateString =toDaysString;
+
+
+        NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+        dateFormatter.dateFormat = @"EEEddMMMyyyy HH:mm:ss";
+        
+        NSTimeZone *gmt = [NSTimeZone timeZoneWithAbbreviation:@"GMT"];
+        [dateFormatter setTimeZone:gmt];
+        [dateFormatter setLocale:[[NSLocale alloc] initWithLocaleIdentifier:@"en_US"]];
+        NSString *timeStamp = [dateFormatter stringFromDate:[NSDate date]];
         
         
-        NSDate *startDate=[NSDate date];
         
-        NSDateFormatter *localDateFormat = [[NSDateFormatter alloc] init];
-        [localDateFormat setTimeZone:[NSTimeZone localTimeZone]];
-        [localDateFormat setDateFormat:@"EEEddMMMyyyy HH:mm:ss"];
-        [localDateFormat setLocale:[[NSLocale alloc] initWithLocaleIdentifier:@"en_US"]];
         
-        NSString * localDateStr = [localDateFormat stringFromDate:startDate];
-        self.startDateString=localDateStr;
-        
-       
+        self.startDateString=timeStamp;
       
         self.endDateString =  [UIUtils endTimeFromGivenDate:[NSDate date]];
         
