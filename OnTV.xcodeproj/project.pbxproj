@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		04044A7E162F1302002D942E /* UserCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 04044A7D162F1302002D942E /* UserCell.m */; };
+		04044A80162F1318002D942E /* UserCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 04044A7F162F1318002D942E /* UserCell.xib */; };
 		0429346C1622460C00EF3196 /* Unrecommend2.png in Resources */ = {isa = PBXBuildFile; fileRef = 0429346B1622460C00EF3196 /* Unrecommend2.png */; };
 		0429346F162248F400EF3196 /* Unrecommend2@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0429346D162248F400EF3196 /* Unrecommend2@2x.png */; };
 		04293470162248F400EF3196 /* RecommendedBtn2@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0429346E162248F400EF3196 /* RecommendedBtn2@2x.png */; };
@@ -208,6 +210,8 @@
 		042E6353162C10B4001D4FCB /* appicon.png in Resources */ = {isa = PBXBuildFile; fileRef = 042E6352162C10B4001D4FCB /* appicon.png */; };
 		0433EB851608AA5A00FBE123 /* MBProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 0433EB841608AA5A00FBE123 /* MBProgressHUD.m */; };
 		0445A2AC1618A19A00BAD6F8 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0445A2AB1618A19A00BAD6F8 /* Default-568h@2x.png */; };
+		045FC31F162DE57F00C19955 /* UserScreen.png in Resources */ = {isa = PBXBuildFile; fileRef = 045FC31D162DE57F00C19955 /* UserScreen.png */; };
+		045FC320162DE57F00C19955 /* UserScreen@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 045FC31E162DE57F00C19955 /* UserScreen@2x.png */; };
 		04756AFA161DB707003591FE /* SplashScreenViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 04756AF9161DB707003591FE /* SplashScreenViewController.xib */; };
 		0489B9371612548C00CBCB6E /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0489B9361612548C00CBCB6E /* MapKit.framework */; };
 		04D7AAA9161B777C0030D80E /* RecommendedBtn2.png in Resources */ = {isa = PBXBuildFile; fileRef = 04D7AAA8161B777C0030D80E /* RecommendedBtn2.png */; };
@@ -477,6 +481,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		04044A7C162F1302002D942E /* UserCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserCell.h; sourceTree = "<group>"; };
+		04044A7D162F1302002D942E /* UserCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserCell.m; sourceTree = "<group>"; };
+		04044A7F162F1318002D942E /* UserCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = UserCell.xib; sourceTree = "<group>"; };
 		0429346B1622460C00EF3196 /* Unrecommend2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Unrecommend2.png; sourceTree = "<group>"; };
 		0429346D162248F400EF3196 /* Unrecommend2@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Unrecommend2@2x.png"; sourceTree = "<group>"; };
 		0429346E162248F400EF3196 /* RecommendedBtn2@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "RecommendedBtn2@2x.png"; sourceTree = "<group>"; };
@@ -679,6 +686,8 @@
 		0433EB831608AA5500FBE123 /* MBProgressHUD.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MBProgressHUD.h; sourceTree = "<group>"; };
 		0433EB841608AA5A00FBE123 /* MBProgressHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBProgressHUD.m; sourceTree = "<group>"; };
 		0445A2AB1618A19A00BAD6F8 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
+		045FC31D162DE57F00C19955 /* UserScreen.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = UserScreen.png; sourceTree = "<group>"; };
+		045FC31E162DE57F00C19955 /* UserScreen@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "UserScreen@2x.png"; sourceTree = "<group>"; };
 		04756AF9161DB707003591FE /* SplashScreenViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SplashScreenViewController.xib; sourceTree = "<group>"; };
 		0489B9361612548C00CBCB6E /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		04D7AAA8161B777C0030D80E /* RecommendedBtn2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = RecommendedBtn2.png; sourceTree = "<group>"; };
@@ -1091,6 +1100,8 @@
 		042E61CF162C0F71001D4FCB /* sliced_ios */ = {
 			isa = PBXGroup;
 			children = (
+				045FC31D162DE57F00C19955 /* UserScreen.png */,
+				045FC31E162DE57F00C19955 /* UserScreen@2x.png */,
 				042E6352162C10B4001D4FCB /* appicon.png */,
 				042E6350162C103F001D4FCB /* appicon@2x.png */,
 				042E61D0162C0F71001D4FCB /* .dropbox */,
@@ -2112,6 +2123,9 @@
 				4629046914AC8ED400365590 /* UserView.m */,
 				46A2748E1497ABAF0084D0F9 /* ProUserRequiredScreen.h */,
 				46A2748F1497ABB90084D0F9 /* ProUserRequiredScreen.m */,
+				04044A7C162F1302002D942E /* UserCell.h */,
+				04044A7D162F1302002D942E /* UserCell.m */,
+				04044A7F162F1318002D942E /* UserCell.xib */,
 			);
 			path = UserScreen;
 			sourceTree = "<group>";
@@ -2688,6 +2702,9 @@
 				042E634F162C0F71001D4FCB /* img_progress_bar@2x.png in Resources */,
 				042E6351162C1040001D4FCB /* appicon@2x.png in Resources */,
 				042E6353162C10B4001D4FCB /* appicon.png in Resources */,
+				045FC31F162DE57F00C19955 /* UserScreen.png in Resources */,
+				045FC320162DE57F00C19955 /* UserScreen@2x.png in Resources */,
+				04044A80162F1318002D942E /* UserCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2795,6 +2812,7 @@
 				E4AC0B8815C934150031D1B4 /* AppDelegateSuperClass.m in Sources */,
 				E4AC0B8915C934150031D1B4 /* AppDelegate_iPad.m in Sources */,
 				0433EB851608AA5A00FBE123 /* MBProgressHUD.m in Sources */,
+				04044A7E162F1302002D942E /* UserCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

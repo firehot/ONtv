@@ -96,7 +96,7 @@ int HEADER_LABEL_WIDTH = 200;
     //Adding the logo background image
     UIImageView *logoBackgroundImageViewTemp = [[UIImageView alloc] initWithFrame:CGRectMake(10, 10, 84, 40)];
     self.logoBackgroundImageView = logoBackgroundImageViewTemp;
-    self.logoBackgroundImageView.image = [UIImage imageNamed:@"imageBackground.png"];
+   // self.logoBackgroundImageView.image = [UIImage imageNamed:@"imageBackground.png"];
     [view addSubview:self.logoBackgroundImageView];
     
     //Adding the channel logo
@@ -153,7 +153,7 @@ int PROGRAM_VIEW_HEIGHT = 50;
 
 - (void)createAccessoryImageViewOnView :(UIView*)view withFrame:(CGRect)frame{
     self.accessoryImageView =[UIControls createUIImageViewWithFrame:frame];                    
-    [self.accessoryImageView setImage:[UIImage imageNamed:@"CellArrow"]];
+    [self.accessoryImageView setImage:[UIImage imageNamed:@"ic_arrow_right"]];
     self.accessoryImageView.autoresizingMask=UIViewAutoresizingFlexibleLeftMargin;
     [view addSubview:self.accessoryImageView];
 }

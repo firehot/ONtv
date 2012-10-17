@@ -154,7 +154,7 @@ int MARGIN_BETWEEN_VIEWS = 5;
 - (void)createLogoImageViewOnView :(UIView*)view andChannel:(Channel*)channel{
     //Adding the logo background image
     UIImageView *back = [[UIImageView alloc] initWithFrame:CGRectMake(10, 10, 84, 40)];
-    back.image = [UIImage imageNamed:@"imageBackground.png"];
+   // back.image = [UIImage imageNamed:@"imageBackground.png"];
     [view addSubview:back];
     
     //Adding the channel logo

@@ -21,7 +21,7 @@
         self.backgroundView = [[UIView alloc] initWithFrame:CGRectMake(0,0,320,50)];
         
         UIImageView *backgroundView = [[UIImageView alloc] initWithFrame:CGRectMake(10, 5, 84, 40)];
-        backgroundView.image = [UIImage imageNamed:@"imageBackground.png"];
+       // backgroundView.image = [UIImage imageNamed:@"imageBackground.png"];
         
         [self createSelectedCellBackGround];
         
@@ -30,6 +30,7 @@
 		logoImageView.frame = CGRectMake(16, 11, 50, 20);
         logoImageView.contentMode = UIViewContentModeScaleAspectFit;
 		[backgroundView addSubview:logoImageView];
+        backgroundView.backgroundColor=[UIUtils colorFromHexColor:@"F5F5F5"];
         [self.contentView addSubview:backgroundView];
 	}
 	
@@ -47,7 +48,7 @@
 - (void)createSelectedCellBackGround {
     
     self.selectedBackgroundView = [[UIView alloc] initWithFrame:CGRectMake(0,0,320,50)];
-    [self.selectedBackgroundView setBackgroundColor:[UIUtils colorFromHexColor:@"36b6d5"]];    
+    [self.selectedBackgroundView setBackgroundColor:[UIColor whiteColor]];
 }
 
 

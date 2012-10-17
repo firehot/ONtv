@@ -546,7 +546,7 @@
                 
                 
                 UIImageView  *accessoryView =[UIControls createUIImageViewWithFrame:CGRectMake(_summaryScrollView.bounds.size.width-17, currentPoint.y+20, 8, 11)];                    
-                [accessoryView setImage:[UIImage imageNamed:@"CellArrow"]];
+                [accessoryView setImage:[UIImage imageNamed:@"ic_arrow_right"]];
                 accessoryView.autoresizingMask = UIViewAutoresizingFlexibleLeftMargin;
                 [_summaryScrollView addSubview:accessoryView];
 
@@ -716,13 +716,13 @@
 
 - (void)createMenuBar {
     
-    MenuBar *menuBarObj = [[MenuBar alloc] initWithFrame:CGRectMake(0, 0, 200, 44)];
+    MenuBar *menuBarObj = [[MenuBar alloc] initWithFrame:CGRectMake(0, 0, 197, 44)];
     
     menuBarObj.menuBarDelegate = self;
     
     UIBarButtonItem *buttonItem = [[UIBarButtonItem alloc] initWithCustomView:menuBarObj];
     
-    self.navigationItem.leftBarButtonItem = buttonItem;
+    self.navigationItem.rightBarButtonItem = buttonItem;
     
     
     
@@ -730,7 +730,7 @@
     
     UIBarButtonItem *rightBarButton = [[UIBarButtonItem alloc] initWithCustomView:backBtn];
 	
-    self.navigationItem.rightBarButtonItem = rightBarButton;
+    self.navigationItem.leftBarButtonItem = rightBarButton;
     
 
 }

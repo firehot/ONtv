@@ -4,6 +4,7 @@
 #import "DeviceDataModel.h"
 #import "UIDevice+IdentifierAddition.h"
 #import "UserRepository.h"
+#import "UserCell.h"
 
 
 @interface UserView ()
@@ -48,6 +49,7 @@ NSString *pushNotificationCellHeaderStr;
 @synthesize deviceProxy = _deviceProxy;
 
 @synthesize loginProxy = _loginProxy;
+@synthesize tvCell;
 
 
 #pragma mark -
@@ -167,9 +169,9 @@ NSString *pushNotificationCellHeaderStr;
     
     if (isProOrPlus)
     {
-        if (section == 0 || section == 1)
+        if (section == 0)
         {
-            return 1;
+            return 2;
         }
         else 
         {
@@ -200,7 +202,7 @@ NSString *pushNotificationCellHeaderStr;
     if ([self.deviceIdArray count] > 0)
     {
         if(isProOrPlus)
-            return 3;
+            return 2;
         else
             return 2;
     } 
@@ -253,6 +255,27 @@ NSString *pushNotificationCellHeaderStr;
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath 
 {
+    if ([indexPath section] == 0 &&indexPath.row==0)
+    {
+        UserCell *cell = (UserCell *) [tableView dequeueReusableCellWithIdentifier:@"UserCell"];
+        if (cell == nil) {
+            // Load the top-level objects from the custom cell XIB.
+            NSArray *topLevelObjects = [[NSBundle mainBundle] loadNibNamed:@"UserCell" owner:self options:nil];
+            // Grab a pointer to the first object (presumably the custom cell, as that's all the XIB should contain).
+            cell = [topLevelObjects objectAtIndex:0];
+            
+            
+        }
+        cell.loggedInLabel.text=logOutCellHeaderStr;
+        AppDelegate_iPhone *appDelegate = DELEGATE;
+        cell.userName.text=appDelegate.user.name;
+        UIImage *image = [UIImage imageWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:appDelegate.user.img]]];
+        [cell.userImage setImage:image];
+        cell.logoutButton.titleLabel.text=logOutButtonStr;
+        [cell.logoutButton addTarget:self action:@selector(logoutButtonClicked) forControlEvents:UIControlEventTouchUpInside];
+        
+        return cell;
+    }
     
     static NSString *CellIdentifier = @"Cell";
     
@@ -266,20 +289,23 @@ NSString *pushNotificationCellHeaderStr;
         [cell setSelectionStyle:UITableViewCellSelectionStyleNone];
         
         [cell.textLabel setFont:[UIFont boldSystemFontOfSize:12]];
-        [cell.textLabel setTextColor:[UIUtils colorFromHexColor:GRAY]];
+        [cell.textLabel setTextColor:[UIUtils colorFromHexColor:@"000000"]];
     } 
     
     AppDelegate_iPhone *appDelegate = DELEGATE;
     
     bool isProOrPlus = [appDelegate.user.subscription isEqualToString:PRO_USER] || [appDelegate.user.subscription isEqualToString:PLUS_USER];
     
-    if ([indexPath section] == 0)
+    
+    
+    if ([indexPath section] == 0 &&indexPath.row==0)
     {
-        [self populateLogoutCell:cell];
+      //  [self populateLogoutCell:cell];
     }
     else
-    if ([indexPath section] == 1 && isProOrPlus)
+    if ([indexPath section] == 0 && isProOrPlus && indexPath.row==1 )
     {
+        
         [self populateShowShortSummaryCell:cell];
     }
     else
@@ -296,11 +322,11 @@ NSString *pushNotificationCellHeaderStr;
         
         if ([deviceObject.pushNotificationStatus isEqualToString:@"true"]) {
             
-            [pushButton setImage:[UIImage imageNamed:@"checkedbox"] forState:UIControlStateNormal]; 
+            [pushButton setImage:[UIImage imageNamed:@"bg_checkbox_checked"] forState:UIControlStateNormal]; 
        
         } else {
             
-            [pushButton setImage:[UIImage imageNamed:@"uncheckedbox"] forState:UIControlStateNormal]; 
+            [pushButton setImage:[UIImage imageNamed:@"bg_checkbox"] forState:UIControlStateNormal]; 
             
         }
         
@@ -340,7 +366,7 @@ NSString *pushNotificationCellHeaderStr;
     
     if ([summarySwitch respondsToSelector:@selector(setOnTintColor:)]) {
         
-        [summarySwitch setOnTintColor:[UIUtils colorFromHexColor:BLUE]];
+        [summarySwitch setOnTintColor:[UIUtils colorFromHexColor:@"b00a4f"]];
     }
     
 
@@ -368,6 +394,9 @@ NSString *pushNotificationCellHeaderStr;
 
 -(CGFloat)tableView:(UITableView*)tableView heightForRowAtIndexPath:(NSIndexPath*) indexPath 
 {
+    if (indexPath.row==0 && indexPath.section==0) {
+        return 132;
+    }
     return 44;
 }
 
@@ -375,8 +404,10 @@ NSString *pushNotificationCellHeaderStr;
 
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section 
 {
-    
-    return 50;
+    if (section==0) {
+        return 0;
+    }
+    return 45;
     
 }
 
@@ -385,9 +416,12 @@ NSString *pushNotificationCellHeaderStr;
 - (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section 
 {
         
-    UIView *headerView = [UIControls createUIViewWithFrame:CGRectMake(0, 0, self.bounds.size.width, 50) BackGroundColor:LIGHTGRAY];
+   // UIView *headerView = [UIControls createUIViewWithFrame:CGRectMake(0, 0, self.bounds.size.width, 45) BackGroundColor:LIGHTGRAY];
+    UIView *headerView =[[UIView alloc] initWithFrame:CGRectMake(0, 0, self.bounds.size.width, 45)];
+    UIImageView *back=[[UIImageView alloc] initWithImage:[UIImage imageNamed:@"bg_title.png"]];
+    [headerView addSubview:back];
     
-    UILabel *headerLabel = [UIControls createUILabelWithFrame:CGRectMake(10, 0, self.bounds.size.width - 10, 50) FondSize:15 FontName:SYSTEMBOLD FontHexColor:BLUE LabelText:@""];
+    UILabel *headerLabel = [UIControls createUILabelWithFrame:CGRectMake(10, 0, self.bounds.size.width - 10, 45) FondSize:15 FontName:SYSTEMBOLD FontHexColor:@"ffffff" LabelText:@""];
     
     AppDelegate_iPhone *appDelegate = DELEGATE;
     
@@ -395,15 +429,12 @@ NSString *pushNotificationCellHeaderStr;
     
     if (section == 0) {
        
-        [headerLabel setText:logOutCellHeaderStr];        
+      //  [headerLabel setText:logOutCellHeaderStr];
     }
     else
     if (section == 1 && isProOrPlus)
     {
-        [headerLabel setText:settingsCellHeaderStr];        
-    }
-    else
-    {
+  
         [headerLabel setText:pushNotificationCellHeaderStr];        
     }
     

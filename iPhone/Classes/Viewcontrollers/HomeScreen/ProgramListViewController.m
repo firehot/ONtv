@@ -80,7 +80,7 @@ NSString *searchHeaderTodayLabelStr;
     
     noRecordFound = NO;
     
-    [self.view setBackgroundColor:[UIColor whiteColor]];
+    [self.view setBackgroundColor:[UIUtils colorFromHexColor:@"F5F5F5"]];
     
     [self setLocalizedValues];
         
@@ -261,7 +261,7 @@ NSString *searchHeaderTodayLabelStr;
         return;
     } else {
         
-        UITableView *tableView = [[UITableView alloc]initWithFrame:CGRectMake(0,49,self.view.frame.size.width,self.view.frame.size.height-49)];
+        UITableView *tableView = [[UITableView alloc]initWithFrame:CGRectMake(0,90,self.view.frame.size.width,self.view.frame.size.height-49)];
         self.programTableView = tableView;
         
         // ABP
@@ -364,8 +364,7 @@ NSString *searchHeaderTodayLabelStr;
         
         cell.contentMode = UIViewContentModeRedraw;
     }
-
-    
+        
     Program *programObj = [self.programArray objectAtIndex:[indexPath row]];            
     [cell.programTitleLabel setText:programObj.title];
     [cell.programTimeLabel setText:[UIUtils localTimeStringForGMTDateString:programObj.start]];
@@ -702,7 +701,7 @@ NSString *searchHeaderTodayLabelStr;
 
 - (void)createHeaderView {
     
-    HeaderView *headerView = [[HeaderView alloc]initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, 49) andType:_menuSelected];
+    HeaderView *headerView = [[HeaderView alloc]initWithFrame:CGRectMake(0, 0, self.view.frame.size.width,90) andType:_menuSelected];
     
     _programHeaderView = headerView;
     
@@ -714,7 +713,7 @@ NSString *searchHeaderTodayLabelStr;
     
     
     [_programHeaderView.dateButton addTarget:self action:@selector(dayButtonTapped:) forControlEvents:UIControlEventTouchUpInside];
-    
+        
     
     if (_menuSelected == other) {
                   
@@ -1245,15 +1244,15 @@ NSString *searchHeaderTodayLabelStr;
 
 - (void)createMenuBar {
     
-    MenuBar *menuBarObj = [[MenuBar alloc] initWithFrame:CGRectMake(0, 0, 200, 44)];
+    MenuBar *menuBarObj = [[MenuBar alloc] initWithFrame:CGRectMake(0, 0, 197, 44)];
     menuBarObj.menuBarDelegate = self;
     UIBarButtonItem *buttonItem = [[UIBarButtonItem alloc] initWithCustomView:menuBarObj];
-    self.navigationItem.leftBarButtonItem = buttonItem;
+    self.navigationItem.rightBarButtonItem = buttonItem;
     
     UIButton *backBtn = [UIUtils createBackButtonWithTarget:self action:@selector(backbuttonClicked)];
     
     UIBarButtonItem *rightBarButton = [[UIBarButtonItem alloc] initWithCustomView:backBtn];
-	self.navigationItem.rightBarButtonItem = rightBarButton;
+	self.navigationItem.leftBarButtonItem = rightBarButton;
     
 }
 

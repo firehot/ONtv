@@ -176,7 +176,7 @@ UILabel *titleLabel;
     
     UIBarButtonItem *rightBarButton = [[UIBarButtonItem alloc] initWithCustomView:editButton];
     
-    appDelegate.favoriteChannelsViewController.navigationItem.rightBarButtonItem = rightBarButton;
+    appDelegate.favoriteChannelsViewController.navigationItem.leftBarButtonItem = rightBarButton;
 } 
 
 
@@ -208,7 +208,7 @@ UILabel *titleLabel;
     
     CustomButton *button = [[CustomButton alloc]initWithFrame:CGRectMake(0, 0, 41, 30)];	
     
-    UIImage *image = [UIImage imageNamed:@"buttonBackground"];
+    UIImage *image = [UIImage imageNamed:@"btn_edit.png"];
     image = [image stretchableImageWithLeftCapWidth: 5 topCapHeight: 5];
     
     [button setBackgroundImage:image forState:UIControlStateNormal]; 
@@ -234,7 +234,7 @@ UILabel *titleLabel;
         
         [self createAddButton];
         
-        appDelegate.favoriteChannelsViewController.navigationItem.title = NSLocalizedString(@"Edit Agent", nil);
+       appDelegate.favoriteChannelsViewController.navigationItem.title = NSLocalizedString(@"Edit Agent", nil);
         return;
     } 
     

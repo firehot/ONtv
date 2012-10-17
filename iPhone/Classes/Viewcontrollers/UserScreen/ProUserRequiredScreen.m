@@ -205,15 +205,15 @@ NSString *noCommercialStr;
 
 - (void)createMenuBar {
     
-    MenuBar *menuBarObj = [[MenuBar alloc] initWithFrame:CGRectMake(0, 0, 200, 44)];
+    MenuBar *menuBarObj = [[MenuBar alloc] initWithFrame:CGRectMake(0, 0, 197, 44)];
     menuBarObj.menuBarDelegate = self;
     UIBarButtonItem *buttonItem = [[UIBarButtonItem alloc] initWithCustomView:menuBarObj];
-    self.navigationItem.leftBarButtonItem = buttonItem;
+    self.navigationItem.rightBarButtonItem = buttonItem;
     
     UIButton *backBtn = [UIUtils createBackButtonWithTarget:self action:@selector(backbuttonClicked)];
     
     UIBarButtonItem *rightBarButton = [[UIBarButtonItem alloc] initWithCustomView:backBtn];
-	self.navigationItem.rightBarButtonItem = rightBarButton;
+	self.navigationItem.leftBarButtonItem = rightBarButton;
     
 }
 

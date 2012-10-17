@@ -489,20 +489,19 @@
     
     if ([indexPath row] == 0) {
         
-       // cell.textLabel.text = emailAddressLabelStr;
+      
         cell.textField.placeholder=emailAddressLabelStr;
         cell.textField.secureTextEntry = NO;
         cell.textField.keyboardType = UIKeyboardTypeEmailAddress;
         cell.textField.text = self.username;
-       // cell.textFieldLeftInset = 100.0f;
+       
         
     } else {
         cell.textField.placeholder=passwordLabelStr;
-        //cell.textLabel.text = passwordLabelStr;
         cell.textField.secureTextEntry = YES;
         cell.textField.keyboardType = UIKeyboardTypeDefault;
         cell.textField.text = self.password;
-      //  cell.textFieldLeftInset = 80.0f;
+      
     }
     
     return cell;

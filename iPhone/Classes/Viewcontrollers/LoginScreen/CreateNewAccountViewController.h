@@ -18,5 +18,6 @@
 @property (nonatomic, strong) LoginProxy *loginProxy;
 
 @property (nonatomic, strong) ChannelProxy *channelProxy;
+- (CGRect)tableViewHeaderFrameForCurrentOrientation;
 
 @end

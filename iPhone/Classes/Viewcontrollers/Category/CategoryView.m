@@ -92,7 +92,7 @@ NSIndexPath* aindexPath;
 	
     [_categoryTableView setBackgroundColor:[UIColor clearColor]];
 	
-    [_categoryTableView setSeparatorStyle:UITableViewCellSeparatorStyleNone];
+    [_categoryTableView setSeparatorStyle:UITableViewCellSeparatorStyleSingleLine];
 	
     [_categoryTableView setShowsVerticalScrollIndicator:YES];
     

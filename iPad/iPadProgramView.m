@@ -106,7 +106,7 @@
 //    [view addSubview:self.accessoryImageView];
 
     UIImageView *accessoryImageView = [UIControls createUIImageViewWithFrame:frame];                    
-    [accessoryImageView setImage:[UIImage imageNamed:@"CellArrow"]];
+    [accessoryImageView setImage:[UIImage imageNamed:@"ic_arrow_right"]];
     accessoryImageView.autoresizingMask=UIViewAutoresizingFlexibleLeftMargin;
     [view addSubview:accessoryImageView];
 }

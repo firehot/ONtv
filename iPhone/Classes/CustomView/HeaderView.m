@@ -89,17 +89,24 @@
 }
  
 - (void)createUIForListHeader {
-    
-    UIImageView *ChannelLogoBGIV = [UIControls createUIImageViewWithFrame:CGRectMake(5, 5, 84, 40)];
-    UIImage *ChannelLogoBGImage  = [UIImage imageNamed:@"imageBackground"];
-    [ChannelLogoBGIV setImage:ChannelLogoBGImage];
+    UIImageView *ChannelLogoBGIV = [UIControls createUIImageViewWithFrame:CGRectMake(0, 0, 320, 90)];
+    ChannelLogoBGIV.backgroundColor=[UIColor whiteColor];
+    // UIImage *ChannelLogoBGImage  = [UIImage imageNamed:@"imageBackground"];
+    //[ChannelLogoBGIV setImage:ChannelLogoBGImage];
     [ChannelLogoBGIV setContentMode:UIViewContentModeScaleAspectFit];
     [self addSubview:ChannelLogoBGIV];
     
     
+    UIImageView *backgrounfImage=[[UIImageView alloc] initWithImage:[UIImage imageNamed:@"bg_title.png"]];
+    [backgrounfImage setFrame:(CGRectMake(0, 0, 320, 45))];
+    [self addSubview:backgrounfImage];
+    
+   
+    
+    
     UIImageView *tempEGOIV = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"bigChannelLogo"]];		
     self.channelLogoIV  = tempEGOIV;
-    self.channelLogoIV.frame = CGRectMake(17, 10, 50, 20);	
+    self.channelLogoIV.frame = CGRectMake(17,48, 90, 34);
     self.channelLogoIV.contentMode = UIViewContentModeScaleAspectFit;
     [ChannelLogoBGIV addSubview:self.channelLogoIV];
     
@@ -109,6 +116,7 @@
     [self createPageControlWithFrame:CGRectMake(0, 0, 80, 49)];
     
     [self createPageControlLabelWithFrame:CGRectMake(103, 30, 80, 20)];
+    
     
     [self CreateDateUIView];
 }
@@ -175,7 +183,7 @@
 
 - (void)createPageControlLabelWithFrame:(CGRect)frame  {
 
-    self.pageControlPagesLbl =[UIControls createUILabelWithFrame: frame FondSize:10 FontName:@"System Bold" FontHexColor:GRAY LabelText:@""];
+    self.pageControlPagesLbl =[UIControls createUILabelWithFrame: frame FondSize:10 FontName:@"System Bold" FontHexColor:@"000000" LabelText:@""];
     
     [self.pageControlPagesLbl setTextAlignment:UITextAlignmentCenter];
     

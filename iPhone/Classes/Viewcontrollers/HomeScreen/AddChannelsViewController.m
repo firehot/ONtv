@@ -139,8 +139,8 @@ int searchFlag = 0;
 
 -(void) configureAddFavoriteChannelView {
 	
-    self.navigationController.navigationBar.barStyle = UIBarStyleBlackTranslucent;
-    self.navigationController.navigationBar.tintColor = [UIUtils colorFromHexColor:@"36b6d5"];
+    self.navigationController.navigationBar.barStyle = UIBarStyleDefault;
+    self.navigationController.navigationBar.tintColor = [UIUtils colorFromHexColor:@"b00a4f"];
 	[self addSearchBar];
 	NSMutableArray *arrTemp = [[NSMutableArray alloc] init];
 	self.addChannelsArray = arrTemp;
@@ -186,7 +186,7 @@ int searchFlag = 0;
     [self.channelsTableView setFrame:CGRectMake(channelsTableView.frame.origin.x, channelsTableView.frame.origin.y, channelsTableView.frame.size.width, 371)];
 
     self.navigationController.navigationBar.barStyle = UIBarStyleBlackTranslucent;
-    self.navigationController.navigationBar.tintColor = [UIUtils colorFromHexColor:@"36b6d5"];  
+    self.navigationController.navigationBar.tintColor = [UIUtils colorFromHexColor:@"b00a4f"];  
     [self addButtonOnNavigationBar];
 	
     if(self.addChannelsArray) {
@@ -269,7 +269,7 @@ int searchFlag = 0;
 	UISearchBar *tempSearchbar = [[UISearchBar alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, 44)];
 	self.searchBarForChannels = tempSearchbar;
     self.searchBarForChannels.barStyle = UIBarStyleBlackTranslucent;
-    self.searchBarForChannels.tintColor = [UIUtils colorFromHexColor:@"36b6d5"];
+    self.searchBarForChannels.tintColor = [UIUtils colorFromHexColor:@"b00a4f"];
 	self.searchBarForChannels.showsCancelButton = YES;
 	self.searchBarForChannels.delegate = self;
 	self.searchBarForChannels.placeholder = searchChannelPlaceHolderStr;
@@ -660,10 +660,10 @@ int searchFlag = 0;
     if (!cell) {
         cell = [[CustomCellForAddChannel alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
         
-        [cell.backgroundView setBackgroundColor:[UIColor colorWithPatternImage:[UIImage imageNamed:@"cellImage"]]];
+        [cell.backgroundView setBackgroundColor:[UIColor whiteColor]];
     }
     
-    [tableView setSeparatorStyle:UITableViewCellSeparatorStyleNone];
+    [tableView setSeparatorStyle:UITableViewCellSeparatorStyleSingleLine];
     
     [cell.contentView.subviews enumerateObjectsUsingBlock:^(UIView *obj, NSUInteger idx, BOOL *stop) {
         if ([obj isKindOfClass:[UILabel class]]) {

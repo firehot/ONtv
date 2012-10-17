@@ -71,7 +71,7 @@
                         accessoryView.autoresizingMask=UIViewAutoresizingFlexibleLeftMargin;
                         
                         [self.contentView addSubview:accessoryView];
-                        [accessoryView setImage:[UIImage imageNamed:@"CellArrow"]];
+                        [accessoryView setImage:[UIImage imageNamed:@"ic_arrow_right"]];
                     
                     }
                     
@@ -97,7 +97,7 @@
                         accessoryView.autoresizingMask=UIViewAutoresizingFlexibleLeftMargin;
                         
                         [self.contentView addSubview:accessoryView];
-                        [accessoryView setImage:[UIImage imageNamed:@"CellArrow"]];
+                        [accessoryView setImage:[UIImage imageNamed:@"ic_arrow_right"]];
                    
                         [self createProgramImageView];
                     
@@ -224,14 +224,14 @@
                 
                     UIImageView *logoBackgroundImageViewTemp = [[UIImageView alloc] initWithFrame:CGRectMake(10, 5, 84, 40)];
                     self.logoBackgroundImageView = logoBackgroundImageViewTemp;
-                    self.logoBackgroundImageView.image = [UIImage imageNamed:@"imageBackground.png"];
+                    //self.logoBackgroundImageView.image = [UIImage imageNamed:@"imageBackground.png"];
                     [self.contentView addSubview:self.logoBackgroundImageView];
                     
                     UIImageView  *accessoryView = [[UIImageView alloc] initWithFrame:CGRectMake(self.contentView.bounds.size.width-17, 20, 8, 11)];
                     accessoryView.autoresizingMask=UIViewAutoresizingFlexibleLeftMargin;
                     
                     [self.contentView addSubview:accessoryView];
-                    [accessoryView setImage:[UIImage imageNamed:@"CellArrow"]];
+                    [accessoryView setImage:[UIImage imageNamed:@"ic_arrow_right"]];
                     
                     
                     UIImageView *logoImageViewTemp = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"bigChannelLogo"]];	
@@ -272,26 +272,26 @@
 
 - (void)createCellBackGround {
     self.backgroundView = [[UIView alloc] initWithFrame:self.contentView.bounds];
-     UIImage *bgImage = [UIImage imageNamed:@"cellImage"];
-    [self.backgroundView setBackgroundColor:[UIColor colorWithPatternImage:bgImage]];    
+    
+    [self.backgroundView setBackgroundColor:[UIUtils colorFromHexColor:@"F5F5F5"]];
 }
 
 
 - (void)createSelectedCellBackGroundWithFrame:(CGRect)frame {
 
     self.selectedBackgroundView = [[UIView alloc] initWithFrame:frame];
-    [self.selectedBackgroundView setBackgroundColor:[UIUtils colorFromHexColor:@"36b6d5"]];    
+    [self.selectedBackgroundView setBackgroundColor:[UIUtils colorFromHexColor:@"FFFFFF"]];
 }
 
 - (void)createProgramTimeWithFrame:(CGRect)frame {
     
-    self.programTimeLabel = [UIControls createUILabelWithFrame:frame FondSize:14 FontName:@"System Bold" FontHexColor:@"117890" LabelText:@""];
+    self.programTimeLabel = [UIControls createUILabelWithFrame:frame FondSize:14 FontName:@"System Bold" FontHexColor:@"000000" LabelText:@""];
     [self.contentView addSubview:self.programTimeLabel];
 }
 
 - (void)createProgramTitleLabelWithFrame:(CGRect)frame {
 
-    self.programTitleLabel = [UIControls createUILabelWithFrame:frame FondSize:14 FontName:@"System Bold" FontHexColor:@"117890" LabelText:@""];
+    self.programTitleLabel = [UIControls createUILabelWithFrame:frame FondSize:14 FontName:@"System Bold" FontHexColor:@"000000" LabelText:@""];
     self.programTitleLabel.autoresizingMask=UIViewAutoresizingFlexibleWidth;
     [self.contentView addSubview:self.programTitleLabel];  
 
@@ -327,7 +327,7 @@
 
 - (void)createProgramImageView {
     
-     UIImageView *programImageViewTemp = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"bigChannelLogo"]];		
+    UIImageView *programImageViewTemp = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"bigChannelLogo"]];
     self.programImageView = programImageViewTemp;
     self.programImageView.frame = CGRectMake(210, 53+10, 100, 75);	
     self.programImageView.contentMode = UIViewContentModeScaleAspectFit;
@@ -341,8 +341,8 @@
 
 - (void)createChannelImageViewWithFrame:(CGRect)frame {
     
-    UIImageView *channelImageViewTemp = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"bigChannelLogo"]];	
-	self.channelImageView = channelImageViewTemp; 
+   UIImageView *channelImageViewTemp = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"bigChannelLogo"]];
+	self.channelImageView = channelImageViewTemp;
     self.channelImageView.frame = frame;	
     self.channelImageView.contentMode = UIViewContentModeScaleAspectFit;
     
@@ -378,7 +378,7 @@
 - (void)createAccessoryImageViewWithFrame:(CGRect)frame {
     
     self.accessoryImageView =[UIControls createUIImageViewWithFrame:frame];                    
-    [self.accessoryImageView setImage:[UIImage imageNamed:@"CellArrow"]];
+    [self.accessoryImageView setImage:[UIImage imageNamed:@"ic_arrow_right"]];
     
     self.accessoryImageView.autoresizingMask=UIViewAutoresizingFlexibleLeftMargin;
     
@@ -393,7 +393,7 @@
 	UILabel *nameLabel = [[UILabel alloc]initWithFrame:CGRectMake(110, 12, 140, 40)];
 	nameLabel.textColor = [UIColor grayColor];
 	nameLabel.font = [UIFont boldSystemFontOfSize:12.0f];
-	nameLabel.textColor = [UIUtils colorFromHexColor:@"117890"];//[UIUtils colorFromHexColor:@"486b9a"]; // 36b6d5
+	nameLabel.textColor = [UIUtils colorFromHexColor:@"000000"];//[UIUtils colorFromHexColor:@"486b9a"]; // 36b6d5
 	nameLabel.backgroundColor = [UIColor clearColor];
 	self.channelLabel = nameLabel;
 	[self.contentView addSubview:self.channelLabel];
@@ -406,7 +406,7 @@
     programLabel.autoresizingMask = UIViewAutoresizingFlexibleWidth;
     programLabel.font = [UIFont boldSystemFontOfSize:13.0f];
 
-	programLabel.textColor = [UIUtils colorFromHexColor:@"117890"];
+	programLabel.textColor = [UIUtils colorFromHexColor:@"000000"];
 	programLabel.backgroundColor = [UIColor clearColor];
     programLabel.highlightedTextColor = [UIColor whiteColor];
 	self.program1Label = programLabel;
@@ -416,7 +416,7 @@
 - (void) addTime1Label {
 	UILabel *timeLabel = [[UILabel alloc]initWithFrame:CGRectMake(110, 5, 90, 20)];
 	timeLabel.font = [UIFont boldSystemFontOfSize:13.0f];
-	timeLabel.textColor = [UIUtils colorFromHexColor:@"117890"];
+	timeLabel.textColor = [UIUtils colorFromHexColor:@"000000"];
 	timeLabel.backgroundColor = [UIColor clearColor];
     timeLabel.highlightedTextColor = [UIColor whiteColor];
 	self.time1Label = timeLabel;

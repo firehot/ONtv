@@ -8,6 +8,7 @@
     __weak UITableView *_userTableView; 
  
     __weak UISwitch *summarySwitch;
+    UITableViewCell *tvCell;
 }
 
 @property (nonatomic, strong) NSMutableArray *deviceIdArray;
@@ -15,5 +16,6 @@
 @property (nonatomic, strong) LoginProxy *loginProxy;
 
 @property (nonatomic, strong) DeviceProxy *deviceProxy;
+@property (nonatomic, retain)  UITableViewCell *tvCell;
 
 @end
