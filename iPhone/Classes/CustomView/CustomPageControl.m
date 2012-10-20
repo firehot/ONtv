@@ -9,8 +9,8 @@
     self = [super initWithFrame:frame];
     if (self) {
         
-        inactiveImage  = [UIImage imageNamed:@"PageControlCircle"];
-        activeImage = [UIImage imageNamed:@"PageControlCircleChecked"];
+        inactiveImage  = [UIImage imageNamed:@"ic_pagination_dot"];
+        activeImage = [UIImage imageNamed:@"ic_pagination_dot_active.png"];
     }
     return self;
 }
