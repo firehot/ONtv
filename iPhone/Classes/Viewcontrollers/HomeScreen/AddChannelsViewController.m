@@ -244,7 +244,7 @@ int searchFlag = 0;
 
 - (void) setTopBarImage {
     
-	UIImageView *ivTemp = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, 45)];		
+	UIImageView *ivTemp = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, 45)];
 	[ivTemp setImage:[UIImage imageNamed:@"labelbar.png"]];	
 	[self.view addSubview:ivTemp];
 }

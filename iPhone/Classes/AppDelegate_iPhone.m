@@ -401,6 +401,7 @@ NSString *const FBSessionStateChangedNotification = @"com.example.Login:FBSessio
      containerViewController = nil;
     
     [self.window insertSubview:self.containerViewController.view atIndex:0];
+    self.window.rootViewController = self.containerViewController;
     
     [self.window exchangeSubviewAtIndex:0 withSubviewAtIndex:1];
 	[[self.window layer] addAnimation:animation forKey:@"HideLogin"];	
