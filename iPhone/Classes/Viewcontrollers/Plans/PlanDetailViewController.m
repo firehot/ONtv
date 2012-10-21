@@ -1219,15 +1219,13 @@
     NSArray *hoursItems = [self.agent.reminderHours componentsSeparatedByString:@"-"];
     
     
-    CustomPickerViewController *customPickerViewController = [[CustomPickerViewController alloc] init];
+    self.pickerController = [[CustomPickerViewController alloc] init];
+    [self.view addSubview:self.pickerController.view];
    
-    customPickerViewController.selectedHoursFirstComponent = [hoursItems objectAtIndex:0];
+    self.pickerController.selectedHoursFirstComponent = [hoursItems objectAtIndex:0];
     
-    customPickerViewController.selectedHoursSecondComponent = [hoursItems objectAtIndex:1];
-    
-    [self.view addSubview:customPickerViewController.view];
-    
-    customPickerViewController.customPickerViewDelegate = self; 
+    self.pickerController.selectedHoursSecondComponent = [hoursItems objectAtIndex:1];
+    self.pickerController.customPickerViewDelegate = self; 
     
     
 }
