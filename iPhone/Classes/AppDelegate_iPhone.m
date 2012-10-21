@@ -376,7 +376,10 @@ NSString *const FBSessionStateChangedNotification = @"com.example.Login:FBSessio
 
 
 - (void)showMainMenu {
-    
+    if (self.createNewAccountViewController)
+    {
+        [self.loginScreenViewController dismissModalViewControllerAnimated:YES];
+    }
     [self removeLoginScreenFromWindow];
     [self addNavigationControllerToWindow];
 }

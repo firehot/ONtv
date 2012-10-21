@@ -356,6 +356,8 @@
     
     [appDelegate.user save];
     
+    [appDelegate showMainMenu];
+    
     [backButton sendActionsForControlEvents:UIControlStateNormal];
     
 }
