@@ -39,6 +39,8 @@
 
 @property (nonatomic, strong) AgentProxy *agentProxy;
 
+@property (retain,nonatomic) CustomPickerViewController *pickerController;
+
 @end
 
 

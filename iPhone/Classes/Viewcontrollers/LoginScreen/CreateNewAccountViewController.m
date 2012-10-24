@@ -367,6 +367,7 @@
 	}
     
     appDelegate.user = nil;
+    appDelegate.isGuest = NO;
 	User *newUser = [[User alloc] init];
     appDelegate.user = newUser;
     appDelegate.user.name = self.name;	
@@ -377,8 +378,8 @@
     
     [appDelegate.user save];
     
-    [backButton sendActionsForControlEvents:UIControlStateNormal];
-    
+    [appDelegate showMainMenu];
+        
 }
 
 #pragma mark -

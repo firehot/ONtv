@@ -75,10 +75,11 @@ UIViewAutoresizingFlexibleTopMargin
 
     // content view
     UIView *containerView = [[UIView alloc] initWithFrame:self.view.bounds];
-    containerView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
+    containerView.autoresizingMask = UIViewAutoresizingFlexibleMargins | UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
     
     containerView.clipsToBounds = YES;
     containerView.autoresizesSubviews = YES;
+    
       
     
     [self.view addSubview:containerView];
@@ -239,7 +240,7 @@ UIViewAutoresizingFlexibleTopMargin
     if (_ontvNavigationController) return _ontvNavigationController;
     
     _ontvNavigationController = [[UINavigationController alloc] initWithNibName:nil bundle:nil];
-    _ontvNavigationController.navigationBar.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
+    //_ontvNavigationController.navigationBar.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
     _ontvNavigationController.view.autoresizingMask = UIViewAutoresizingFlexibleHeight | UIViewAutoresizingFlexibleTopMargin | UIViewAutoresizingFlexibleBottomMargin;
     _ontvNavigationController.navigationBar.autoresizesSubviews=YES;
     

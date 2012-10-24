@@ -125,9 +125,9 @@
 
 - (void)doneButton {
 	
-	if (customPickerViewDelegate && [customPickerViewDelegate respondsToSelector:@selector(doneClicked:)]) {
+	if (self.customPickerViewDelegate && [self.customPickerViewDelegate respondsToSelector:@selector(doneClicked:)]) {
 		
-		[customPickerViewDelegate doneClicked:[NSString stringWithFormat:@"%@-%@",self.selectedHoursFirstComponent,self.selectedHoursSecondComponent]];		
+		[self.customPickerViewDelegate doneClicked:[NSString stringWithFormat:@"%@-%@",self.selectedHoursFirstComponent,self.selectedHoursSecondComponent]];		
 	}
     
      [self.view removeFromSuperview];	
