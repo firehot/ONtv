@@ -769,8 +769,7 @@ NSString *recommendationHeaderTitle;
 // gets called when server request is successfull but, return data count is zero.
 
 - (void)noProgramRecordsFound {
-    noRecordFound = YES;
-    [self.programArray removeAllObjects];
+    noRecordFound = !self.programArray.count;
     [_recommendationProgramTableView reloadData];
 }
 
