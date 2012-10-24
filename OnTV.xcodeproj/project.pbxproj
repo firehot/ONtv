@@ -692,7 +692,7 @@
 		0489B9361612548C00CBCB6E /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		04D7AAA8161B777C0030D80E /* RecommendedBtn2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = RecommendedBtn2.png; sourceTree = "<group>"; };
 		1D30AB110D05D00D00671497 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
-		1D6058910D05DD3D006BFB54 /* ONTV.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ONTV.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		1D6058910D05DD3D006BFB54 /* TimeFor.TV.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TimeFor.TV.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1DF5F4DF0D08C38300B7A737 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		2860E327111B887F00E27156 /* MainWindow_iPhone.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MainWindow_iPhone.xib; sourceTree = "<group>"; };
 		2860E32B111B888700E27156 /* AppDelegate_iPad.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppDelegate_iPad.h; sourceTree = "<group>"; };
@@ -1310,7 +1310,7 @@
 		19C28FACFE9D520D11CA2CBB /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				1D6058910D05DD3D006BFB54 /* ONTV.app */,
+				1D6058910D05DD3D006BFB54 /* TimeFor.TV.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -2336,7 +2336,7 @@
 			);
 			name = OnTV;
 			productName = OnTV;
-			productReference = 1D6058910D05DD3D006BFB54 /* ONTV.app */;
+			productReference = 1D6058910D05DD3D006BFB54 /* TimeFor.TV.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -2899,7 +2899,7 @@
 					"-ObjC",
 					"-lsqlite3.0",
 				);
-				PRODUCT_NAME = ONTV;
+				PRODUCT_NAME = TimeFor.TV;
 				PROVISIONING_PROFILE = "7687CF6E-7254-42CF-8E65-B4EEA21BC694";
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -2941,7 +2941,7 @@
 					"-ObjC",
 					"-lsqlite3.0",
 				);
-				PRODUCT_NAME = ONTV;
+				PRODUCT_NAME = TimeFor.TV;
 				PROVISIONING_PROFILE = "D9D43F1D-37BE-4BF6-A7E9-6436021FC3DA";
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
@@ -3113,7 +3113,7 @@
 					"-ObjC",
 					"-lsqlite3.0",
 				);
-				PRODUCT_NAME = ONTV;
+				PRODUCT_NAME = TimeFor.TV;
 				PROVISIONING_PROFILE = "D9D43F1D-37BE-4BF6-A7E9-6436021FC3DA";
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
