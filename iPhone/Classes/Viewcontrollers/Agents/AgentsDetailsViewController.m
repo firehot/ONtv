@@ -1117,17 +1117,18 @@ BOOL isNumberPad;
 
     NSArray *hoursItems = [self.agent.reminderHours componentsSeparatedByString:@"-"];
     
-    CustomPickerViewController *customPickerViewController = [[CustomPickerViewController alloc] init];
+    self.pickerController = [[CustomPickerViewController alloc] init];
     
-    customPickerViewController.selectedHoursFirstComponent = [hoursItems objectAtIndex:0];
+    [self.view addSubview:self.pickerController.view];
     
-    customPickerViewController.selectedHoursSecondComponent = [hoursItems objectAtIndex:1];
+    self.pickerController.selectedHoursFirstComponent = [hoursItems objectAtIndex:0];
     
-    [self.view addSubview:customPickerViewController.view];
+    self.pickerController.selectedHoursSecondComponent = [hoursItems objectAtIndex:1];
+    
+    self.pickerController.customPickerViewDelegate=self;
    
     
-    customPickerViewController.customPickerViewDelegate = self; 
-    
+        
 }
 
 // Gets Called when user clicks the done button on picker view, to update the hour cell.

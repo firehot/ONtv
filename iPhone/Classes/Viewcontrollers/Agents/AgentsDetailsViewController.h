@@ -16,7 +16,9 @@
     BOOL agentSwitchON;
     
     __weak UIView *_keyboardView;
+    
 }   
+@property (retain,nonatomic) CustomPickerViewController *pickerController;
 
 @property (nonatomic, weak) id<AgentsDetailsDelegate> agentsDetailsDelegate;
 

@@ -549,7 +549,7 @@
     
     if ([aSwitch respondsToSelector:@selector(setOnTintColor:)]) {
       
-        [aSwitch setOnTintColor:[UIUtils colorFromHexColor:BLUE]];
+        [aSwitch setOnTintColor:[UIUtils colorFromHexColor:@"b00a4f"]];
     }
     
     return aSwitch; 

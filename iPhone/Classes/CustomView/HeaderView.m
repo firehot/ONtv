@@ -124,12 +124,17 @@
 
 - (void)createUIForCategoryHeader {
     
+   
+    
+    UIImageView *backgrounfImage=[[UIImageView alloc] initWithImage:[UIImage imageNamed:@"bg_title.png"]];
+    [backgrounfImage setFrame:(CGRectMake(0, 0, 320, 45))];
+    [self addSubview:backgrounfImage];
     
     UIImageView *ChannelLogoBGIV = [UIControls createUIImageViewWithFrame:CGRectMake(5, 5, 38, 37)];
     UIImage *ChannelLogoBGImage  = [UIImage imageNamed:@"CategoryBackGround"];
     [ChannelLogoBGIV setImage:ChannelLogoBGImage];
     [ChannelLogoBGIV setContentMode:UIViewContentModeScaleAspectFit];
-    [self addSubview:ChannelLogoBGIV];
+    [self addSubview:ChannelLogoBGIV];    
     
     
      UIImageView *tempEGOIV = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"bigChannelLogo"]];
