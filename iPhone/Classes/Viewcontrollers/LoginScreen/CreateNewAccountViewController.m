@@ -130,7 +130,8 @@
     backButton = backBtn;
     
     // addLogoForLoginScreen
-    UIImageView *ivTemp = [[UIImageView alloc] initWithFrame:CGRectMake(floorf(0.5f*(headerView.bounds.size.width - 150)), 95, 150, 50)];
+    UIImageView *ivTemp = [[UIImageView alloc] initWithFrame:CGRectMake(floorf(0.5f*(headerView.bounds.size.width - 255)), 80, 255, 57)];
+    [ivTemp setImage:[UIImage imageNamed:@"img_logo.png"]];
     
     ivTemp.autoresizingMask=UIViewAutoresizingFlexibleLeftMargin|UIViewAutoresizingFlexibleRightMargin;
     

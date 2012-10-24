@@ -159,7 +159,7 @@
                    
                         [self createSelectedCellBackGroundWithFrame:self.contentView.bounds];
                         
-                        [self createLogoBackGroundImageViewWithFrame:CGRectMake(10, 7, 38, 37) andImage:@"CategoryBackGround"];
+                       // [self createLogoBackGroundImageViewWithFrame:CGRectMake(10, 7, 38, 37) andImage:@"CategoryBackGround"];
                         
                         [self createProgramTitleLabelWithFrame:CGRectMake(55, 10, 150, 30)];
                         
@@ -272,8 +272,10 @@
 
 - (void)createCellBackGround {
     self.backgroundView = [[UIView alloc] initWithFrame:self.contentView.bounds];
-    
+      
     [self.backgroundView setBackgroundColor:[UIUtils colorFromHexColor:@"F5F5F5"]];
+      
+   
 }
 
 

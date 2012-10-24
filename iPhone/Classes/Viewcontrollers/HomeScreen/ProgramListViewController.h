@@ -33,5 +33,5 @@
 
 
 -(void) setArray:(NSMutableArray *)array AndCurrentSelectedIndex:(int)currentIndex AndSeletedMenuType:(MenuBarButton)type;
-
+- (NSString*)colorForCatgegoryType:(NSString*)type;
 @end

@@ -165,30 +165,77 @@ NSIndexPath* aindexPath;
     
     // to set the Category type image size dynamicallly
     
-    NSString *imageName = [ChannelCategory getChannelCatgegoryType:categoryObj.categoryType];
-    UIImage *image = [UIImage imageNamed:imageName];
     
-    if ([imageName isEqualToString:@"NewsCategory"] || [imageName isEqualToString:@"MoviesCategory"] ||[imageName isEqualToString:@"DramaCategory"] ) {
-        
-        [cell.categoryImageView setFrame:CGRectMake( 10+12,  7+10, image.size.width, image.size.height)];
-        
-    } else if  ([imageName isEqualToString:@"SportCategory"] ){
     
-        [cell.categoryImageView setFrame:CGRectMake( 10+12,  7+11, image.size.width, image.size.height)];
-        
-    } else {
+    NSString *colorName=[self colorForCatgegoryType:categoryObj.categoryType];
+    UIView *categoryView=[[UIView alloc] initWithFrame:CGRectMake(0, 0, 34.5f, 28.5f)];
+    [categoryView.layer setCornerRadius:5.0f];
+    [categoryView setBackgroundColor:[UIUtils colorFromHexColor:colorName]];
     
-        [cell.categoryImageView setFrame:CGRectMake( 10+10,  7+10, image.size.width, image.size.height)];
+    [cell.categoryImageView addSubview:categoryView];
     
-    }
+       
+    cell.categoryImageView.frame= CGRectMake(10, 10, 34.5f, 28.5f);
     
-    UIImage *categoryImage = [UIImage imageNamed:imageName];
+    [cell.categoryImageView addSubview:categoryView];
 
-    [cell.categoryImageView setImage:categoryImage];
+    
                                                                         
     return cell;
 }
-
+- (NSString*)colorForCatgegoryType:(NSString*)type
+{
+    
+    if ([type isEqualToString:@"documentary"]) {
+        
+        return @"7959c3";
+        
+    } else if ([type isEqualToString:@"entertainment"]) {
+        
+        return @"c03e8d";
+        
+    } else if ([type isEqualToString:@"kids"]) {
+        
+        return @"17b8cb";
+        
+    } else if ([type isEqualToString:@"movie"]) {
+        
+        return @"a51311";
+        
+    } else if ([type isEqualToString:@"music"]) {
+        
+        return @"f0db2a";
+        
+    } else if ([type isEqualToString:@"news"]) {
+        
+        return @"004f92";
+        
+    } else if ([type isEqualToString:@"serie"]) {
+        
+        return @"e08e00";
+        
+    } else if ([type isEqualToString:@"show"]) {
+        
+        //return @"ShowCategory";
+        return @"DramaCategory";
+        
+    } else if ([type isEqualToString:@"sport"]) {
+        
+        return @"1bab5f";
+        
+    } else if ([type isEqualToString:@"drama"]) {
+        
+        return @"1bab5f";
+        
+    } else if ([type isEqualToString:@"science"]) {
+        
+        return @"FFFFFF";
+        
+    }
+    
+    return @"000000";
+    
+}
 
 #pragma mark -
 #pragma mark Table view delegate
@@ -208,7 +255,7 @@ NSIndexPath* aindexPath;
 
 
 -(CGFloat)tableView:(UITableView*)tableView heightForRowAtIndexPath:(NSIndexPath*) indexPath {
-    return 50;
+    return 45;
 }
 
 

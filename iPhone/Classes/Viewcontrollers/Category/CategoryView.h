@@ -13,5 +13,5 @@
 @property (nonatomic, strong) NSMutableArray *categoryArray; 
 
 @property (nonatomic, strong) CategoryProxy *categoryProxy; 
-
+- (NSString*)colorForCatgegoryType:(NSString*)type;
 @end

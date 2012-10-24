@@ -138,7 +138,7 @@
 {
     CGFloat tableViewMargin = 10.0f;
     CGFloat tableViewContentHeight = [self.tableView numberOfRowsInSection:0]*self.tableView.rowHeight+2.0f*tableViewMargin;
-    CGFloat tableViewHeaderHeight = floorf(0.65f*(self.tableView.bounds.size.height-tableViewContentHeight));
+    CGFloat tableViewHeaderHeight = floorf(0.5f*(self.tableView.bounds.size.height-tableViewContentHeight));
     
     return CGRectMake(0.0f, 0.0f, self.tableView.bounds.size.width, tableViewHeaderHeight);
 }
@@ -155,7 +155,8 @@
     containerView.autoresizingMask = UIViewAutoresizingFlexibleWidth|UIViewAutoresizingFlexibleBottomMargin|UIViewAutoresizingFlexibleTopMargin;
     
     // addLogoForLoginScreen
-    UIImageView *ivTemp = [[UIImageView alloc] initWithFrame:CGRectMake(floorf(0.5f*(headerView.bounds.size.width - 150)), 145, 150, 50)];
+    UIImageView *ivTemp = [[UIImageView alloc] initWithFrame:CGRectMake(floorf(0.5f*(headerView.bounds.size.width - 255)), 80, 255, 57)];
+    [ivTemp setImage:[UIImage imageNamed:@"img_logo.png"]];
     
     ivTemp.autoresizingMask=UIViewAutoresizingFlexibleLeftMargin|UIViewAutoresizingFlexibleRightMargin;
     
@@ -165,7 +166,7 @@
     // addSubscriptionLabel
     CGSize suggestedSize = [subscriptionLabelStr sizeWithFont:[UIFont fontWithName:@"Helvetica" size:12.0f] constrainedToSize:CGSizeMake(headerView.bounds.size.width-30.0f, 40) lineBreakMode:UILineBreakModeWordWrap];
     
-    UILabel *tempLabel = [[UILabel alloc]initWithFrame:CGRectMake(15, CGRectGetMaxY(ivTemp.frame)+5, headerView.bounds.size.width-30.0f, suggestedSize.height)];
+    UILabel *tempLabel = [[UILabel alloc]initWithFrame:CGRectMake(15, CGRectGetMaxY(ivTemp.frame)+10, headerView.bounds.size.width-30.0f, suggestedSize.height)];
 	self.subscriptionLabel = tempLabel;
     
     self.subscriptionLabel.lineBreakMode = UILineBreakModeWordWrap;
@@ -205,7 +206,7 @@
     
     UIButton *login = [UIButton buttonWithType:UIButtonTypeCustom];
     self.loginButton = login;
-    self.loginButton.frame = CGRectMake(footerView.bounds.size.width-300.0f-buttonMargin, 0.0f, 300, 40);
+    self.loginButton.frame = CGRectMake(footerView.bounds.size.width-300.0f-buttonMargin, 50.0f, 300, 40);
     self.loginButton.backgroundColor = [UIColor clearColor];
     self.loginButton.userInteractionEnabled = YES;	
     self.loginButton.tag = 0;	
@@ -222,7 +223,7 @@
     
     // createContinueButton
     continueButton = [UIButton buttonWithType:UIButtonTypeCustom];
-    continueButton.frame = CGRectMake(buttonMargin, footerView.bounds.size.height-buttonMargin-142.5, buttonWidth, 30); //70
+    continueButton.frame = CGRectMake(buttonMargin, footerView.bounds.size.height-buttonMargin-32.5, buttonWidth, 30); //70
     continueButton.backgroundColor = [UIColor clearColor];
     continueButton.userInteractionEnabled = YES;	
     continueButton.tag = 1;	
@@ -240,7 +241,7 @@
     
     // createNewUserButton
     createNewUserButton = [UIButton buttonWithType:UIButtonTypeCustom];
-    createNewUserButton.frame = CGRectMake(footerView.bounds.size.width-buttonWidth-buttonMargin, footerView.bounds.size.height-buttonMargin-142.5, buttonWidth, 30);
+    createNewUserButton.frame = CGRectMake(footerView.bounds.size.width-buttonWidth-buttonMargin, footerView.bounds.size.height-buttonMargin-32.5, buttonWidth, 30);
     createNewUserButton.backgroundColor = [UIColor clearColor];
     createNewUserButton.userInteractionEnabled = YES;	
     createNewUserButton.tag = 2;	

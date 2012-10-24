@@ -140,7 +140,11 @@ int searchFlag = 0;
 -(void) configureAddFavoriteChannelView {
 	
     self.navigationController.navigationBar.barStyle = UIBarStyleDefault;
-    self.navigationController.navigationBar.tintColor = [UIUtils colorFromHexColor:@"b00a4f"];
+   // self.navigationController.navigationBar.tintColor = [UIUtils colorFromHexColor:@"b00a4f"];
+    self.navigationController.navigationBar.tintColor=[UIColor colorWithPatternImage:[UIImage imageNamed:@"bg_bartop.png"]];
+    if ([self.navigationController.navigationBar respondsToSelector:@selector( setBackgroundImage:forBarMetrics:)]){
+        [self.navigationController.navigationBar setBackgroundImage:[UIImage imageNamed:@"bg_bartop.png"] forBarMetrics:UIBarMetricsDefault];
+    }
 	[self addSearchBar];
 	NSMutableArray *arrTemp = [[NSMutableArray alloc] init];
 	self.addChannelsArray = arrTemp;

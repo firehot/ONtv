@@ -716,7 +716,7 @@ NSString *searchHeaderTodayLabelStr;
         
     
     if (_menuSelected == other) {
-                  
+                          
         
         [_programHeaderView.pageControl setNumberOfPages:[self.channelArray count]];
         

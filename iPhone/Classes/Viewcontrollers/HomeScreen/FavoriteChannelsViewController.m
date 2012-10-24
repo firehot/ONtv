@@ -184,7 +184,7 @@ BOOL formProgramDetail;
     AppDelegate_iPhone *appDelegate = DELEGATE;
     
     if (appDelegate.selectedMenuItem != Favorite && appDelegate.selectedMenuItem != Plan) {
-     //   self.navigationItem.leftBarButtonItem = nil;
+        self.navigationItem.leftBarButtonItem = nil;
     } 
 }
 
@@ -813,7 +813,10 @@ BOOL formProgramDetail;
         
        //[cell.backgroundView setBackgroundColor:[UIColor colorWithPatternImage:[UIImage imageNamed:@"cellImage"]]];
         cell.backgroundView.backgroundColor=[UIColor whiteColor];
+        UIView *viewd = [[UIView alloc] initWithFrame:CGRectMake(100, 0, 1, 50)];
+        viewd.backgroundColor=[UIUtils colorFromHexColor:@"e6e5e4"];
         
+        [cell.contentView addSubview:viewd];
 
         [cell.categoryImageView setHidden:YES];
         
@@ -823,7 +826,7 @@ BOOL formProgramDetail;
 		if([newChannel.imageObjectsArray count] !=0 || newChannel.imageObjectsArray != nil) {
             
             [cell.logoBackgroundImageView setHidden:NO];
-            [cell.logoImageView setFrame:CGRectMake(16+10, 11+5, 50, 20)];	
+            [cell.logoImageView setFrame:CGRectMake(16, 11, 75, 30)];
 			Image *imageObject = [newChannel.imageObjectsArray objectAtIndex:1];
             
             DLog(@"channel server path string %@", imageObject.src);

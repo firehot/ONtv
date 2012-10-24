@@ -110,6 +110,11 @@
     self.channelLogoIV.contentMode = UIViewContentModeScaleAspectFit;
     [ChannelLogoBGIV addSubview:self.channelLogoIV];
     
+    UILabel *tempProgramNameLabel=[[UILabel alloc] initWithFrame:CGRectMake(17+90+20, 48, 100, 34)];
+    tempProgramNameLabel.textColor=[UIColor blackColor];
+    tempProgramNameLabel.font=[UIFont fontWithName:@"Helvetica" size:14.0f];
+    [self addSubview:tempProgramNameLabel];
+    
     
     [self createPageControlScrollViewWithFrame:CGRectMake(100, 0, 80, 49)];
     
