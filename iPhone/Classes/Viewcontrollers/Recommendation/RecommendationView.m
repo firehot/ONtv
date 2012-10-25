@@ -309,14 +309,14 @@ NSString *recommendationHeaderTitle;
     
     // to set the Category type image size dynamicallly
     
-    NSString *imageName = [ChannelCategory getChannelCatgegoryType:programObj.type];
-    NSString *imagePath = [[NSBundle mainBundle]pathForResource:imageName ofType:@"png"];
-    UIImage *image = [[UIImage alloc]initWithContentsOfFile:imagePath];
-    [cell.categoryImageView setFrame:CGRectMake(265, 15, image.size.width, image.size.height)];
+   // NSString *imageName = [ChannelCategory getChannelCatgegoryType:programObj.type];
+   // NSString *imagePath = [[NSBundle mainBundle]pathForResource:imageName ofType:@"png"];
+   // UIImage *image = [[UIImage alloc]initWithContentsOfFile:imagePath];
+    //[cell.categoryImageView setFrame:CGRectMake(265, 15, image.size.width, image.size.height)];
     
     
-    UIImage *categoryImage = [UIImage imageNamed:imageName];
-    [cell.categoryImageView setImage:categoryImage];
+ //   UIImage *categoryImage = [UIImage imageNamed:imageName];
+ //   [cell.categoryImageView setImage:categoryImage];
     
     
     [cell.programTeaserLabel setText:programObj.teaser];
