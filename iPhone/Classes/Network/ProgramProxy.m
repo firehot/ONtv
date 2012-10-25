@@ -297,7 +297,7 @@
           
           [url appendString:@"/programs/"];
           
-          [url appendFormat:@"%@",programIDs];
+          [url appendFormat:@"%@", programIDs];
           
           DLog(@"getProgramDetails ******************** new url : %@",url);
           

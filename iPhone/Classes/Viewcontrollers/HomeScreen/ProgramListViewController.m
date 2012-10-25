@@ -303,7 +303,7 @@ NSString *searchHeaderTodayLabelStr;
         return 1;
     }
         
-    return  [self.programArray count];
+    return  self.programArray.count;
 }
 
 // return no record found cell.
@@ -1199,9 +1199,7 @@ NSString *searchHeaderTodayLabelStr;
 
 - (void)noProgramRecordsFound {
 
-        noRecordFound = YES;
-        
-        [self.programArray removeAllObjects];
+        noRecordFound = !self.programArray.count;
         
         [self.programTableView reloadData];
         
