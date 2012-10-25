@@ -115,7 +115,7 @@
                         
                         [self createProgramTitleLabelWithFrame:CGRectMake(50, 10, 150, 30)];
                         
-                        [self createChannelImageViewWithFrame:CGRectMake(self.bounds.size.width - 115, 15, 45, 20)];
+                        [self createChannelImageViewWithFrame:CGRectMake(self.bounds.size.width - 80, 15, 45, 20)];
                         
                         [self createCategoryImageView:YES];
                         
@@ -133,7 +133,7 @@
                         
                         [self createProgramTitleLabelWithFrame:CGRectMake(50, 10, 150, 30)];
                         
-                        [self createChannelImageViewWithFrame:CGRectMake(self.bounds.size.width - 115, 15, 45, 20)];
+                        [self createChannelImageViewWithFrame:CGRectMake(self.bounds.size.width - 80, 15, 45, 20)];
                         
                         [self createprogramProLabel1WithFrame:CGRectMake(10, 40, 300, 30)];
                         
@@ -161,7 +161,7 @@
                         
                        // [self createLogoBackGroundImageViewWithFrame:CGRectMake(10, 7, 38, 37) andImage:@"CategoryBackGround"];
                         
-                        [self createProgramTitleLabelWithFrame:CGRectMake(55, 10, 150, 30)];
+                        [self createProgramTitleLabelWithFrame:CGRectMake(55, 10, 150, 25)];
                         
                         [self createCategoryImageView:NO];
                         

@@ -380,6 +380,7 @@ NSString *searchHeaderTodayLabelStr;
         
         UIImage *categoryImage = [UIImage imageNamed:imageName];
         [cell.categoryImageView setImage:categoryImage];
+        cell.backgroundColor=[UIColor grayColor];
         
     } else if (_menuSelected == Categories) {
         

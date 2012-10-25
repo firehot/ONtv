@@ -74,8 +74,10 @@
 
 - (void)createCommonUI {
 
-    UIImage *ontvLogoImage  = [UIImage imageNamed:@"HeaderTitleBackground"];
-    [self setImage:ontvLogoImage];    
+    //UIImage *ontvLogoImage  = [UIImage imageNamed:@"HeaderTitleBackground"];
+    UIImageView *back=[[UIImageView alloc] initWithImage:[UIImage imageNamed:@"bg_title.png"]];
+    
+    [self addSubview:back];
     [self setUserInteractionEnabled:YES];
     
 } 
@@ -83,8 +85,10 @@
 
 - (void)createUIForHomeHeader {
     
-    self.headerTitleLbl =[UIControls createUILabelWithFrame:CGRectMake(10, 0, 150, 49) FondSize:16 FontName:@"System Bold" FontHexColor:@"117890" LabelText:@""];
+    self.headerTitleLbl =[UIControls createUILabelWithFrame:CGRectMake(10, 0, 150, 49) FondSize:16 FontName:@"System Bold" FontHexColor:@"FFFFFF" LabelText:@""];
     [self addSubview:self.headerTitleLbl];
+    
+    [self CreateDateUIView];
     
 }
  
@@ -201,28 +205,33 @@
 }
 
 - (void)CreateDateUIView { 
+    //Label that shows text "Shows"
     
+    //self.headerTitleShowLbl =[UIControls createUILabelWithFrame:CGRectMake(self.bounds.size.width-130, 0, 48, 49) FondSize:13 FontName:@"System Bold" FontHexColor:@"858585" LabelText:@""];
     
-    self.headerTitleShowLbl =[UIControls createUILabelWithFrame:CGRectMake(self.bounds.size.width-130, 0, 48, 49) FondSize:13 FontName:@"System Bold" FontHexColor:@"858585" LabelText:@""];
-    
-    self.headerTitleShowLbl.autoresizingMask=UIViewAutoresizingFlexibleLeftMargin;
+   // self.headerTitleShowLbl.autoresizingMask=UIViewAutoresizingFlexibleLeftMargin;
 
-    [self addSubview:self.headerTitleShowLbl];
+   // [self addSubview:self.headerTitleShowLbl];
 
-    self.headerTitleShowsValueLbl =[UIControls createUILabelWithFrame:CGRectMake(self.bounds.size.width-85, 0, 60, 49) FondSize:13 FontName:@"System Bold" FontHexColor:@"117890" LabelText:@""];
+    self.headerTitleShowsValueLbl =[UIControls createUILabelWithFrame:CGRectMake(self.bounds.size.width-85, 5, 70, 34) FondSize:13 FontName:@"System Bold" FontHexColor:@"FFFFFF" LabelText:@""];
     [self.headerTitleShowsValueLbl setTextAlignment:UITextAlignmentCenter];
     
     self.headerTitleShowsValueLbl.autoresizingMask=UIViewAutoresizingFlexibleLeftMargin;
 
-    [self addSubview:self.headerTitleShowsValueLbl];
     
-    self.dateButton = [UIControls createUIButtonWithFrame:CGRectMake(self.bounds.size.width-90, 0, 150, 49)];
+    self.dateButton.titleLabel.font=[UIFont fontWithName:@"System Bold" size:13];
+    self.dateButton.titleLabel.textColor=[UIColor whiteColor];
+    
+    self.dateButton = [UIControls createUIButtonWithFrame:CGRectMake(self.bounds.size.width-90, 5, 80, 34)];
     
     self.dateButton.autoresizingMask=UIViewAutoresizingFlexibleLeftMargin;
 
-    UIImage *dateImage  = [UIImage imageNamed:@"HeaderArrowButton"];
-    [self.dateButton setImage:dateImage forState:UIControlStateNormal];
+    UIImage *dateImage  = [UIImage imageNamed:@"btn_channels.png"];
+    UIImage *dateImagePressed=[UIImage imageNamed:@"btn_channels_pressed.png"];
+    [self.dateButton setBackgroundImage:dateImage forState:UIControlStateNormal];
+    [self.dateButton setBackgroundImage:dateImagePressed forState:UIControlStateHighlighted];
     [self addSubview:self.dateButton];
+    [self addSubview:self.headerTitleShowsValueLbl];
 
 }
 
