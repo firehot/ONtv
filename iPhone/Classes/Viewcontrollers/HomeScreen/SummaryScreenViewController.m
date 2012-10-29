@@ -303,12 +303,12 @@
     
     UIButton *planBtn = [UIControls createUIButtonWithFrame:CGRectZero];
     [planBtn addTarget:self action:@selector(planButtonClicked) forControlEvents:UIControlEventTouchUpInside];
-    [planBtn setBackgroundImage:[[UIImage imageNamed:@"planBtn"] stretchableImageWithLeftCapWidth:40 topCapHeight:10] forState:UIControlStateNormal];
-    [planBtn setTitle:NSLocalizedString(@"Plan",nil) forState:UIControlStateNormal];
+    [planBtn setBackgroundImage:[[UIImage imageNamed:@"plan_btn"] stretchableImageWithLeftCapWidth:40 topCapHeight:10] forState:UIControlStateNormal];
+    [planBtn setBackgroundImage:[[UIImage imageNamed:@"plan_btn_active"] stretchableImageWithLeftCapWidth:40 topCapHeight:10] forState:UIControlStateHighlighted];
+
+    [planBtn setTitle:NSLocalizedString(@"Add notification",nil) forState:UIControlStateNormal];
     [planBtn setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
-    //[planBtn setTitleShadowColor:[UIColor blackColor] forState: UIControlStateNormal];
-    //planBtn.titleLabel.shadowOffset = CGSizeMake(1.0f, 1.0f);
-    planBtn.titleLabel.font = [UIFont fontWithName:SYSTEMBOLD size:13.0f];
+    planBtn.titleLabel.font = [UIFont boldSystemFontOfSize:12.0f];
     planBtn.contentEdgeInsets = UIEdgeInsetsMake(0.0f, 45.0f, 0.0f, 15.0f);
     
     [planBtn sizeToFit];
@@ -325,13 +325,13 @@
  
     self.recommendedBtn = [UIControls createUIButtonWithFrame:CGRectZero];
     [self.recommendedBtn addTarget:self action:@selector(recommendationButtonClicked) forControlEvents:UIControlEventTouchUpInside];
-    [self.recommendedBtn setBackgroundImage:[[UIImage imageNamed:@"RecommendedBtn2"] stretchableImageWithLeftCapWidth:40 topCapHeight:10] forState:UIControlStateNormal];
+    [self.recommendedBtn setBackgroundImage:[[UIImage imageNamed:@"recomd_btn"] stretchableImageWithLeftCapWidth:40 topCapHeight:10] forState:UIControlStateNormal];
     [self.recommendedBtn setTitle:NSLocalizedString(@"Recommend",nil) forState:UIControlStateNormal];
-    [self.recommendedBtn setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
-    self.recommendedBtn.titleLabel.font = [UIFont fontWithName:SYSTEMBOLD size:13.0f];
+    [self.recommendedBtn setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+    self.recommendedBtn.titleLabel.font = [UIFont boldSystemFontOfSize:12.0f];
    
     self.recommendedBtn.contentEdgeInsets = UIEdgeInsetsMake(0.0f, 45.0f, 0.0f, 15.0f);
-    self.recommendedBtn.frame = CGRectOffset(self.recommendedBtn.frame, CGRectGetMaxX(planBtn.frame) + 15.0f, CGRectGetMinY(planBtn.frame));
+    self.recommendedBtn.frame = CGRectOffset(self.recommendedBtn.frame, CGRectGetMaxX(planBtn.frame) + 5.0f, CGRectGetMinY(planBtn.frame));
     [self.recommendedBtn sizeToFit];
     [_summaryScrollView addSubview:planBtn];
     [_summaryScrollView addSubview:self.recommendedBtn];
@@ -920,14 +920,15 @@
     
     if(isrecommend) {
         
-        [self.recommendedBtn setBackgroundImage:[[UIImage imageNamed:@"Unrecommend2"] stretchableImageWithLeftCapWidth:40 topCapHeight:10] forState:UIControlStateNormal];
+        [self.recommendedBtn setBackgroundImage:[[UIImage imageNamed:@"recomd_btn_pressed"] stretchableImageWithLeftCapWidth:60 topCapHeight:10] forState:UIControlStateNormal];
         
         [self.recommendedBtn setTitle:NSLocalizedString(@"Don't recommend", nil) forState:UIControlStateNormal];
+        [self.recommendedBtn.titleLabel setFont:[UIFont boldSystemFontOfSize:10.0f]];
         [self.recommendedBtn sizeToFit];
         
     } else {
         
-        [self.recommendedBtn setBackgroundImage:[[UIImage imageNamed:@"RecommendedBtn2"] stretchableImageWithLeftCapWidth:40 topCapHeight:10] forState:UIControlStateNormal];
+        [self.recommendedBtn setBackgroundImage:[[UIImage imageNamed:@"recomd_btn"] stretchableImageWithLeftCapWidth:60 topCapHeight:10] forState:UIControlStateNormal];
         
         [self.recommendedBtn setTitle:NSLocalizedString(@"Recommend", nil) forState:UIControlStateNormal];
         [self.recommendedBtn sizeToFit];
