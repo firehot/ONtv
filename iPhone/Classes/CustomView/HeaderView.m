@@ -95,8 +95,6 @@
 - (void)createUIForListHeader {
     UIImageView *ChannelLogoBGIV = [UIControls createUIImageViewWithFrame:CGRectMake(0, 0, 320, 90)];
     ChannelLogoBGIV.backgroundColor=[UIColor whiteColor];
-    // UIImage *ChannelLogoBGImage  = [UIImage imageNamed:@"imageBackground"];
-    //[ChannelLogoBGIV setImage:ChannelLogoBGImage];
     [ChannelLogoBGIV setContentMode:UIViewContentModeScaleAspectFit];
     [self addSubview:ChannelLogoBGIV];
     
@@ -104,9 +102,7 @@
     UIImageView *backgrounfImage=[[UIImageView alloc] initWithImage:[UIImage imageNamed:@"bg_title.png"]];
     [backgrounfImage setFrame:(CGRectMake(0, 0, 320, 45))];
     [self addSubview:backgrounfImage];
-    
-   
-    
+       
     
     UIImageView *tempEGOIV = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"bigChannelLogo"]];		
     self.channelLogoIV  = tempEGOIV;
@@ -119,13 +115,27 @@
     tempProgramNameLabel.font=[UIFont fontWithName:@"Helvetica" size:14.0f];
     [self addSubview:tempProgramNameLabel];
     
+    UIButton *leftButton=[[UIButton alloc] initWithFrame:CGRectMake(5, 14.5f, 11, 16)];
+    [leftButton setBackgroundImage:[UIImage imageNamed:@"ic_pagination_arrow_left.png"] forState:UIControlStateNormal];
+    self.leftPagination = leftButton;
+    [self addSubview:self.leftPagination];
     
-    [self createPageControlScrollViewWithFrame:CGRectMake(100, 0, 80, 49)];
     
-    [self createPageControlWithFrame:CGRectMake(0, 0, 80, 49)];
+    [self createPageControlScrollViewWithFrame:CGRectMake(16, 0, 90, 45)];
+    [self createPageControlWithFrame:CGRectMake(16, 0, 90, 45)];
     
-    [self createPageControlLabelWithFrame:CGRectMake(103, 30, 80, 20)];
+    UIButton *rightButton=[[UIButton alloc] initWithFrame:CGRectMake(16+90, 14.5f, 11, 16)];
+    [rightButton setBackgroundImage:[UIImage imageNamed:@"ic_pagination_arrow_right.png"] forState:UIControlStateNormal];
+    self.rightPagination = rightButton;
+    [self addSubview:self.rightPagination];
     
+        
+    UILabel *showsLabel = [[UILabel alloc] initWithFrame:CGRectMake(90+27+60, 14.5f, 60, 16)];
+    [showsLabel setText:@"Shows:"];
+    [showsLabel setBackgroundColor:[UIColor clearColor]];
+    [showsLabel setTextColor:[UIColor whiteColor]];
+    [showsLabel setFont:[UIFont boldSystemFontOfSize:12.0f]];
+    [self addSubview:showsLabel];
     
     [self CreateDateUIView];
 }

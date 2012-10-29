@@ -261,7 +261,7 @@ NSString *searchHeaderTodayLabelStr;
         return;
     } else {
         
-        UITableView *tableView = [[UITableView alloc]initWithFrame:CGRectMake(0,90,self.view.frame.size.width,self.view.frame.size.height-49)];
+        UITableView *tableView = [[UITableView alloc]initWithFrame:CGRectMake(0,90,self.view.frame.size.width,self.view.frame.size.height-90)];
         self.programTableView = tableView;
         
         // ABP
@@ -522,10 +522,8 @@ NSString *searchHeaderTodayLabelStr;
                 [cell.programTeaserLabel setText:programObj.teaser];
                 
             }
-            
-            
+                        
             CGSize  size = [self getSizeFor:cell.programTeaserLabel.text withConstrained:CGSizeMake(300, 120)];
-            
             [cell.programTeaserLabel setFrame:CGRectMake(10, 40, 300, size.height)];
             int noOfLines = (int)ceilf(size.height/18);
             [cell.programTeaserLabel setNumberOfLines:noOfLines];
@@ -551,23 +549,19 @@ NSString *searchHeaderTodayLabelStr;
         return;
     }
     Program *program = [self.programArray objectAtIndex:[indexPath row]];
-    
-    
+        
     for (int i = 0; i < [self.channelArray count]; i++) {
-        
-        
+               
         Channel *channel = [self.channelArray objectAtIndex:i];
         
         if (channel.id == program.channel) {
-            
             [self showSummaryViewForProgram:program andChannels:channel];
             
             break;
             
         }
     }
-    
-    
+        
     [tableView deselectRowAtIndexPath:indexPath animated:NO];
 }
 
@@ -710,9 +704,9 @@ NSString *searchHeaderTodayLabelStr;
     _programHeaderView.autoresizingMask=(UIViewAutoresizingFlexibleWidth|UIViewAutoresizingFlexibleLeftMargin);
     
     [_programHeaderView.headerTitleShowLbl setText:searchHeaderShowsLabelStr];
-    [_programHeaderView.headerTitleShowsValueLbl setText:searchHeaderTodayLabelStr];    
-    
-    
+    [_programHeaderView.headerTitleShowsValueLbl setText:searchHeaderTodayLabelStr];
+    [_programHeaderView.rightPagination addTarget:self action:@selector(handleSwipeFromLeft) forControlEvents:UIControlEventTouchUpInside];
+    [_programHeaderView.leftPagination addTarget:self action:@selector(handleSwipeFromRight) forControlEvents:UIControlEventTouchUpInside];
     [_programHeaderView.dateButton addTarget:self action:@selector(dayButtonTapped:) forControlEvents:UIControlEventTouchUpInside];
         
     
@@ -720,13 +714,11 @@ NSString *searchHeaderTodayLabelStr;
                           
         
         [_programHeaderView.pageControl setNumberOfPages:[self.channelArray count]];
-        
-        
         [_programHeaderView.pageControl setCurrentPage:_index];
-        
         [_programHeaderView.pageControl setFrame:CGRectMake(0,0,(18*([self.channelArray count])),49)];
         [_programHeaderView.pageControlScrollView setContentSize:CGSizeMake((18*([self.channelArray count])), 49)];
         [_programHeaderView.pageControl setNumberOfPages:[self.channelArray count]];
+        
         
         
         
@@ -870,9 +862,9 @@ NSString *searchHeaderTodayLabelStr;
 
         
         DLog(@"handleSwipeFromRight");
-        [self.programTableView setFrame:CGRectMake(-self.view.frame.size.width, 49, self.programTableView.frame.size.width, self.programTableView.frame.size.height)];
+        [self.programTableView setFrame:CGRectMake(-self.view.frame.size.width, 90, self.programTableView.frame.size.width, self.programTableView.frame.size.height)];
         [UIView beginAnimations:@"swipe View" context:NULL];
-        [self.programTableView setFrame:CGRectMake(0, 49, self.programTableView.frame.size.width, self.programTableView.frame.size.height)];
+        [self.programTableView setFrame:CGRectMake(0, 90, self.programTableView.frame.size.width, self.programTableView.frame.size.height)];
         [UIView commitAnimations];
         
         if (_menuSelected == other) {
@@ -948,9 +940,9 @@ NSString *searchHeaderTodayLabelStr;
 
         
         DLog(@"handleSwipeFromLeft");
-        [self.programTableView setFrame:CGRectMake(self.view.frame.size.width, 49, self.programTableView.frame.size.width, self.programTableView.frame.size.height)];
+        [self.programTableView setFrame:CGRectMake(self.view.frame.size.width, 90, self.programTableView.frame.size.width, self.programTableView.frame.size.height)];
         [UIView beginAnimations:@"swipe View" context:NULL];
-        [self.programTableView setFrame:CGRectMake(0, 49, self.programTableView.frame.size.width, self.programTableView.frame.size.height)];
+        [self.programTableView setFrame:CGRectMake(0, 90, self.programTableView.frame.size.width, self.programTableView.frame.size.height)];
         [UIView commitAnimations];
         
 

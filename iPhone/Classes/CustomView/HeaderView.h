@@ -21,6 +21,8 @@
 @property (nonatomic, weak) UILabel *pageControlPagesLbl;
 @property (nonatomic, weak) SegmentedControl *segmentedControl;
 @property (nonatomic, weak) id<HeaderViewDelegate> headerViewDelegate;
+@property (nonatomic, weak) UIButton *rightPagination;
+@property (nonatomic, weak) UIButton *leftPagination;
 
 - (id)initWithFrame:(CGRect)frame andType:(MenuBarButton)type;
 

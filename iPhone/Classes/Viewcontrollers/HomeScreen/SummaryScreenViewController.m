@@ -211,18 +211,14 @@
         [topView addSubview:divider];
         
     }
-    
-    
+       
     if (self.fromPush) {
         
         AppDelegate_iPhone *appDelegate = DELEGATE;
-        
         for (int i = 0; i < [appDelegate.favoriteChannelsViewController.allChannelsArray count]; i++) {
-        
-    
+            
             Channel *channelObject = [appDelegate.favoriteChannelsViewController.allChannelsArray objectAtIndex:i];
             
-                    
             if (channelObject.id == self.program.channel) {
                 
                 self.channel = channelObject;
@@ -230,33 +226,32 @@
                 break;
             }
         }
-    
+        
     }
     
     
     if([self.channel.imageObjectsArray count] !=0 || self.channel.imageObjectsArray != nil) {
-        
         
         Image *imageObject  = nil;
         
         if (self.fromSearch) {
             
             imageObject = [self.channel.imageObjectsArray objectAtIndex:0];
-
+            
         } else {
             
-           imageObject = [self.channel.imageObjectsArray objectAtIndex:1];
+            imageObject = [self.channel.imageObjectsArray objectAtIndex:1];
         }
-
+        
         
         if(imageObject.src != nil) {
-    
+            
             NSMutableString *urlString = [[NSMutableString alloc] initWithString:BASEURL];
             [urlString appendString:imageObject.src];
             
             DLog(@"channel server path string %@", imageObject.src);
-
-
+            
+            
             UIImageView *channelLogo = [[UIImageView alloc] initWithFrame:CGRectMake(210, currentPoint.y+10, 100, 25)];
             channelLogo.contentMode = UIViewContentModeScaleAspectFit;
             [channelLogo setImageWithURL:[NSURL URLWithString:urlString] placeholderImage:[UIImage imageNamed:@"bigChannelLogo"]];
@@ -350,13 +345,21 @@
     
     if ([self.program.imgSrc isStringPresent]) {
         
-        NSMutableString *urlString = [[NSMutableString alloc] initWithString:BASEURL];
-        [urlString appendString:self.program.imgSrc];
         
+        NSString *urlString =self.program.imgSrc;
         UIImageView *imageView = [[UIImageView alloc] initWithFrame:CGRectMake(self.view.bounds.size.width - 150 - 10, currentPoint.y+10, 150, 100)];
         programImage = imageView;
         programImage.contentMode = UIViewContentModeScaleAspectFit;
-        [programImage setImageWithURL:[NSURL URLWithString:urlString] placeholderImage:[UIImage imageNamed:@"bigChannelLogo.png"]];
+        [programImage setImageWithURL:[NSURL URLWithString:urlString]
+                     placeholderImage:[UIImage imageNamed:@"bigChannelLogo.png"]
+                              success:^(UIImage *image, BOOL cached) {
+                                  NSLog(@"SUSCEESDSD!!!!!");
+            
+        }
+                              failure:^(NSError *error) {
+                                  NSLog(@"FAIL!!!");
+                                  NSLog(@"%@",error.description);
+        }];
         
         UITapGestureRecognizer *recognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(imageViewBackGroundTapped:)];
         recognizer.numberOfTapsRequired = 1;
@@ -364,9 +367,9 @@
         
         [programImage addGestureRecognizer:recognizer];
         recognizer = nil;
-        
-        
         programImage.autoresizingMask = UIViewAutoresizingFlexibleLeftMargin;
+        
+        [_summaryScrollView addSubview:programImage];
        
         
     }  
@@ -923,7 +926,7 @@
         [self.recommendedBtn setBackgroundImage:[[UIImage imageNamed:@"recomd_btn_pressed"] stretchableImageWithLeftCapWidth:60 topCapHeight:10] forState:UIControlStateNormal];
         
         [self.recommendedBtn setTitle:NSLocalizedString(@"Don't recommend", nil) forState:UIControlStateNormal];
-        [self.recommendedBtn.titleLabel setFont:[UIFont boldSystemFontOfSize:10.0f]];
+        [self.recommendedBtn.titleLabel setFont:[UIFont boldSystemFontOfSize:11.0f]];
         [self.recommendedBtn sizeToFit];
         
     } else {
