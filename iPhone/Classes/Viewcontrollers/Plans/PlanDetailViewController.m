@@ -132,7 +132,7 @@
 
 - (void)createUI {
       
-    [self.view setBackgroundColor:[UIUtils colorFromHexColor:LIGHTGRAY]];
+    [self.view setBackgroundColor:[UIUtils colorFromHexColor:@"353535"]];
     
     [self createTimeTextField];
     
@@ -280,7 +280,7 @@
         
         cell = [[CustomCellForChannel alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellIdentifier andTableType:@"PLANDETAILS"];
        	
-         cell.backgroundColor = [UIColor clearColor];
+         cell.backgroundColor = [UIColor whiteColor];
 
    // } 
 
@@ -805,11 +805,18 @@
     
     UIButton *save = [UIUtils createStandardButtonWithTitle:NSLocalizedString(@"Save",nil) addTarget:self action:@selector(savebuttonClicked)];
 	UIBarButtonItem *leftButton = [[UIBarButtonItem alloc] initWithCustomView:save];
-	self.navigationItem.leftBarButtonItem = leftButton;
-
+	self.navigationItem.rightBarButtonItem = leftButton;
+    
+    //    UIButton *save = [[UIButton alloc] initWithFrame:CGRectMake(395, 10, 300, 39)];
+    //    [save setTitle:NSLocalizedString(@"Save",nil) forState:UIControlStateNormal];
+    //    [save.titleLabel setFont:[UIFont systemFontOfSize:13.0f]];
+    //    [save.titleLabel setTextColor:[UIColor whiteColor]];
+    //    [save addTarget:self action:@selector(savebuttonClicked) forControlEvents:UIControlEventTouchUpInside];
+    //    [self.view addSubview:save];
+    
     UIButton *backBtn = [UIUtils createBackButtonWithTarget:self action:@selector(backbuttonClicked)];
     UIBarButtonItem *rightBarButton = [[UIBarButtonItem alloc] initWithCustomView:backBtn];
-	self.navigationItem.rightBarButtonItem = rightBarButton;
+	self.navigationItem.leftBarButtonItem = rightBarButton;
     
 }
 

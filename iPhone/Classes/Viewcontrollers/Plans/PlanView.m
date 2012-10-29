@@ -187,14 +187,14 @@ UILabel *titleLabel;
     UIButton *addButton = [self createButton];
     [addButton addTarget:self action:@selector(addButtonTapped) forControlEvents:UIControlEventTouchUpInside];
     
-    [addButton setFrame:CGRectMake(0, 0, 29, 30)];
-    [addButton setImage: [UIImage imageNamed:@"plus"] forState:UIControlStateNormal];
+    [addButton setFrame:CGRectMake(0, 0, 35, 30)];
+    [addButton setImage: [UIImage imageNamed:@"btn_plus.png"] forState:UIControlStateNormal];
     [addButton setTitle:@"" forState:UIControlStateNormal];
     
     
     UIBarButtonItem *leftBarButton = [[UIBarButtonItem alloc] initWithCustomView:addButton];
     
-    appDelegate.favoriteChannelsViewController.navigationItem.leftBarButtonItem = leftBarButton;
+    appDelegate.favoriteChannelsViewController.navigationItem.rightBarButtonItem = leftBarButton;
     
 }
 
@@ -208,7 +208,7 @@ UILabel *titleLabel;
     
     CustomButton *button = [[CustomButton alloc]initWithFrame:CGRectMake(0, 0, 41, 30)];	
     
-    UIImage *image = [UIImage imageNamed:@"btn_edit.png"];
+    UIImage *image = [UIImage imageNamed:@"btn_channels.png"];
     image = [image stretchableImageWithLeftCapWidth: 5 topCapHeight: 5];
     
     [button setBackgroundImage:image forState:UIControlStateNormal]; 
@@ -244,7 +244,7 @@ UILabel *titleLabel;
         
         appDelegate.favoriteChannelsViewController.navigationItem.title = nil;
         
-        appDelegate.favoriteChannelsViewController.navigationItem.leftBarButtonItem = nil;
+        appDelegate.favoriteChannelsViewController.navigationItem.rightBarButtonItem = nil;
         
         [appDelegate.favoriteChannelsViewController createMenuBar];
         
@@ -261,7 +261,7 @@ UILabel *titleLabel;
             
             appDelegate.favoriteChannelsViewController.navigationItem.title = nil;
             
-            appDelegate.favoriteChannelsViewController.navigationItem.leftBarButtonItem = nil;
+            appDelegate.favoriteChannelsViewController.navigationItem.rightBarButtonItem = nil;
             
             [appDelegate.favoriteChannelsViewController createMenuBar];
             
@@ -272,7 +272,7 @@ UILabel *titleLabel;
         }
         else{
             
-            appDelegate.favoriteChannelsViewController.navigationItem.leftBarButtonItem = nil;
+            appDelegate.favoriteChannelsViewController.navigationItem.rightBarButtonItem = nil;
             
             if ([selectedSegmentedControl isEqualToString:@"AGENT"]) {
                 [self createAddButton];
@@ -406,7 +406,7 @@ UILabel *titleLabel;
         
         [cell.textLabel setFont:[UIFont boldSystemFontOfSize:12]];
         
-        [cell.textLabel setTextColor:[UIUtils colorFromHexColor:BLUE]];
+        [cell.textLabel setTextColor:[UIUtils colorFromHexColor:BLACK]];
         
         [tableView setSeparatorStyle:UITableViewCellSeparatorStyleSingleLine];
         
@@ -481,7 +481,7 @@ UILabel *titleLabel;
     
     [planCell.programTimeLabel setText:[UIUtils localTimeStringForGMTDateString:programObj.start]];
     
-    [planCell.programTitleLabel setTextColor:[UIUtils colorFromHexColor:BLUE]];
+    [planCell.programTitleLabel setTextColor:[UIUtils colorFromHexColor:BLACK]];
     
     [planCell.programTitleLabel setFont:[UIFont boldSystemFontOfSize:14]];
     
@@ -815,7 +815,7 @@ UILabel *titleLabel;
             
             NSString *dateString = [UIUtils stringFromGivenGMTDate:reminderDate WithFormat:@"dd/MM"];
             
-            sectionTitle = [NSString stringWithFormat:@"%@ d. %@",dayString,dateString];
+            sectionTitle = [NSString stringWithFormat:@"%@    %@",dayString,dateString];
             }
             
         }   
@@ -830,9 +830,11 @@ UILabel *titleLabel;
         } else {
             
             
-            UIView *headerView = [UIControls createUIViewWithFrame:CGRectMake(0, 0, 320, 49) BackGroundColor:LIGHTGRAY];
-            
-            UILabel *headerLabel = [UIControls createUILabelWithFrame:CGRectMake(10, 0, 310, 49) FondSize:15 FontName:SYSTEMBOLD FontHexColor:BLUE LabelText:@""];
+            UIView *headerView = [UIControls createUIViewWithFrame:CGRectMake(0, 0, 320, 45) BackGroundColor:LIGHTGRAY];
+
+            UIImageView *back=[[UIImageView alloc] initWithImage:[UIImage imageNamed:@"bg_title.png"]];
+            [headerView addSubview:back];
+            UILabel *headerLabel = [UIControls createUILabelWithFrame:CGRectMake(10, 0, 310, 49) FondSize:15 FontName:SYSTEMBOLD FontHexColor:@"FFFFFF" LabelText:@""];
             
             [headerLabel setText:sectionTitle];
             
@@ -865,7 +867,7 @@ UILabel *titleLabel;
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {
     
     
-    return 49;    
+    return 45;
 }
 
 
@@ -1030,7 +1032,7 @@ UILabel *titleLabel;
             AppDelegate_iPhone *appDelegate = DELEGATE;
             
             appDelegate.favoriteChannelsViewController.navigationItem.title = nil;
-            appDelegate.favoriteChannelsViewController.navigationItem.leftBarButtonItem = nil;
+            appDelegate.favoriteChannelsViewController.navigationItem.rightBarButtonItem = nil;
             
             [appDelegate.favoriteChannelsViewController createMenuBar];
         }

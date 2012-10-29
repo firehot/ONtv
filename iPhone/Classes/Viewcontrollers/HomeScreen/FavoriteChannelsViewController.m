@@ -215,17 +215,17 @@ BOOL formProgramDetail;
 	appDelegate.currentViewController = self;
     
     
-   // self.startDateString = [UIUtils stringFromGivenDate:[NSDate date] withLocale: @"en_US" andFormat: @"EEEddMMMyyyy hh:mm:ss"];
-   
+    // self.startDateString = [UIUtils stringFromGivenDate:[NSDate date] withLocale: @"en_US" andFormat: @"EEEddMMMyyyy hh:mm:ss"];
+    
     NSDate *startDate=[NSDate date];
     
-            NSDateFormatter *localDateFormat = [[NSDateFormatter alloc] init];
-           [localDateFormat setTimeZone:[NSTimeZone localTimeZone]];
-           [localDateFormat setDateFormat:@"EEEddMMMyyyy hh:mm:ss"];
-            [localDateFormat setLocale:[[NSLocale alloc] initWithLocaleIdentifier:@"en_US"]];
+    NSDateFormatter *localDateFormat = [[NSDateFormatter alloc] init];
+    [localDateFormat setTimeZone:[NSTimeZone localTimeZone]];
+    [localDateFormat setDateFormat:@"EEEddMMMyyyy hh:mm:ss"];
+    [localDateFormat setLocale:[[NSLocale alloc] initWithLocaleIdentifier:@"en_US"]];
     
-           NSString * localDateStr = [localDateFormat stringFromDate:startDate];
-            self.startDateString=localDateStr;
+    NSString * localDateStr = [localDateFormat stringFromDate:startDate];
+    self.startDateString=localDateStr;
     
     // self.startDateString=[UIUtils startTimeFromGivenDate:[NSDate date]];;
     
@@ -233,7 +233,7 @@ BOOL formProgramDetail;
     self.endDateString = [UIUtils endTimeFromGivenDate:[NSDate date]];
     
     [self addSearchBar];
-    [self.favoriteChannelsTableView  setFrame: CGRectMake(0,0, self.view.bounds.size.width, self.view.bounds.size.height)]; 
+    [self.favoriteChannelsTableView  setFrame: CGRectMake(0,0, self.view.bounds.size.width, self.view.bounds.size.height)];
 
 	
 }
@@ -244,19 +244,13 @@ BOOL formProgramDetail;
     
     // ABP
     channelTableView.autoresizingMask=(UIViewAutoresizingFlexibleWidth|UIViewAutoresizingFlexibleHeight);
-    
-    //[UIApplication sharedApplication].statusBarHeight
-    //self.menuBarView.frame.size.height
-    //CGRectGetMidX(self.menuBarView.frame)
-    
     NSLog(@"%f", CGRectGetHeight(self.view.bounds)-CGRectGetHeight(self.menuBarView.frame)-CGRectGetHeight(self.searchBarForChannels.frame));
 
 	channelTableView.tag = 0;
+    
 	self.favoriteChannelsTableView = channelTableView;	
-    
     self.favoriteChannelsTableView.frame = CGRectMake(0,0,self.view.bounds.size.width,self.view.bounds.size.height);
-    
-	self.favoriteChannelsTableView.delegate = self;
+    self.favoriteChannelsTableView.delegate = self;
 	self.favoriteChannelsTableView.dataSource = self;	
 	[self.view addSubview:self.favoriteChannelsTableView];
 	self.favoriteChannelsTableView.hidden = NO;
@@ -325,11 +319,7 @@ BOOL formProgramDetail;
 
 
 -(void) addEditButton {
-    //self.navigationItem.leftBarButtonItem = nil;
-
-    
-       // UIBarButtonItem *editButton = [[UIBarButtonItem alloc] initWithTitle: channelsButtonStr style:UIBarButtonItemStylePlain target:self action:@selector(editButtonTapped:)];
-    
+      
     UIButton *editButton = [UIButton buttonWithType:UIButtonTypeCustom];
     editButton.frame=CGRectMake(0, 0, 70, 30);
     [editButton addTarget:self action:@selector(editButtonTapped:) forControlEvents:UIControlEventTouchUpInside];
@@ -346,18 +336,14 @@ BOOL formProgramDetail;
 -(void) addAddChannelButton {
     
     self.navigationItem.rightBarButtonItem = nil;
-    
-   // UIButton *add = [UIButton buttonWithType:UIButtonTypeCustom];
-   // add.frame = CGRectMake(0, 0, 30, 30);
-   // [add addTarget:self action:@selector(addButtonTapped:) forControlEvents:UIControlEventTouchUpInside];
-   // [add setBackgroundImage:[UIImage imageNamed:@"plus.png"] forState:UIControlStateNormal];
-   // UIBarButtonItem *addButton = [[UIBarButtonItem alloc] initWithCustomView:add];
-    UIBarButtonItem *addButton =[[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(addButtonTapped:)];
-	self.navigationItem.rightBarButtonItem = addButton;
-		
+    UIButton *add = [UIButton buttonWithType:UIButtonTypeCustom];
+    add.frame = CGRectMake(0, 0, 35, 30);
+    [add addTarget:self action:@selector(addButtonTapped:) forControlEvents:UIControlEventTouchUpInside];
+    [add setBackgroundImage:[UIImage imageNamed:@"btn_plus.png"] forState:UIControlStateNormal];
+    UIBarButtonItem *addButton = [[UIBarButtonItem alloc] initWithCustomView:add];
+    self.navigationItem.rightBarButtonItem = addButton;
     UIButton *save = [UIUtils createStandardButtonWithTitle: NSLocalizedString(@"Save",nil) addTarget:self action:@selector(saveButtonTapped:)];
-
-	UIBarButtonItem *backButton = [[UIBarButtonItem alloc] initWithCustomView:save];
+    UIBarButtonItem *backButton = [[UIBarButtonItem alloc] initWithCustomView:save];
 	self.navigationItem.leftBarButtonItem = backButton;
 }
 
@@ -374,7 +360,6 @@ BOOL formProgramDetail;
 	self.favoriteChannelsTableView.tableHeaderView = self.searchBarForChannels;
 
     [self.view bringSubviewToFront:self.searchBarForChannels];
-    
     [self.favoriteChannelsTableView setNeedsLayout];
 }
 
