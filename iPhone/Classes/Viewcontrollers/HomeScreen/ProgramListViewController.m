@@ -113,7 +113,7 @@ NSString *searchHeaderTodayLabelStr;
         
         self.startDateString=timeStamp;
       
-        self.endDateString =  [UIUtils endTimeFromGivenDate:[NSDate date]];
+        self.endDateString =   [dateFormatter stringFromDate:[NSDate dateWithTimeInterval:60*60*24 sinceDate:[NSDate date]]];
         
         [self  callServerRequestMethod];
     }
@@ -239,7 +239,15 @@ NSString *searchHeaderTodayLabelStr;
     DLog(@"Date %@",self.startDateString);
     NSLog(@"StartDate %@",self.startDateString);
     
-    self.endDateString = [UIUtils endTimeFromGivenDate:rType];
+    
+    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+    dateFormatter.dateFormat = @"EEEddMMMyyyy HH:mm:ss";
+    
+    NSTimeZone *gmt = [NSTimeZone timeZoneWithAbbreviation:@"GMT"];
+    [dateFormatter setTimeZone:gmt];
+    [dateFormatter setLocale:[[NSLocale alloc] initWithLocaleIdentifier:@"en_US"]];
+    
+    self.endDateString = [dateFormatter stringFromDate:[NSDate dateWithTimeInterval:60*60*24 sinceDate:rType]];
     DLog(@"Date %@",self.endDateString);
     NSLog(@"EndDate %@",self.endDateString);
     
@@ -1161,9 +1169,6 @@ NSString *searchHeaderTodayLabelStr;
     
             
         } else if ([queryType isEqualToString:@"GetProgramDetailsForChannel"]) {
-        
-                    
-            [self.programArray removeAllObjects];
             
             self.programArray = (NSMutableArray*)objects;
 
@@ -1188,9 +1193,10 @@ NSString *searchHeaderTodayLabelStr;
         
         self.programArray = (NSMutableArray*)objects;
         
-        [self reloadTableView];
         
-    }    
+    }
+    
+    [self reloadTableView];
     
 }
 

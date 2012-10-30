@@ -11,6 +11,7 @@
 #import "CacheRepository.h"
 #import "NSString+utility.h"
 #import "UIUtils.h"
+#import "NSDateFormatter+RFC_1123.h"
 
 @interface ProgramProxy () 
 
@@ -57,22 +58,24 @@
     
 	[url appendString:@"/search?query="];
     
-    NSString * program = (__bridge_transfer NSString *)CFURLCreateStringByAddingPercentEscapes(NULL,(__bridge CFStringRef)programName,NULL,(CFStringRef)@"!*'();￼&=+$,/?%#[]",kCFStringEncodingUTF8);
+    NSString * program = [programName urlEncoded];
     
     [url appendFormat:@"%@&channels=%@",program,channelIDString];
 	
     
-	NSString *currentStartDate = startDate;
-	if(startDate != nil) {
-        currentStartDate = [currentStartDate stringByReplacingOccurrencesOfString:@" " withString:@"%20"];
-        [url appendFormat:@"&start=%@+GMT",currentStartDate];
+    NSDate *startdate = [UIUtils dateFromGivenGMTString:startDate WithFormat:@"EEEddMMMyyyy HH:mm:ss"];
+    NSDate *enddate = [UIUtils dateFromGivenGMTString:endDate WithFormat:@"EEEddMMMyyyy HH:mm:ss"];
+    
+    NSString *start_date_param = [[NSDateFormatter rfc1123Formatter] stringFromDate:startdate];
+    if (start_date_param)
+    {
+        [url appendFormat:@"&start=%@", [start_date_param urlEncoded]];
     }
-	
-    NSString *currentEndDate = endDate;
-    if(endDate != nil) {
-        currentEndDate = [currentEndDate stringByReplacingOccurrencesOfString:@" " withString:@"%20"];
-        [url appendFormat:@"&end=%@+GMT",currentEndDate];
-    }    
+    NSString *end_date_param = [[NSDateFormatter rfc1123Formatter] stringFromDate:enddate];
+    if (end_date_param)
+    {
+        [url appendFormat:@"&end=%@", [end_date_param urlEncoded]];
+    }
     
 	DLog(@"new url : %@",url);
     
@@ -98,23 +101,21 @@
     
 	[url appendFormat:@"&channels=%@",channnelId];
     
+    NSDate *startdate = [UIUtils dateFromGivenGMTString:sDate WithFormat:@"EEEddMMMyyyy HH:mm:ss"];
+    NSDate *enddate = [UIUtils dateFromGivenGMTString:eDate WithFormat:@"EEEddMMMyyyy HH:mm:ss"];
+    
     
 
-    NSString *currentStartDate = sDate;
-    
-    if(currentStartDate != nil) {
-        
-        currentStartDate = [currentStartDate stringByReplacingOccurrencesOfString:@" " withString:@"%20"];
-        [url appendFormat:@"&start=%@+GMT",currentStartDate];
+    NSString *start_date_param = [[NSDateFormatter rfc1123Formatter] stringFromDate:startdate];
+    if (start_date_param)
+    {
+        [url appendFormat:@"&start=%@", [start_date_param urlEncoded]];
     }
-    
-    NSString *currentEndDate = eDate;
-    
-    if(currentEndDate != nil) {
-        
-        currentEndDate = [currentEndDate stringByReplacingOccurrencesOfString:@" " withString:@"%20"];
-        [url appendFormat:@"&end=%@+GMT",currentEndDate];
-    }    
+    NSString *end_date_param = [[NSDateFormatter rfc1123Formatter] stringFromDate:enddate];
+    if (end_date_param)
+    {
+        [url appendFormat:@"&end=%@", [end_date_param urlEncoded]];
+    }
     
     DLog(@"new url : %@",url);
     
@@ -133,6 +134,8 @@
     
     
     NSDate *startdate = [UIUtils dateFromGivenGMTString:sDate WithFormat:@"EEEddMMMyyyy HH:mm:ss"];
+    NSDate *enddate = [UIUtils dateFromGivenGMTString:eDate WithFormat:@"EEEddMMMyyyy HH:mm:ss"];
+
     
     NSString *startDateString = [UIUtils stringFromGivenGMTDate:startdate WithFormat:@"EEEddMMMyyyy"];
     
@@ -158,22 +161,17 @@
         
         [url appendFormat:@"channels=%d",channnelId];
         
-        
-        NSString *currentStartDate = sDate;
-        
-        if(currentStartDate != nil) {
-            
-            currentStartDate = [currentStartDate stringByReplacingOccurrencesOfString:@" " withString:@"%20"];
-            [url appendFormat:@"&start=%@+GMT",currentStartDate];
+                
+        NSString *start_date_param = [[NSDateFormatter rfc1123Formatter] stringFromDate:startdate];
+        if (start_date_param)
+        {
+            [url appendFormat:@"&start=%@", [start_date_param urlEncoded]];
         }
-        
-        NSString *currentEndDate = eDate;
-        
-        if(currentEndDate != nil) {
-            
-            currentEndDate = [currentEndDate stringByReplacingOccurrencesOfString:@" " withString:@"%20"];
-            [url appendFormat:@"&end=%@+GMT",currentEndDate];
-        }    
+        NSString *end_date_param = [[NSDateFormatter rfc1123Formatter] stringFromDate:enddate];
+        if (end_date_param)
+        {
+            [url appendFormat:@"&end=%@", [end_date_param urlEncoded]];
+        }
         
         DLog(@"new url : %@",url);
         
@@ -193,6 +191,7 @@
     
     
     NSDate *startdate = [UIUtils dateFromGivenGMTString:sDate WithFormat:@"EEEddMMMyyyy HH:mm:ss"];
+    NSDate *enddate = [UIUtils dateFromGivenGMTString:eDate WithFormat:@"EEEddMMMyyyy HH:mm:ss"];
     
     NSString *startDateString = [UIUtils stringFromGivenGMTDate:startdate WithFormat:@"EEEddMMMyyyy"];
 
@@ -219,23 +218,17 @@
 
         [url appendFormat:@"&channels=%@",channnelId];
         
-        NSString *currentStartDate = sDate;
-        
-        if(currentStartDate != nil) {
-            
-            currentStartDate = [currentStartDate stringByReplacingOccurrencesOfString:@" " withString:@"%20"];
-            
-            [url appendFormat:@"&start=%@+GMT",currentStartDate];
+        NSString *start_date_param = [[NSDateFormatter rfc1123Formatter] stringFromDate:startdate];
+        if (start_date_param)
+        {
+            [url appendFormat:@"&start=%@", [start_date_param urlEncoded]];
+        }
+        NSString *end_date_param = [[NSDateFormatter rfc1123Formatter] stringFromDate:enddate];
+        if (end_date_param)
+        {
+            [url appendFormat:@"&end=%@", [end_date_param urlEncoded]];
         }
         
-        NSString *currentEndDate = eDate;
-        
-        if(currentEndDate != nil) {
-            
-            currentEndDate = [currentEndDate stringByReplacingOccurrencesOfString:@" " withString:@"%20"];
-        
-            [url appendFormat:@"&end=%@+GMT",currentEndDate];
-        }    
         
         DLog(@"new url : %@",url);
 

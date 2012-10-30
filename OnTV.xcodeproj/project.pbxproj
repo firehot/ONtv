@@ -225,6 +225,7 @@
 		A7EDD41D146A9BF200625D59 /* CustomDatePicker.m in Sources */ = {isa = PBXBuildFile; fileRef = A7EDD41C146A9BF200625D59 /* CustomDatePicker.m */; };
 		A7F019CA1487A6210086487C /* CreateNewAccountViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A7F019C91487A6200086487C /* CreateNewAccountViewController.m */; };
 		A7F019CD1487B3E80086487C /* AnimationUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = A7F019CC1487B3E80086487C /* AnimationUtils.m */; };
+		E0A95C09163F4D2500CDF96A /* NSDateFormatter+RFC_1123.m in Sources */ = {isa = PBXBuildFile; fileRef = E0A95C08163F4D2500CDF96A /* NSDateFormatter+RFC_1123.m */; };
 		E42B5BCD15B7CD0A00C08E5A /* ImageIO.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E42B5BCC15B7CD0A00C08E5A /* ImageIO.framework */; };
 		E433B2BD1589F350008790F5 /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = E433B2BC1589F350008790F5 /* libz.dylib */; };
 		E435A6A51591D69A003BEBD1 /* libTestFlight.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E435A6A11591D69A003BEBD1 /* libTestFlight.a */; };
@@ -612,6 +613,8 @@
 		A7F019C91487A6200086487C /* CreateNewAccountViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CreateNewAccountViewController.m; sourceTree = "<group>"; };
 		A7F019CB1487B3E80086487C /* AnimationUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AnimationUtils.h; sourceTree = "<group>"; };
 		A7F019CC1487B3E80086487C /* AnimationUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AnimationUtils.m; sourceTree = "<group>"; };
+		E0A95C07163F4D2500CDF96A /* NSDateFormatter+RFC_1123.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDateFormatter+RFC_1123.h"; sourceTree = "<group>"; };
+		E0A95C08163F4D2500CDF96A /* NSDateFormatter+RFC_1123.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDateFormatter+RFC_1123.m"; sourceTree = "<group>"; };
 		E0ECF3B2163485BF002D907C /* JSON.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSON.h; sourceTree = "<group>"; };
 		E0ECF3B3163485BF002D907C /* NSObject+SBJSON.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+SBJSON.h"; sourceTree = "<group>"; };
 		E0ECF3B5163485BF002D907C /* NSString+SBJSON.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+SBJSON.h"; sourceTree = "<group>"; };
@@ -1325,6 +1328,8 @@
 				469A7C4D14462FBF00DF89CC /* NSDictionary+NSNullHandler.m */,
 				E445BA1C15AF81B30065A5E8 /* TPKeyboardAvoidingTableView+UITableViewStyle.h */,
 				E445BA1D15AF81B30065A5E8 /* TPKeyboardAvoidingTableView+UITableViewStyle.m */,
+				E0A95C07163F4D2500CDF96A /* NSDateFormatter+RFC_1123.h */,
+				E0A95C08163F4D2500CDF96A /* NSDateFormatter+RFC_1123.m */,
 			);
 			path = Categories;
 			sourceTree = "<group>";
@@ -2033,6 +2038,7 @@
 				E4AC0B8815C934150031D1B4 /* AppDelegateSuperClass.m in Sources */,
 				E4AC0B8915C934150031D1B4 /* AppDelegate_iPad.m in Sources */,
 				0433EB851608AA5A00FBE123 /* MBProgressHUD.m in Sources */,
+				E0A95C09163F4D2500CDF96A /* NSDateFormatter+RFC_1123.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

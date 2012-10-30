@@ -18,5 +18,7 @@
 -(int) indexOfString: (NSString *) str;
 -(int) lastIndexOfString:(NSString *) str;
 
+-(NSString*)urlEncoded;
+
 
 @end
