@@ -100,7 +100,7 @@ BOOL isNumberPad;
 
 - (void)createUI {
     
-    [self.view setBackgroundColor:[UIUtils colorFromHexColor:LIGHTGRAY]];
+    [self.view setBackgroundColor:[UIUtils colorFromHexColor:@"353535"]];
     
     [self createTimeTextField];
 
@@ -229,7 +229,7 @@ BOOL isNumberPad;
     
     cell = [[CustomCellForChannel alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellIdentifier andTableType:@"PLANDETAILS"];
     
-    cell.backgroundColor = [UIColor clearColor];
+    cell.backgroundColor = [UIColor whiteColor];
     
     [cell setUserInteractionEnabled:YES];
     
@@ -434,7 +434,7 @@ BOOL isNumberPad;
     
 - (CustomCellForChannel*)populateCellforAgentProUser:(CustomCellForChannel*)agentProUserCell AtIndex:(int)rowIndex {
     
-    [agentProUserCell.programTimeLabel setTextColor:[UIUtils colorFromHexColor:BLUE]];
+    [agentProUserCell.programTimeLabel setTextColor:[UIUtils colorFromHexColor:BLACK]];
   
     [agentProUserCell.programTitleLabel setTextColor:[UIUtils colorFromHexColor:GRAY]];
 
@@ -652,9 +652,10 @@ BOOL isNumberPad;
     if (section == 0 || section == 3) {
         
         
-        UIView *headerView = [UIControls createUIViewWithFrame:CGRectMake(0, 0, 320, 49) BackGroundColor:LIGHTGRAY];
+        UIView *headerView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, 320, 49)];
+        [headerView setBackgroundColor:[UIColor clearColor]];
         
-        UILabel *headerLabel = [UIControls createUILabelWithFrame:CGRectMake(10, 0, 310, 49) FondSize:15 FontName:SYSTEMBOLD FontHexColor:BLUE LabelText:@""];
+        UILabel *headerLabel = [UIControls createUILabelWithFrame:CGRectMake(10, 0, 310, 49) FondSize:15 FontName:SYSTEMBOLD FontHexColor:@"FFFFFF" LabelText:@""];
         
         if (section == 0) {
             
@@ -774,7 +775,7 @@ BOOL isNumberPad;
     
     if ([aSwitch respondsToSelector:@selector(setOnTintColor:)]) {
         
-        [aSwitch setOnTintColor:[UIUtils colorFromHexColor:BLUE]];
+        [aSwitch setOnTintColor:[UIUtils colorFromHexColor:@"b00a4f"]];
     }
     
     return aSwitch; 
@@ -984,14 +985,14 @@ BOOL isNumberPad;
 	
     UIBarButtonItem *leftButton = [[UIBarButtonItem alloc] initWithCustomView:save];
 	
-    self.navigationItem.leftBarButtonItem = leftButton;
+    self.navigationItem.rightBarButtonItem = leftButton;
 	
     
     UIButton *backBtn = [UIUtils createBackButtonWithTarget:self action:@selector(backbuttonClicked)];
     
     UIBarButtonItem *rightBarButton = [[UIBarButtonItem alloc] initWithCustomView:backBtn];
 	
-    self.navigationItem.rightBarButtonItem = rightBarButton;
+    self.navigationItem.leftBarButtonItem = rightBarButton;
 	
     
 }
@@ -1117,17 +1118,18 @@ BOOL isNumberPad;
 
     NSArray *hoursItems = [self.agent.reminderHours componentsSeparatedByString:@"-"];
     
-    CustomPickerViewController *customPickerViewController = [[CustomPickerViewController alloc] init];
+    self.pickerController = [[CustomPickerViewController alloc] init];
     
-    customPickerViewController.selectedHoursFirstComponent = [hoursItems objectAtIndex:0];
+    [self.view addSubview:self.pickerController.view];
     
-    customPickerViewController.selectedHoursSecondComponent = [hoursItems objectAtIndex:1];
+    self.pickerController.selectedHoursFirstComponent = [hoursItems objectAtIndex:0];
     
-    [self.view addSubview:customPickerViewController.view];
+    self.pickerController.selectedHoursSecondComponent = [hoursItems objectAtIndex:1];
+    
+    self.pickerController.customPickerViewDelegate=self;
    
     
-    customPickerViewController.customPickerViewDelegate = self; 
-    
+        
 }
 
 // Gets Called when user clicks the done button on picker view, to update the hour cell.

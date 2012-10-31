@@ -13,6 +13,7 @@
 @property (nonatomic, weak) UILabel *headerTitleLbl;
 @property (nonatomic, weak) UILabel *headerTitleShowLbl;
 @property (nonatomic, weak) UILabel *headerTitleShowsValueLbl;
+@property (nonatomic, weak) UILabel *nameOgChannel;
 @property (nonatomic, weak) UIButton *dateButton;
 @property (nonatomic, weak) UIImageView *channelLogoIV;
 @property (nonatomic, weak) UIScrollView *pageControlScrollView;
@@ -20,6 +21,10 @@
 @property (nonatomic, weak) UILabel *pageControlPagesLbl;
 @property (nonatomic, weak) SegmentedControl *segmentedControl;
 @property (nonatomic, weak) id<HeaderViewDelegate> headerViewDelegate;
+@property (nonatomic, weak) UIButton *rightPagination;
+@property (nonatomic, weak) UIButton *leftPagination;
+@property (nonatomic, weak) UILabel *categoryNameLabel;
+@property (nonatomic, weak) UILabel *channelNameLabel;
 
 - (id)initWithFrame:(CGRect)frame andType:(MenuBarButton)type;
 

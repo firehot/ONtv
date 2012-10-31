@@ -376,9 +376,13 @@
 
     [backBtn addTarget:target action:action forControlEvents:UIControlEventTouchUpInside];
 
-    UIImage *image = [UIImage imageNamed:@"backBackground"];
+    UIImage *image = [UIImage imageNamed:@"btn_back"];
     image = [image stretchableImageWithLeftCapWidth: 15 topCapHeight: 4];
-    [backBtn setBackgroundImage:image forState:UIControlStateNormal]; 
+    [backBtn setBackgroundImage:image forState:UIControlStateNormal];
+    
+    UIImage*highlitedImage = [UIImage imageNamed:@"btn_back_pressed"];
+    highlitedImage = [highlitedImage stretchableImageWithLeftCapWidth: 15 topCapHeight: 4];
+    [backBtn setBackgroundImage:highlitedImage forState:UIControlStateHighlighted];
     [backBtn.titleLabel setFont:[UIFont boldSystemFontOfSize:12.0f]];
     [backBtn setTitle: NSLocalizedString(@"Back", nil) forState:UIControlStateNormal];
 	[backBtn setContentHorizontalAlignment:UIControlContentHorizontalAlignmentCenter];
@@ -400,9 +404,12 @@
     
     [standardBtn addTarget:target action:action forControlEvents:UIControlEventTouchUpInside];
     
-    UIImage *image = [UIImage imageNamed:@"buttonBackground"];
+    UIImage *image = [UIImage imageNamed:@"btn_edit"];
+    UIImage *imageHighlited= [UIImage imageNamed:@"btn_edit_pressed.png"];
+    imageHighlited = [imageHighlited stretchableImageWithLeftCapWidth: 5 topCapHeight: 5];
     image = [image stretchableImageWithLeftCapWidth: 5 topCapHeight: 5];
-    [standardBtn setBackgroundImage:image forState:UIControlStateNormal]; 
+    [standardBtn setBackgroundImage:image forState:UIControlStateNormal];
+    [standardBtn setBackgroundImage:imageHighlited forState:UIControlStateHighlighted];
     [standardBtn.titleLabel setFont:[UIFont boldSystemFontOfSize:12.0f]];
     [standardBtn setTitle: title forState:UIControlStateNormal];
 	[standardBtn setContentHorizontalAlignment:UIControlContentHorizontalAlignmentCenter];

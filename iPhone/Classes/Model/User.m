@@ -10,6 +10,8 @@
 
 @synthesize email;
 
+@synthesize img;
+
 @synthesize name;
 
 @synthesize phone;
@@ -41,15 +43,16 @@
 			 @"name",@"name",
 			 @"phone",@"phone",
 			 @"password",@"password",
-			 @"subscription",@"subscription",			  
+			 @"subscription",@"subscription",
+             @"img",@"img",
 			 nil];
 }	
 
 -(NSString *)description {	
     
 	return [NSString stringWithFormat:
-			@"\nuserId /nemail : %d \nname : %@ \nemail : %@ \nphone : %@ \npassword : %@ \nsubscription : %@"
-			,self.user_id,self.email,self.name,self.phone,self.password,self.subscription];
+			@"\nuserId /nemail : %d \nname : %@ \nemail : %@ \nphone : %@ \npassword : %@ \nsubscription : %@ \nimg : %@"
+			,self.user_id,self.email,self.name,self.phone,self.password,self.subscription, self.img];
 }
 
 
@@ -69,14 +72,17 @@
         
         NSDictionary *subscriptionDict = [dictionary objectForKey:@"subscription"];
 		user.subscription = [subscriptionDict objectForKey:@"@type"];
-		DLog(@"User : %@",[user description]);
+        
+        NSDictionary *imageDictionary = [dictionary objectForKey:@"img"];
+        user.img=[imageDictionary objectForKey:@"@src"];
+		
         
     
         NSDictionary *settingsDict = [dictionary objectForKey:@"settings"];
 		NSDictionary *settingInnerDict = [settingsDict objectForKey:@"setting"];
         user.deviceSummaryListing = [settingInnerDict objectForKey:@"@value"];
         
-        
+      
         NSDictionary *reminderDict = [dictionary objectForKey:@"reminder"];
         
         if ([reminderDict isDictionaryExist]) {

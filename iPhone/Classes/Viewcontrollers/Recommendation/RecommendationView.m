@@ -122,12 +122,15 @@ NSString *recommendationHeaderTitle;
 
 - (void)createHeaderView {
     
-    HeaderView *headerView = [[HeaderView alloc]initWithFrame:CGRectMake(0, 0, self.bounds.size.width, 49) andType:Recommendation];
+    HeaderView *headerView = [[HeaderView alloc]initWithFrame:CGRectMake(0, 0, self.bounds.size.width, 45) andType:Recommendation];
+      
     
     _RecommendationHeaderView = headerView;
+  
     
     [_RecommendationHeaderView.headerTitleShowLbl setText:recommendationHeaderShowsLabelStr];
-    [_RecommendationHeaderView.headerTitleShowsValueLbl setText:recommendationHeaderTodayLabelStr];    
+    [_RecommendationHeaderView.headerTitleShowsValueLbl setText:recommendationHeaderTodayLabelStr];
+    [_RecommendationHeaderView.dateButton.titleLabel setText:recommendationHeaderTodayLabelStr];
     [_RecommendationHeaderView.headerTitleLbl setText:recommendationHeaderTitle];
     
     [_RecommendationHeaderView.dateButton addTarget:self action:@selector(dayButtonTapped:) forControlEvents:UIControlEventTouchUpInside];
@@ -309,14 +312,14 @@ NSString *recommendationHeaderTitle;
     
     // to set the Category type image size dynamicallly
     
-    NSString *imageName = [ChannelCategory getChannelCatgegoryType:programObj.type];
-    NSString *imagePath = [[NSBundle mainBundle]pathForResource:imageName ofType:@"png"];
-    UIImage *image = [[UIImage alloc]initWithContentsOfFile:imagePath];
-    [cell.categoryImageView setFrame:CGRectMake(265, 15, image.size.width, image.size.height)];
+   // NSString *imageName = [ChannelCategory getChannelCatgegoryType:programObj.type];
+   // NSString *imagePath = [[NSBundle mainBundle]pathForResource:imageName ofType:@"png"];
+   // UIImage *image = [[UIImage alloc]initWithContentsOfFile:imagePath];
+    //[cell.categoryImageView setFrame:CGRectMake(265, 15, image.size.width, image.size.height)];
     
     
-    UIImage *categoryImage = [UIImage imageNamed:imageName];
-    [cell.categoryImageView setImage:categoryImage];
+ //   UIImage *categoryImage = [UIImage imageNamed:imageName];
+ //   [cell.categoryImageView setImage:categoryImage];
     
     
     [cell.programTeaserLabel setText:programObj.teaser];

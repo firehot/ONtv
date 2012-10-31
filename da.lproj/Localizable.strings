@@ -9,7 +9,7 @@
 "create New User" = "Opret ny profil";
 
 /* Create New User Screen,Create New User Info Label Text */
-"Create New User Info" = "Du kan her oprette en personlig ONTV proil. Med en profil kan du gemme dine indstillinger mellem dine enheder og få adgang til ekstra muligheder som fx påmindelser og planlægning.";
+"Create New User Info" = "Du kan her oprette en personlig TimeFor.TV proil. Med en profil kan du gemme dine indstillinger mellem dine enheder og få adgang til ekstra muligheder som fx påmindelser og planlægning.";
 
 /* Create New User Screen, Create Your New Account Button Title */
 "create Your New Account" = "Opret din nye profil";
@@ -24,7 +24,7 @@
 "Login" = "Log ind";
 
 /* Login Screen, Subscribtion Info Label Text */
-"Login Subscribtion Info" = "For at få adgang til alle funktioner i ONTV anbefaler vi, at du logger ind med en profil.";
+"Login Subscribtion Info" = "For at få adgang til alle funktioner i TimeFor.TV anbefaler vi, at du logger ind med en profil.";
 
 /* Create New User Screen, Mobile Label Text */
 "Mobile" = "Dit mobilnr.*";
@@ -94,16 +94,16 @@
 "No Commercial" = "Ingen reklamer!";
 
 /* Pro User Required Screen, OnTv Full Access Label Text */
-"OnTv Full Access" = "Med ONTV+ for kun 29,- kr/årligt får du fuld adgang til ONTV til:";
+"OnTv Full Access" = "Med TimeFor.TV+ for kun 29,- kr/årligt får du fuld adgang til TimeFor.TV til:";
 
 /* Pro User Required Screen, ONTV Pro Or ONTV required Label Text */
-"ONTVProOrONTVrequired " = "ONTV Pro eller ONTV+ krævet";
+"ONTVProOrONTVrequired " = "TimeFor.TV Pro eller TimeFor.TV+ krævet";
 
 /* Pro User Required Screen, read More Label Text */
 "Read More" = "Læs mere på ontv.dk/subscriptions";
 
 /* Pro User Required Screen, you Need ONTV ProLabel Label Info */
-"You Need ONTV Pro" = "Du skal have et ONTV Pro eller ONTV+ abonnement for at få fuld adgang til ONTV. Fra kun 29,- kr/årligt.";
+"You Need ONTV Pro" = "Du skal have et TimeFor.TV Pro eller TimeFor.TV+ abonnement for at få fuld adgang til TimeFor.TV. Fra kun 29,- kr/årligt.";
 
 
 /* HeaderView Title, RecommendationScreen */
@@ -127,6 +127,8 @@
 "Add planning" = "Tilføj planlægning";
 "Edit" = "Redigér";
 "Edit agent" = "Redigér agent";
+
+"Add notification"="Tilføj notifikation";
 
 "Search in" = "Søg i";
 

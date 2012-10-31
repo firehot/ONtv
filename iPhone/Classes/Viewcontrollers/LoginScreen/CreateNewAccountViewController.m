@@ -97,41 +97,60 @@
 #pragma mark -
 #pragma mark User defined methods
 #pragma mark -
+- (CGRect)tableViewHeaderFrameForCurrentOrientation
+{
+    CGFloat tableViewMargin = 10.0f;
+    CGFloat tableViewContentHeight = [self.tableView numberOfRowsInSection:0]*self.tableView.rowHeight+2.0f*tableViewMargin;
+    CGFloat tableViewHeaderHeight = floorf(0.68f*(self.tableView.bounds.size.height-tableViewContentHeight));
+    
+    return CGRectMake(0.0f, 0.0f, self.tableView.bounds.size.width, tableViewHeaderHeight);
+}
 
 - (void)layoutHeaderView
 {
-    UIView *headerView = [[UIView alloc] initWithFrame:self.tableView.bounds];
+   
+    UIView *headerView = [[UIView alloc] initWithFrame:[self tableViewHeaderFrameForCurrentOrientation]];
     headerView.autoresizingMask = UIViewAutoresizingFlexibleWidth;
+    
+    
+    // container view
+    UIView *containerView = [[UIView alloc] initWithFrame:headerView.bounds];
+    containerView.autoresizingMask = UIViewAutoresizingFlexibleWidth|UIViewAutoresizingFlexibleBottomMargin|UIViewAutoresizingFlexibleTopMargin;
     
     CGFloat margin = 10.0f;
     
     // back button
     UIButton *backBtn = [UIUtils createBackButtonWithTarget:self action:@selector(backButtonClicked:)];
 	
-    backBtn.frame = CGRectMake(headerView.bounds.size.width - CGRectGetWidth(backBtn.frame) - margin, margin, CGRectGetWidth(backBtn.frame), CGRectGetHeight(backBtn.frame));
+    backBtn.frame = CGRectMake(headerView.bounds.size.width - CGRectGetWidth(backBtn.frame) - margin, 25, CGRectGetWidth(backBtn.frame), CGRectGetHeight(backBtn.frame));
     backBtn.autoresizingMask=UIViewAutoresizingFlexibleLeftMargin;
     
     
-    [headerView addSubview:backBtn];
+    [containerView addSubview:backBtn];
     backButton = backBtn;
     
+    // addLogoForLoginScreen
+    UIImageView *ivTemp = [[UIImageView alloc] initWithFrame:CGRectMake(floorf(0.5f*(headerView.bounds.size.width - 255)), 80, 255, 57)];
+    [ivTemp setImage:[UIImage imageNamed:@"img_logo.png"]];
     
-    // logo
-    UIImageView *ivTemp = [[UIImageView alloc] initWithFrame:CGRectMake(floorf(0.5f*(headerView.bounds.size.width - 150)), CGRectGetMaxY(backBtn.frame)+10, 150, 50)];	
-	[ivTemp setImage:[UIImage imageNamed:@"loginLogo.png"]];
     ivTemp.autoresizingMask=UIViewAutoresizingFlexibleLeftMargin|UIViewAutoresizingFlexibleRightMargin;
     
-	[headerView addSubview:ivTemp];
+	[containerView addSubview:ivTemp];
+
     
+    
+
+    
+  
     
     
     // labels
     CGSize suggestedSize = [createPersonalAccountInfo sizeWithFont:[UIFont fontWithName:@"Helvetica" size:12.0f] constrainedToSize:CGSizeMake(headerView.bounds.size.width-50.0f, 60) lineBreakMode:UILineBreakModeWordWrap];  
     
-	UILabel *createDetailsLabel = [[UILabel alloc]initWithFrame:CGRectMake(25, CGRectGetMaxY(ivTemp.frame)+20, headerView.bounds.size.width-50.0f, suggestedSize.height)];
+	UILabel *createDetailsLabel = [[UILabel alloc]initWithFrame:CGRectMake(15, CGRectGetMaxY(ivTemp.frame)+5, headerView.bounds.size.width-30.0f, suggestedSize.height)];
     createDetailsLabel.lineBreakMode = UILineBreakModeWordWrap;
     createDetailsLabel.numberOfLines = 0;
-    createDetailsLabel.font = [UIFont fontWithName:@"Helvetica" size:12.0f];
+    createDetailsLabel.font = [UIFont fontWithName:@"Helvetica" size:11.0f];
 	createDetailsLabel.textColor = [UIColor whiteColor];
 	createDetailsLabel.backgroundColor = [UIColor clearColor];
     createDetailsLabel.textAlignment = UITextAlignmentCenter;
@@ -139,10 +158,13 @@
     
     createDetailsLabel.autoresizingMask = UIViewAutoresizingFlexibleWidth;
     
-	[headerView addSubview:createDetailsLabel];
+	[containerView addSubview:createDetailsLabel];
     
     
-    headerView.frame = CGRectMake(0.0f, 0.0f, self.tableView.bounds.size.width, CGRectGetMaxY(createDetailsLabel.frame)+margin);
+    containerView.frame = CGRectMake(0.0f, 0.0f, headerView.bounds.size.width, CGRectGetMaxY(createDetailsLabel.frame));
+    containerView.center = headerView.center;
+    
+    [headerView addSubview:containerView];
     
     self.tableView.tableHeaderView = headerView;
     headerView = nil;
@@ -159,15 +181,15 @@
     
     // button
     createButton = [UIButton buttonWithType:UIButtonTypeCustom];
-	createButton.frame = CGRectMake(footerView.bounds.size.width - margin - 180, 0, 180, 30); //70
+	createButton.frame = CGRectMake(footerView.bounds.size.width - margin - 300, 5, 300, 35); //70
 	createButton.backgroundColor = [UIColor clearColor];
 	createButton.userInteractionEnabled = YES;	
 	createButton.tag = 2;	
-    UIImage *image = [UIImage imageNamed:@"createUserBackground.png"];
+    UIImage *image = [UIImage imageNamed:@"btn_login.png"];
     image = [image stretchableImageWithLeftCapWidth: 5 topCapHeight: 5];
 	[createButton setBackgroundImage:image forState:UIControlStateNormal];
 	[createButton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];	
-    [createButton.titleLabel setFont:[UIFont boldSystemFontOfSize:12.0f]];
+    [createButton.titleLabel setFont:[UIFont boldSystemFontOfSize:15.0f]];
 	[createButton setTitle:createYourNewAccountButtonStr forState:UIControlStateNormal];
 	createButton.contentVerticalAlignment = UIControlContentVerticalAlignmentCenter;
 	[createButton setContentHorizontalAlignment:UIControlContentHorizontalAlignmentCenter];	
@@ -202,7 +224,7 @@
 - (void)configureCreateNewAccountView 
 {
     //self.view.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"loginBackground.png"]];
-    UIImageView *backgroundView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"loginBackground.png"]];
+    UIImageView *backgroundView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"bg_log"]];
     backgroundView.contentMode = UIViewContentModeScaleToFill;
     backgroundView.frame = self.view.bounds;
     backgroundView.autoresizingMask = UIViewAutoresizingFlexibleWidth|UIViewAutoresizingFlexibleHeight;
@@ -229,7 +251,7 @@
     AppDelegate_iPhone *appDelegate = DELEGATE;
     appDelegate.createNewAccountViewController = self;
 
-    //[self addMandatoryDetailsLabel]; 
+   
 }
 
 

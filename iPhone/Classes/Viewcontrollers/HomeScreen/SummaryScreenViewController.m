@@ -134,11 +134,13 @@
 - (void)createTopScreen {
 
     
-    UIView *topView  = [UIControls createUIViewWithFrame:CGRectMake(0, 0, self.view.bounds.size.width, 100) BackGroundColor:LIGHTGRAY];
+    UIView *topView  = [UIControls createUIViewWithFrame:CGRectMake(0, 0, self.view.bounds.size.width, 90) BackGroundColor:@"FFFFFF"];
     topView.autoresizingMask = UIViewAutoresizingFlexibleWidth;
+   
+    UIImageView *topImage = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"bg_title.png"]];
+    [topImage setFrame:CGRectMake(0, 0, self.view.bounds.size.width, 45)];
+    [topView addSubview:topImage];
     [self.view addSubview:topView];
-    
-    
     NSString *titleEpisodeString = nil;
 
     CGPoint currentPoint = CGPointMake(0,0);
@@ -159,7 +161,7 @@
         titleEpisodeString = self.program.episode;
     }
     
-    UILabel *programTitle = [UIControls createUILabelWithFrame:CGRectMake(10, currentPoint.y, self.view.bounds.size.width - 20, 30) FondSize:16 FontName:SYSTEMBOLD FontHexColor:BLUE LabelText:titleEpisodeString];
+    UILabel *programTitle = [UIControls createUILabelWithFrame:CGRectMake(10, currentPoint.y, self.view.bounds.size.width - 20, 30) FondSize:16 FontName:SYSTEMBOLD FontHexColor:@"FFFFFF" LabelText:titleEpisodeString];
     
     programTitle.autoresizingMask=(UIViewAutoresizingFlexibleWidth);
     
@@ -173,7 +175,7 @@
         
       CGSize currentSize = [self getSizeFor:self.program.teaser withConstrained:CGSizeMake(self.view.bounds.size.width - 20,40)];
         
-        UILabel *teaserLabel = [UIControls createUILabelWithFrame:CGRectMake(10, 30, self.view.bounds.size.width - 20, currentSize.height) FondSize:12 FontName:HELVETICA FontHexColor:GRAY LabelText:self.program.teaser];  
+        UILabel *teaserLabel = [UIControls createUILabelWithFrame:CGRectMake(10, 25, self.view.bounds.size.width - 20, currentSize.height) FondSize:12 FontName:HELVETICA FontHexColor:GRAY LabelText:self.program.teaser];
         
       teaserLabel.autoresizingMask=(UIViewAutoresizingFlexibleWidth);
     
@@ -184,41 +186,39 @@
         
        currentPoint.y += currentSize.height; 
         
-    }    
-    
-    
-    
+    } else {
+        currentPoint.y +=15;
+    }
+        
     CGSize currentSize = CGSizeMake(0, 0);
     if ([self.program.start isStringPresent] && [self.program.end isStringPresent] ) {
-    
-      
         
-      NSString *day = [UIUtils localDayStringForGMTDateString:self.program.start];        
-      NSString *startTime = [UIUtils localTimeStringForGMTDateString:self.program.start];
-      NSString *endTime = [UIUtils localTimeStringForGMTDateString:self.program.end];
-
-      NSString *time = [NSString stringWithFormat: @"%@, %@ - %@ ",day,startTime,endTime];
-      time = [time stringByAppendingString: NSLocalizedString(@"On", nil)];
+        NSString *day = [UIUtils localDayStringForGMTDateString:self.program.start];
+        NSString *startTime = [UIUtils localTimeStringForGMTDateString:self.program.start];
+        NSString *endTime = [UIUtils localTimeStringForGMTDateString:self.program.end];
         
-      currentSize = [self getSizeFor:time withConstrained:CGSizeMake(180,30)];  
-    
-      UILabel *ProgramTimeDetails = [UIControls createUILabelWithFrame:CGRectMake(10, currentPoint.y, currentSize.width, 30) FondSize:12 FontName:HELVETICA FontHexColor:GRAY LabelText:time];
-      //ProgramTimeDetails.autoresizingMask=(UIViewAutoresizingFlexibleWidth);
-      [topView addSubview:ProgramTimeDetails];
+        NSString *time = [NSString stringWithFormat: @"%@ %@ - %@ ",day,startTime,endTime];
+        //time = [time stringByAppendingString: NSLocalizedString(@"On", nil)];
+        
+        currentSize = [self getSizeFor:time withConstrained:CGSizeMake(250,30)];
+        
+        UILabel *ProgramTimeDetails = [UIControls createUILabelWithFrame:CGRectMake(10, currentPoint.y+10, 180, 30) FondSize:12 FontName:@"Helvetica-Bold" FontHexColor:@"000000" LabelText:time];
+        //ProgramTimeDetails.autoresizingMask=(UIViewAutoresizingFlexibleWidth);
+        [topView addSubview:ProgramTimeDetails];
+        
+        UIView *divider =[[UIView alloc] initWithFrame:CGRectMake(200, currentPoint.y+10, 1, 25)];
+        [divider setBackgroundColor:[UIColor lightGrayColor]];
+        [topView addSubview:divider];
         
     }
-    
-    
+       
     if (self.fromPush) {
         
         AppDelegate_iPhone *appDelegate = DELEGATE;
-        
         for (int i = 0; i < [appDelegate.favoriteChannelsViewController.allChannelsArray count]; i++) {
-        
-    
+            
             Channel *channelObject = [appDelegate.favoriteChannelsViewController.allChannelsArray objectAtIndex:i];
             
-                    
             if (channelObject.id == self.program.channel) {
                 
                 self.channel = channelObject;
@@ -226,34 +226,33 @@
                 break;
             }
         }
-    
+        
     }
     
     
     if([self.channel.imageObjectsArray count] !=0 || self.channel.imageObjectsArray != nil) {
-        
         
         Image *imageObject  = nil;
         
         if (self.fromSearch) {
             
             imageObject = [self.channel.imageObjectsArray objectAtIndex:0];
-
+            
         } else {
             
-           imageObject = [self.channel.imageObjectsArray objectAtIndex:1];
+            imageObject = [self.channel.imageObjectsArray objectAtIndex:1];
         }
-
+        
         
         if(imageObject.src != nil) {
-    
+            
             NSMutableString *urlString = [[NSMutableString alloc] initWithString:BASEURL];
             [urlString appendString:imageObject.src];
             
             DLog(@"channel server path string %@", imageObject.src);
-
-
-            UIImageView *channelLogo = [[UIImageView alloc] initWithFrame:CGRectMake(currentSize.width+10+3, currentPoint.y+5, 50, 20)];
+            
+            
+            UIImageView *channelLogo = [[UIImageView alloc] initWithFrame:CGRectMake(210, currentPoint.y+10, 100, 25)];
             channelLogo.contentMode = UIViewContentModeScaleAspectFit;
             [channelLogo setImageWithURL:[NSURL URLWithString:urlString] placeholderImage:[UIImage imageNamed:@"bigChannelLogo"]];
             
@@ -264,7 +263,7 @@
         
     }
     
-    currentPoint.y += 35;
+    currentPoint.y += 45;
     
     [topView setFrame:CGRectMake(0, 0, self.view.bounds.size.width, currentPoint.y)];
     
@@ -284,6 +283,7 @@
     AppDelegate_iPhone *appDelegate = DELEGATE;
     
     UIScrollView *scrollView = [[UIScrollView alloc] initWithFrame:CGRectMake(0,yCoordinate,self.view.bounds.size.width,self.view.bounds.size.height - yCoordinate)];
+    scrollView.backgroundColor=[UIUtils colorFromHexColor:@"e6e5e4"];
     _summaryScrollView = scrollView; 
     [_summaryScrollView setUserInteractionEnabled:YES];
     
@@ -292,18 +292,18 @@
     [self.view addSubview:_summaryScrollView];
     
     
-    UIView *topSeperatorLine  = [UIControls createUIViewWithFrame:CGRectMake(0, 0, _summaryScrollView.bounds.size.width, 1) BackGroundColor:LIGHTGRAYShade1];
+    UIView *topSeperatorLine  = [UIControls createUIViewWithFrame:CGRectMake(0, 0, _summaryScrollView.bounds.size.width, 1) BackGroundColor:LIGHTGRAY];
     _summaryScrollView.autoresizingMask = UIViewAutoresizingFlexibleWidth;
     [_summaryScrollView addSubview:topSeperatorLine];
     
     UIButton *planBtn = [UIControls createUIButtonWithFrame:CGRectZero];
     [planBtn addTarget:self action:@selector(planButtonClicked) forControlEvents:UIControlEventTouchUpInside];
-    [planBtn setBackgroundImage:[[UIImage imageNamed:@"planBtn"] stretchableImageWithLeftCapWidth:40 topCapHeight:10] forState:UIControlStateNormal];
-    [planBtn setTitle:NSLocalizedString(@"Plan",nil) forState:UIControlStateNormal];
+    [planBtn setBackgroundImage:[[UIImage imageNamed:@"plan_btn"] stretchableImageWithLeftCapWidth:40 topCapHeight:10] forState:UIControlStateNormal];
+    [planBtn setBackgroundImage:[[UIImage imageNamed:@"plan_btn_active"] stretchableImageWithLeftCapWidth:40 topCapHeight:10] forState:UIControlStateHighlighted];
+
+    [planBtn setTitle:NSLocalizedString(@"Add notification",nil) forState:UIControlStateNormal];
     [planBtn setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
-    //[planBtn setTitleShadowColor:[UIColor blackColor] forState: UIControlStateNormal];
-    //planBtn.titleLabel.shadowOffset = CGSizeMake(1.0f, 1.0f);
-    planBtn.titleLabel.font = [UIFont fontWithName:SYSTEMBOLD size:13.0f];
+    planBtn.titleLabel.font = [UIFont boldSystemFontOfSize:12.0f];
     planBtn.contentEdgeInsets = UIEdgeInsetsMake(0.0f, 45.0f, 0.0f, 15.0f);
     
     [planBtn sizeToFit];
@@ -320,29 +320,24 @@
  
     self.recommendedBtn = [UIControls createUIButtonWithFrame:CGRectZero];
     [self.recommendedBtn addTarget:self action:@selector(recommendationButtonClicked) forControlEvents:UIControlEventTouchUpInside];
-    [self.recommendedBtn setBackgroundImage:[[UIImage imageNamed:@"RecommendedBtn2"] stretchableImageWithLeftCapWidth:40 topCapHeight:10] forState:UIControlStateNormal];
+    [self.recommendedBtn setBackgroundImage:[[UIImage imageNamed:@"recomd_btn"] stretchableImageWithLeftCapWidth:40 topCapHeight:10] forState:UIControlStateNormal];
     [self.recommendedBtn setTitle:NSLocalizedString(@"Recommend",nil) forState:UIControlStateNormal];
-    NSLog(@"****************************************************Current LOCATE IS%@",[[NSLocale preferredLanguages] objectAtIndex:0]);
-    [self.recommendedBtn setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
-    //[self.recommendedBtn setTitleShadowColor:[UIColor blackColor] forState: UIControlStateNormal];
-    //self.recommendedBtn.titleLabel.shadowOffset = CGSizeMake(1.0f, 1.0f);
-    self.recommendedBtn.titleLabel.font = [UIFont fontWithName:SYSTEMBOLD size:13.0f];
+    [self.recommendedBtn setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+    self.recommendedBtn.titleLabel.font = [UIFont boldSystemFontOfSize:12.0f];
    
     self.recommendedBtn.contentEdgeInsets = UIEdgeInsetsMake(0.0f, 45.0f, 0.0f, 15.0f);
-   
-
-    self.recommendedBtn.frame = CGRectOffset(self.recommendedBtn.frame, CGRectGetMaxX(planBtn.frame) + 15.0f, CGRectGetMinY(planBtn.frame));
+    self.recommendedBtn.frame = CGRectOffset(self.recommendedBtn.frame, CGRectGetMaxX(planBtn.frame) + 5.0f, CGRectGetMinY(planBtn.frame));
     [self.recommendedBtn sizeToFit];
     [_summaryScrollView addSubview:planBtn];
     [_summaryScrollView addSubview:self.recommendedBtn];
     
     
-    UIView *middleLineSeperatorLine  = [UIControls createUIViewWithFrame:CGRectMake(0, 33+10+10, _summaryScrollView.bounds.size.width, 1) BackGroundColor:LIGHTGRAYShade1];
+    UIView *middleLineSeperatorLine  = [UIControls createUIViewWithFrame:CGRectMake(0, 33+10+10, _summaryScrollView.bounds.size.width, 1) BackGroundColor:LIGHTGRAY];
     middleLineSeperatorLine.autoresizingMask = UIViewAutoresizingFlexibleWidth;
     [_summaryScrollView addSubview:middleLineSeperatorLine];
     
     
-    CGPoint currentPoint = CGPointMake(0,53);
+    CGPoint currentPoint = CGPointMake(0,90);
     
     
     DLog(@"%@",self.program.imgSrc);
@@ -350,13 +345,21 @@
     
     if ([self.program.imgSrc isStringPresent]) {
         
-        NSMutableString *urlString = [[NSMutableString alloc] initWithString:BASEURL];
-        [urlString appendString:self.program.imgSrc];
         
+        NSString *urlString =self.program.imgSrc;
         UIImageView *imageView = [[UIImageView alloc] initWithFrame:CGRectMake(self.view.bounds.size.width - 150 - 10, currentPoint.y+10, 150, 100)];
         programImage = imageView;
         programImage.contentMode = UIViewContentModeScaleAspectFit;
-        [programImage setImageWithURL:[NSURL URLWithString:urlString] placeholderImage:[UIImage imageNamed:@"bigChannelLogo.png"]];
+        [programImage setImageWithURL:[NSURL URLWithString:urlString]
+                     placeholderImage:[UIImage imageNamed:@"bigChannelLogo.png"]
+                              success:^(UIImage *image, BOOL cached) {
+                                  NSLog(@"SUSCEESDSD!!!!!");
+            
+        }
+                              failure:^(NSError *error) {
+                                  NSLog(@"FAIL!!!");
+                                  NSLog(@"%@",error.description);
+        }];
         
         UITapGestureRecognizer *recognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(imageViewBackGroundTapped:)];
         recognizer.numberOfTapsRequired = 1;
@@ -364,16 +367,16 @@
         
         [programImage addGestureRecognizer:recognizer];
         recognizer = nil;
-        
-        
         programImage.autoresizingMask = UIViewAutoresizingFlexibleLeftMargin;
+        
+        [_summaryScrollView addSubview:programImage];
        
         
     }  
     
     if ([self.program.genre isStringPresent]) {
         
-        UILabel *label = [UIControls createUILabelWithFrame:CGRectMake(10, currentPoint.y, floorf(0.5f*_summaryScrollView.bounds.size.width-20), 30) FondSize:12 FontName:SYSTEMBOLD FontHexColor:BLUE LabelText:@"Genre"];
+        UILabel *label = [UIControls createUILabelWithFrame:CGRectMake(10, currentPoint.y, floorf(0.5f*_summaryScrollView.bounds.size.width-20), 30) FondSize:12 FontName:SYSTEMBOLD FontHexColor:BLACK LabelText:@"Genre"];
         label.autoresizingMask = UIViewAutoresizingFlexibleWidth;
         [_summaryScrollView addSubview:label];
         
@@ -388,7 +391,7 @@
 
     if ([self.program.originalTitle isStringPresent]) {   
         
-        UILabel *label = [UIControls createUILabelWithFrame:CGRectMake(10, currentPoint.y, floorf(0.5f*_summaryScrollView.bounds.size.width-40), 30) FondSize:12 FontName:SYSTEMBOLD FontHexColor:BLUE LabelText: NSLocalizedString(@"Original Title",nil)];
+        UILabel *label = [UIControls createUILabelWithFrame:CGRectMake(10, currentPoint.y, floorf(0.5f*_summaryScrollView.bounds.size.width-40), 30) FondSize:12 FontName:SYSTEMBOLD FontHexColor:BLACK LabelText: NSLocalizedString(@"Original Title",nil)];
         label.autoresizingMask = UIViewAutoresizingFlexibleWidth;
         [_summaryScrollView addSubview: label];
         
@@ -444,7 +447,7 @@
     
     if ([self.program.summary isStringPresent]) {
         
-        UILabel *label = [UIControls createUILabelWithFrame:CGRectMake(10, currentPoint.y, _summaryScrollView.bounds.size.width-20, 30) FondSize:12 FontName:SYSTEMBOLD FontHexColor:BLUE LabelText: NSLocalizedString(@"Summary",nil)];
+        UILabel *label = [UIControls createUILabelWithFrame:CGRectMake(10, currentPoint.y, _summaryScrollView.bounds.size.width-20, 30) FondSize:12 FontName:SYSTEMBOLD FontHexColor:BLACK LabelText: NSLocalizedString(@"Summary",nil)];
         label.autoresizingMask = UIViewAutoresizingFlexibleWidth;
         [_summaryScrollView addSubview:label];
         
@@ -465,7 +468,7 @@
     
     if ([self.program.cast isStringPresent]) {
         
-        UILabel *label = [UIControls createUILabelWithFrame:CGRectMake(10, currentPoint.y, _summaryScrollView.bounds.size.width-20, 30) FondSize:12 FontName:SYSTEMBOLD FontHexColor:BLUE LabelText:@"Actors"];
+        UILabel *label = [UIControls createUILabelWithFrame:CGRectMake(10, currentPoint.y, _summaryScrollView.bounds.size.width-20, 30) FondSize:12 FontName:SYSTEMBOLD FontHexColor:BLACK LabelText:@"Actors"];
         label.autoresizingMask = UIViewAutoresizingFlexibleWidth;
         
         [_summaryScrollView addSubview: label];
@@ -503,7 +506,7 @@
         }
         
         
-        UILabel *label = [UIControls createUILabelWithFrame:CGRectMake(10, currentPoint.y, _summaryScrollView.bounds.size.width-20, 30) FondSize:12 FontName:SYSTEMBOLD FontHexColor:BLUE LabelText: NSLocalizedString(@"From",nil)];
+        UILabel *label = [UIControls createUILabelWithFrame:CGRectMake(10, currentPoint.y, _summaryScrollView.bounds.size.width-20, 30) FondSize:12 FontName:SYSTEMBOLD FontHexColor:BLACK LabelText: NSLocalizedString(@"From",nil)];
         label.autoresizingMask = UIViewAutoresizingFlexibleWidth;
         [_summaryScrollView addSubview:label];
         
@@ -520,7 +523,7 @@
     if (currentPoint.y > 63) {
         
     
-        UIView *bottomLineSeperatorLine  = [UIControls createUIViewWithFrame:CGRectMake(0, currentPoint.y+10, _summaryScrollView.bounds.size.width, 1) BackGroundColor:LIGHTGRAYShade1];
+        UIView *bottomLineSeperatorLine  = [UIControls createUIViewWithFrame:CGRectMake(0, currentPoint.y+10, _summaryScrollView.bounds.size.width, 1) BackGroundColor:LIGHTGRAY];
         bottomLineSeperatorLine.autoresizingMask = UIViewAutoresizingFlexibleWidth;
         [_summaryScrollView addSubview:bottomLineSeperatorLine];
         
@@ -539,21 +542,21 @@
                 linkButton.contentVerticalAlignment = UIControlContentVerticalAlignmentCenter;
                 [linkButton setContentHorizontalAlignment:UIControlContentHorizontalAlignmentLeft];
                 [linkButton.titleLabel setFont:[UIFont boldSystemFontOfSize:12.0f]];
-                [linkButton setTitleColor:[UIUtils colorFromHexColor:BLUE] forState:UIControlStateNormal];
+                [linkButton setTitleColor:[UIUtils colorFromHexColor:BLACK] forState:UIControlStateNormal];
                 linkButton.autoresizingMask = UIViewAutoresizingFlexibleWidth;
                 
                 [_summaryScrollView addSubview:linkButton];
                 
                 
                 UIImageView  *accessoryView =[UIControls createUIImageViewWithFrame:CGRectMake(_summaryScrollView.bounds.size.width-17, currentPoint.y+20, 8, 11)];                    
-                [accessoryView setImage:[UIImage imageNamed:@"CellArrow"]];
+                [accessoryView setImage:[UIImage imageNamed:@"ic_arrow_right"]];
                 accessoryView.autoresizingMask = UIViewAutoresizingFlexibleLeftMargin;
                 [_summaryScrollView addSubview:accessoryView];
 
                 
                 currentPoint.y += 50;
                 
-                UIView *bottomLineSeperatorLine2  = [UIControls createUIViewWithFrame:CGRectMake(0, currentPoint.y, _summaryScrollView.bounds.size.width, 1) BackGroundColor:LIGHTGRAYShade1];
+                UIView *bottomLineSeperatorLine2  = [UIControls createUIViewWithFrame:CGRectMake(0, currentPoint.y, _summaryScrollView.bounds.size.width, 1) BackGroundColor:LIGHTGRAY];
                 bottomLineSeperatorLine2.autoresizingMask = UIViewAutoresizingFlexibleWidth;
                 [_summaryScrollView addSubview:bottomLineSeperatorLine2];
                 
@@ -579,7 +582,7 @@
     
     currentPoint.y += 15+41+15;
     
-    UIView *bottomLineSeperatorLine3  = [UIControls createUIViewWithFrame:CGRectMake(0, currentPoint.y, self.view.bounds.size.width, 1) BackGroundColor:LIGHTGRAYShade1];
+    UIView *bottomLineSeperatorLine3  = [UIControls createUIViewWithFrame:CGRectMake(0, currentPoint.y, self.view.bounds.size.width, 1) BackGroundColor:LIGHTGRAY];
     [_summaryScrollView addSubview:bottomLineSeperatorLine3];
     
     [_summaryScrollView addSubview:faceBookButton];
@@ -716,13 +719,13 @@
 
 - (void)createMenuBar {
     
-    MenuBar *menuBarObj = [[MenuBar alloc] initWithFrame:CGRectMake(0, 0, 200, 44)];
+    MenuBar *menuBarObj = [[MenuBar alloc] initWithFrame:CGRectMake(0, 0, 197, 44)];
     
     menuBarObj.menuBarDelegate = self;
     
     UIBarButtonItem *buttonItem = [[UIBarButtonItem alloc] initWithCustomView:menuBarObj];
     
-    self.navigationItem.leftBarButtonItem = buttonItem;
+    self.navigationItem.rightBarButtonItem = buttonItem;
     
     
     
@@ -730,7 +733,7 @@
     
     UIBarButtonItem *rightBarButton = [[UIBarButtonItem alloc] initWithCustomView:backBtn];
 	
-    self.navigationItem.rightBarButtonItem = rightBarButton;
+    self.navigationItem.leftBarButtonItem = rightBarButton;
     
 
 }
@@ -920,14 +923,15 @@
     
     if(isrecommend) {
         
-        [self.recommendedBtn setBackgroundImage:[[UIImage imageNamed:@"Unrecommend2"] stretchableImageWithLeftCapWidth:40 topCapHeight:10] forState:UIControlStateNormal];
+        [self.recommendedBtn setBackgroundImage:[[UIImage imageNamed:@"recomd_btn_pressed"] stretchableImageWithLeftCapWidth:60 topCapHeight:10] forState:UIControlStateNormal];
         
         [self.recommendedBtn setTitle:NSLocalizedString(@"Don't recommend", nil) forState:UIControlStateNormal];
+        [self.recommendedBtn.titleLabel setFont:[UIFont boldSystemFontOfSize:11.0f]];
         [self.recommendedBtn sizeToFit];
         
     } else {
         
-        [self.recommendedBtn setBackgroundImage:[[UIImage imageNamed:@"RecommendedBtn2"] stretchableImageWithLeftCapWidth:40 topCapHeight:10] forState:UIControlStateNormal];
+        [self.recommendedBtn setBackgroundImage:[[UIImage imageNamed:@"recomd_btn"] stretchableImageWithLeftCapWidth:60 topCapHeight:10] forState:UIControlStateNormal];
         
         [self.recommendedBtn setTitle:NSLocalizedString(@"Recommend", nil) forState:UIControlStateNormal];
         [self.recommendedBtn sizeToFit];

@@ -80,7 +80,7 @@ int CAT_HEADER_HEIGHT = 60;
     //Adding the logo background image
     UIImageView *logoBackgroundImageViewTemp = [[UIImageView alloc] initWithFrame:CGRectMake(10, 10, 40, 40)];
     self.logoBackgroundImageView = logoBackgroundImageViewTemp;
-    self.logoBackgroundImageView.image = [UIImage imageNamed:@"imageBackground.png"];
+    //self.logoBackgroundImageView.image = [UIImage imageNamed:@"imageBackground.png"];
     [self addSubview:self.logoBackgroundImageView];
     
     NSString *imageName = [ChannelCategory getChannelCatgegoryType:self.category.categoryType];
@@ -166,7 +166,7 @@ int CAT_HEADER_HEIGHT = 60;
 
 - (void)createAccessoryImageViewWithFrame:(CGRect)frame{
     self.accessoryImageView =[UIControls createUIImageViewWithFrame:frame];                    
-    [self.accessoryImageView setImage:[UIImage imageNamed:@"CellArrow"]];
+    [self.accessoryImageView setImage:[UIImage imageNamed:@"ic_arrow_right"]];
     self.accessoryImageView.autoresizingMask=UIViewAutoresizingFlexibleLeftMargin;
     [self addSubview:self.accessoryImageView];
 }

@@ -48,12 +48,12 @@
 
 - (void)setupStandardImages
 {
-    self.normalImageLeft = [UIImage imageNamed:@"PlanUnselect"];
+    self.normalImageLeft = [UIImage imageNamed:@"btn_double_selector_grey_left"];
     self.normalImageMiddle = nil;
-    self.normalImageRight= [UIImage imageNamed:@"AgentUnselect"];
-    self.selectedImageLeft = [UIImage imageNamed:@"PlanSelect"];
+    self.normalImageRight= [UIImage imageNamed:@"btn_double_selector_grey_right"];
+    self.selectedImageLeft = [UIImage imageNamed:@"btn_double_selector_red_left"];
     self.selectedImageMiddle = nil;
-    self.selectedImageRight = [UIImage imageNamed:@"AgentSelect"];
+    self.selectedImageRight = [UIImage imageNamed:@"btn_double_selector_red_right"];
 }
 
 @end

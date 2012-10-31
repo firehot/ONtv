@@ -17,6 +17,7 @@
 #define LIGHTBLUE @"d8e9ec"
 #define BLUE  @"117890"
 #define White @"ffffff"
+#define BLACK @"000000"
 
 #define SearchBarBlueColor @"36b6d5"
 

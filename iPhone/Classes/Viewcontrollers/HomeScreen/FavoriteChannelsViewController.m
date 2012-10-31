@@ -34,6 +34,16 @@ BOOL formProgramDetail;
 
 @end
 
+@implementation UINavigationBar (UINavigationBarCategory)
+
+- (void)drawRect:(CGRect)rect
+{
+    UIImage *image = [UIImage imageNamed: @"bg_bartop.png"];
+    [image drawInRect:CGRectMake(0, 0, self.frame.size.width, self.frame.size.height)];
+}
+
+
+@end
 
 @implementation FavoriteChannelsViewController
 
@@ -184,7 +194,7 @@ BOOL formProgramDetail;
     AppDelegate_iPhone *appDelegate = DELEGATE;
     
     if (appDelegate.selectedMenuItem != Favorite && appDelegate.selectedMenuItem != Plan) {
-        self.navigationItem.rightBarButtonItem = nil;
+        self.navigationItem.leftBarButtonItem = nil;
     } 
 }
 
@@ -198,8 +208,14 @@ BOOL formProgramDetail;
 
 -(void)configureFavoriteChannelView {
     
-    self.navigationController.navigationBar.barStyle = UIBarStyleBlackTranslucent;
-    self.navigationController.navigationBar.tintColor = [UIUtils colorFromHexColor:@"36b6d5"];
+    
+    self.navigationController.navigationBar.barStyle = UIBarStyleBlack;
+    //self.navigationController.navigationBar.tintColor = [UIUtils colorFromHexColor:@"b00a4f"];
+    if ([self.navigationController.navigationBar respondsToSelector:@selector(setBackgroundImage:forBarMetrics:)] )
+    {
+        UIImage *image = [UIImage imageNamed:@"bg_bartop"];
+        [self.navigationController.navigationBar setBackgroundImage:image forBarMetrics:UIBarMetricsDefault];
+    }
 
 	[self createTableView];
     
@@ -214,17 +230,17 @@ BOOL formProgramDetail;
 	appDelegate.currentViewController = self;
     
     
-   // self.startDateString = [UIUtils stringFromGivenDate:[NSDate date] withLocale: @"en_US" andFormat: @"EEEddMMMyyyy hh:mm:ss"];
-   
+    // self.startDateString = [UIUtils stringFromGivenDate:[NSDate date] withLocale: @"en_US" andFormat: @"EEEddMMMyyyy hh:mm:ss"];
+    
     NSDate *startDate=[NSDate date];
     
-            NSDateFormatter *localDateFormat = [[NSDateFormatter alloc] init];
-           [localDateFormat setTimeZone:[NSTimeZone localTimeZone]];
-           [localDateFormat setDateFormat:@"EEEddMMMyyyy hh:mm:ss"];
-            [localDateFormat setLocale:[[NSLocale alloc] initWithLocaleIdentifier:@"en_US"]];
+    NSDateFormatter *localDateFormat = [[NSDateFormatter alloc] init];
+    [localDateFormat setTimeZone:[NSTimeZone localTimeZone]];
+    [localDateFormat setDateFormat:@"EEEddMMMyyyy hh:mm:ss"];
+    [localDateFormat setLocale:[[NSLocale alloc] initWithLocaleIdentifier:@"en_US"]];
     
-           NSString * localDateStr = [localDateFormat stringFromDate:startDate];
-            self.startDateString=localDateStr;
+    NSString * localDateStr = [localDateFormat stringFromDate:startDate];
+    self.startDateString=localDateStr;
     
     // self.startDateString=[UIUtils startTimeFromGivenDate:[NSDate date]];;
     
@@ -232,7 +248,7 @@ BOOL formProgramDetail;
     self.endDateString = [UIUtils endTimeFromGivenDate:[NSDate date]];
     
     [self addSearchBar];
-    [self.favoriteChannelsTableView  setFrame: CGRectMake(0,0, self.view.bounds.size.width, self.view.bounds.size.height)]; 
+    [self.favoriteChannelsTableView  setFrame: CGRectMake(0,0, self.view.bounds.size.width, self.view.bounds.size.height)];
 
 	
 }
@@ -243,19 +259,13 @@ BOOL formProgramDetail;
     
     // ABP
     channelTableView.autoresizingMask=(UIViewAutoresizingFlexibleWidth|UIViewAutoresizingFlexibleHeight);
-    
-    //[UIApplication sharedApplication].statusBarHeight
-    //self.menuBarView.frame.size.height
-    //CGRectGetMidX(self.menuBarView.frame)
-    
     NSLog(@"%f", CGRectGetHeight(self.view.bounds)-CGRectGetHeight(self.menuBarView.frame)-CGRectGetHeight(self.searchBarForChannels.frame));
 
 	channelTableView.tag = 0;
+    
 	self.favoriteChannelsTableView = channelTableView;	
-    
     self.favoriteChannelsTableView.frame = CGRectMake(0,0,self.view.bounds.size.width,self.view.bounds.size.height);
-    
-	self.favoriteChannelsTableView.delegate = self;
+    self.favoriteChannelsTableView.delegate = self;
 	self.favoriteChannelsTableView.dataSource = self;	
 	[self.view addSubview:self.favoriteChannelsTableView];
 	self.favoriteChannelsTableView.hidden = NO;
@@ -324,32 +334,32 @@ BOOL formProgramDetail;
 
 
 -(void) addEditButton {
-
+      
+    UIButton *editButton = [UIButton buttonWithType:UIButtonTypeCustom];
+    editButton.frame=CGRectMake(0, 0, 70, 30);
+    [editButton addTarget:self action:@selector(editButtonTapped:) forControlEvents:UIControlEventTouchUpInside];
+    [editButton setBackgroundImage:[UIImage imageNamed:@"btn_channels.png"] forState:UIControlStateNormal];
+    [editButton setBackgroundImage:[UIImage imageNamed:@"btn_channels_pressed"] forState:UIControlStateHighlighted];
+    [editButton setTitle:channelsButtonStr forState:UIControlStateNormal];
+    [editButton.titleLabel setFont:[UIFont boldSystemFontOfSize:12.0f]];
+    UIBarButtonItem *channelsBarButton=[[UIBarButtonItem alloc] initWithCustomView:editButton];
+    self.navigationItem.leftBarButtonItem = channelsBarButton;
     
-    //if(appDelegate.isGuest == NO) {	
-        
-        UIBarButtonItem *editButton = [[UIBarButtonItem alloc] initWithTitle: channelsButtonStr style:UIBarButtonItemStylePlain target:self action:@selector(editButtonTapped:)];
-        
-        
-        self.navigationItem.rightBarButtonItem = editButton;
-   // }
+  
 }
 
 -(void) addAddChannelButton {
     
     self.navigationItem.rightBarButtonItem = nil;
-    
     UIButton *add = [UIButton buttonWithType:UIButtonTypeCustom];
-    add.frame = CGRectMake(0, 0, 30, 30);
+    add.frame = CGRectMake(0, 0, 35, 30);
     [add addTarget:self action:@selector(addButtonTapped:) forControlEvents:UIControlEventTouchUpInside];
-    [add setBackgroundImage:[UIImage imageNamed:@"plus.png"] forState:UIControlStateNormal];
-	UIBarButtonItem *addButton = [[UIBarButtonItem alloc] initWithCustomView:add];
-	self.navigationItem.leftBarButtonItem = addButton;
-		
+    [add setBackgroundImage:[UIImage imageNamed:@"btn_plus.png"] forState:UIControlStateNormal];
+    UIBarButtonItem *addButton = [[UIBarButtonItem alloc] initWithCustomView:add];
+    self.navigationItem.rightBarButtonItem = addButton;
     UIButton *save = [UIUtils createStandardButtonWithTitle: NSLocalizedString(@"Save",nil) addTarget:self action:@selector(saveButtonTapped:)];
-
-	UIBarButtonItem *backButton = [[UIBarButtonItem alloc] initWithCustomView:save];
-	self.navigationItem.rightBarButtonItem = backButton;
+    UIBarButtonItem *backButton = [[UIBarButtonItem alloc] initWithCustomView:save];
+	self.navigationItem.leftBarButtonItem = backButton;
 }
 
 
@@ -358,14 +368,13 @@ BOOL formProgramDetail;
 	UISearchBar *tempSearchbar = [[UISearchBar alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, 44)];
 	self.searchBarForChannels = tempSearchbar;
     self.searchBarForChannels.barStyle = UIBarStyleBlackTranslucent;
-    self.searchBarForChannels.tintColor = [UIUtils colorFromHexColor:@"36b6d5"];
+    self.searchBarForChannels.tintColor = [UIUtils colorFromHexColor:@"b00a4f"];
 	self.searchBarForChannels.showsCancelButton = YES;
 	self.searchBarForChannels.delegate = self;
 	self.searchBarForChannels.placeholder = searchbarPlaceHolderStr;
 	self.favoriteChannelsTableView.tableHeaderView = self.searchBarForChannels;
 
     [self.view bringSubviewToFront:self.searchBarForChannels];
-    
     [self.favoriteChannelsTableView setNeedsLayout];
 }
 
@@ -768,14 +777,14 @@ BOOL formProgramDetail;
         
         [cell.textLabel setText: NSLocalizedString(@"No records found",nil)];
         [cell.textLabel setFont:[UIFont boldSystemFontOfSize:12]];
-        [cell.textLabel setTextColor:[UIUtils colorFromHexColor:BLUE]];
+        [cell.textLabel setTextColor:[UIColor blackColor]];
         [tableView setSeparatorStyle:UITableViewCellSeparatorStyleSingleLine];
 
         [cell setUserInteractionEnabled:NO];
         return cell;
         
     }
-        
+    [tableView setSeparatorStyle:UITableViewCellSeparatorStyleSingleLine];
     CustomCellForChannel *cell = (CustomCellForChannel *)[tableView dequeueReusableCellWithIdentifier:CellIdentifier];
    
 	if (cell == nil) {
@@ -799,11 +808,15 @@ BOOL formProgramDetail;
     
 	if(searchFlag!= 1) {
         
-        [tableView setSeparatorStyle:UITableViewCellSeparatorStyleNone];
+       [tableView setSeparatorStyle:UITableViewCellSeparatorStyleSingleLine];
 
         
-        [cell.backgroundView setBackgroundColor:[UIColor colorWithPatternImage:[UIImage imageNamed:@"cellImage"]]];
+       //[cell.backgroundView setBackgroundColor:[UIColor colorWithPatternImage:[UIImage imageNamed:@"cellImage"]]];
+        cell.backgroundView.backgroundColor=[UIColor whiteColor];
+        UIView *viewd = [[UIView alloc] initWithFrame:CGRectMake(100, 0, 1, 50)];
+        viewd.backgroundColor=[UIUtils colorFromHexColor:@"e6e5e4"];
         
+        [cell.contentView addSubview:viewd];
 
         [cell.categoryImageView setHidden:YES];
         
@@ -813,7 +826,7 @@ BOOL formProgramDetail;
 		if([newChannel.imageObjectsArray count] !=0 || newChannel.imageObjectsArray != nil) {
             
             [cell.logoBackgroundImageView setHidden:NO];
-            [cell.logoImageView setFrame:CGRectMake(16+10, 11+5, 50, 20)];	
+            [cell.logoImageView setFrame:CGRectMake(16, 11, 75, 30)];
 			Image *imageObject = [newChannel.imageObjectsArray objectAtIndex:1];
             
             DLog(@"channel server path string %@", imageObject.src);
@@ -881,7 +894,7 @@ BOOL formProgramDetail;
                         
                         cell.program1Label.text =  NSLocalizedString(@"Channel.no.air.1", nil);
                         cell.program2Label.text =  NSLocalizedString(@"Channel.no.air.2", nil);                     
-                        [cell.program2Label setTextColor:[UIUtils colorFromHexColor:BLUE]];
+                        [cell.program2Label setTextColor:[UIColor blackColor]];
                         [cell.program2Label setFont:[UIFont boldSystemFontOfSize:13.0f]];
                         
                         [cell.program1Label setFrame:CGRectMake(110, 5, 140, 20)];
@@ -1437,7 +1450,7 @@ BOOL formProgramDetail;
     [favoriteChannelsTableView setFrame:CGRectMake(favoriteChannelsTableView.frame.origin.x, 0, favoriteChannelsTableView.frame.size.width, self.view.bounds.size.height)];
 
     
-    self.searchBarForChannels.tintColor = [UIUtils colorFromHexColor:SearchBarBlueColor];
+    self.searchBarForChannels.tintColor = [UIUtils colorFromHexColor:@"b00a4f"];
     
     self.navigationItem.rightBarButtonItem = nil;
 	[self dismissModalViewControllerAnimated:YES];
@@ -1490,7 +1503,7 @@ BOOL formProgramDetail;
 
 - (void)showRecommendationView:(CGRect)frame {
     
-    self.navigationItem.rightBarButtonItem = nil;
+    self.navigationItem.leftBarButtonItem = nil;
 
     RecommendationView *recommendationView = [[RecommendationView alloc] initWithFrame:frame];
     
@@ -1513,7 +1526,7 @@ BOOL formProgramDetail;
 
 - (void)showCategoryView:(CGRect)frame {
     
-    self.navigationItem.rightBarButtonItem = nil;
+    self.navigationItem.leftBarButtonItem = nil;
 
     CategoryView *categoryView = [[CategoryView alloc] initWithFrame:frame];
     
@@ -1533,7 +1546,7 @@ BOOL formProgramDetail;
 
 - (void)showUserView:(CGRect)frame {
     
-    self.navigationItem.rightBarButtonItem = nil;
+    self.navigationItem.leftBarButtonItem = nil;
     
     UserView *userView = [[UserView alloc] initWithFrame:frame];
     
@@ -1552,6 +1565,7 @@ BOOL formProgramDetail;
 #pragma mark Show Plan View method 
 
 - (void)showPlanView:(CGRect)frame {
+    
     
     PlanView *planView = [[PlanView alloc] initWithFrame:frame];
     
@@ -1572,11 +1586,11 @@ BOOL formProgramDetail;
 
 - (void)createMenuBar {
     
-    MenuBar *tempMenuBar = [[MenuBar alloc] initWithFrame:CGRectMake(0, 0, 200, 44)];
+    MenuBar *tempMenuBar = [[MenuBar alloc] initWithFrame:CGRectMake(0, 0, 197, 44)];
     self.menuBarView = tempMenuBar;
     self.menuBarView.menuBarDelegate = self;
     UIBarButtonItem *buttonItem = [[UIBarButtonItem alloc] initWithCustomView:self.menuBarView];
-    self.navigationItem.leftBarButtonItem = buttonItem;
+    self.navigationItem.rightBarButtonItem = buttonItem;
     
     AppDelegate_iPhone *appDelegate = DELEGATE;
 
@@ -1595,7 +1609,7 @@ BOOL formProgramDetail;
     
     appDelegate.selectedMenuItem  = buttonType;
     
-    self.searchBarForChannels.tintColor = [UIUtils colorFromHexColor:SearchBarBlueColor];
+    self.searchBarForChannels.tintColor = [UIUtils colorFromHexColor:@"b00a4f"];
     self.startDateString = [UIUtils stringFromGivenDate:[NSDate date] withLocale: @"en_US" andFormat: @"EEEddMMMyyyy hh:mm:ss"];
     
     [self showSelectedMenu];
@@ -1655,7 +1669,7 @@ BOOL formProgramDetail;
 
 - (void)addSubViews:(MenuBarButton)buttonType {
     
-  self.navigationItem.rightBarButtonItem = nil;
+  self.navigationItem.leftBarButtonItem = nil;
 
    // CGRect frame = CGRectMake(0, 0, self.view.frame.size.width, 416);
     

@@ -18,9 +18,13 @@
     NSString *subscription;
     
     NSArray *channels;
+    
+    NSString *img;
 }
 
 @property (nonatomic, assign) int user_id;
+
+@property (nonatomic, copy) NSString *img;
 
 @property (nonatomic, copy) NSString *email;
 
