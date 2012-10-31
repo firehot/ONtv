@@ -34,6 +34,16 @@ BOOL formProgramDetail;
 
 @end
 
+@implementation UINavigationBar (UINavigationBarCategory)
+
+- (void)drawRect:(CGRect)rect
+{
+    UIImage *image = [UIImage imageNamed: @"bg_bartop.png"];
+    [image drawInRect:CGRectMake(0, 0, self.frame.size.width, self.frame.size.height)];
+}
+
+
+@end
 
 @implementation FavoriteChannelsViewController
 
@@ -200,7 +210,12 @@ BOOL formProgramDetail;
     
     
     self.navigationController.navigationBar.barStyle = UIBarStyleBlack;
-    self.navigationController.navigationBar.tintColor = [UIUtils colorFromHexColor:@"b00a4f"];
+    //self.navigationController.navigationBar.tintColor = [UIUtils colorFromHexColor:@"b00a4f"];
+    if ([self.navigationController.navigationBar respondsToSelector:@selector(setBackgroundImage:forBarMetrics:)] )
+    {
+        UIImage *image = [UIImage imageNamed:@"bg_bartop"];
+        [self.navigationController.navigationBar setBackgroundImage:image forBarMetrics:UIBarMetricsDefault];
+    }
 
 	[self createTableView];
     

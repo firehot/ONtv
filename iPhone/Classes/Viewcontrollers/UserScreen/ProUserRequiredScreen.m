@@ -96,15 +96,16 @@ NSString *noCommercialStr;
 
 - (void)createUpperProUserView {
     
-    UIView *upperView = [UIControls createUIViewWithFrame:CGRectMake(0, 0, self.view.bounds.size.width, 80) BackGroundColor:@"f6f6f6"];
+    UIView *upperView = [UIControls createUIViewWithFrame:CGRectMake(0, 0, self.view.bounds.size.width, 80) BackGroundColor:@"b00a4f"];
     
     upperView.autoresizingMask = UIViewAutoresizingFlexibleWidth;
     
     [self.scrollView addSubview:upperView];
      
     // create  Ontv Logo Image View
-    UIImageView *ontvLogo = [UIControls createUIImageViewWithFrame:CGRectMake(86, 16.5, 147, 47)];
-    UIImage *ontvLogoImage  = [UIImage imageNamed:@"ApplicationLogo"];
+    UIImageView *ontvLogo = [UIControls createUIImageViewWithFrame:CGRectMake(32.5f, 11.5, 255, 57)];
+    [ontvLogo setBackgroundColor:[UIUtils colorFromHexColor:@"b00a4f"]];
+    UIImage *ontvLogoImage  = [UIImage imageNamed:@"img_logo"];
     [ontvLogo setImage:ontvLogoImage];
     
     ontvLogo.autoresizingMask = UIViewAutoresizingFlexibleLeftMargin|UIViewAutoresizingFlexibleRightMargin;
@@ -115,7 +116,7 @@ NSString *noCommercialStr;
 
 - (void)createBottomProUserView {
     
-    UILabel *ONTVProOrONTVrequiredLabel =[UIControls createUILabelWithFrame:CGRectMake(0, 90, self.view.bounds.size.width, 30) FondSize:26 FontName:@"Helvetica Bold" FontHexColor:@"117890" LabelText:ONTVProOrONTVrequiredLabelStr];
+    UILabel *ONTVProOrONTVrequiredLabel =[UIControls createUILabelWithFrame:CGRectMake(0, 90, self.view.bounds.size.width, 30) FondSize:26 FontName:@"Helvetica Bold" FontHexColor:@"b00a4f" LabelText:ONTVProOrONTVrequiredLabelStr];
     [ONTVProOrONTVrequiredLabel setTextAlignment:UITextAlignmentCenter];
     ONTVProOrONTVrequiredLabel.autoresizingMask = UIViewAutoresizingFlexibleWidth;
     [self.scrollView  addSubview:ONTVProOrONTVrequiredLabel];

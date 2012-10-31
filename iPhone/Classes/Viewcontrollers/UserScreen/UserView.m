@@ -263,14 +263,16 @@ NSString *pushNotificationCellHeaderStr;
             NSArray *topLevelObjects = [[NSBundle mainBundle] loadNibNamed:@"UserCell" owner:self options:nil];
             // Grab a pointer to the first object (presumably the custom cell, as that's all the XIB should contain).
             cell = [topLevelObjects objectAtIndex:0];
-            
-            
+                        
         }
+        
         cell.loggedInLabel.text=logOutCellHeaderStr;
         AppDelegate_iPhone *appDelegate = DELEGATE;
         cell.userName.text=appDelegate.user.name;
-        UIImage *image = [UIImage imageWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:appDelegate.user.img]]];
-        [cell.userImage setImage:image];
+        if (![appDelegate.user.img isEqualToString:@""]) {
+            UIImage *image = [UIImage imageWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:appDelegate.user.img]]];
+            [cell.userImage setImage:image];
+        }
         cell.logoutButton.titleLabel.text=logOutButtonStr;
         [cell.logoutButton addTarget:self action:@selector(logoutButtonClicked) forControlEvents:UIControlEventTouchUpInside];
         

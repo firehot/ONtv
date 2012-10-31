@@ -7,8 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		04044A7E162F1302002D942E /* UserCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 04044A7D162F1302002D942E /* UserCell.m */; };
-		04044A80162F1318002D942E /* UserCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 04044A7F162F1318002D942E /* UserCell.xib */; };
+		040D337E1641B1E10026BB56 /* UserCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 040D337C1641B1E10026BB56 /* UserCell.m */; };
+		040D337F1641B1E10026BB56 /* UserCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 040D337D1641B1E10026BB56 /* UserCell.xib */; };
 		042E61BC162C0DBD001D4FCB /* FacebookSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 042E61BB162C0DBD001D4FCB /* FacebookSDK.framework */; };
 		042E61CE162C0E1D001D4FCB /* libSDWebImageARC.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 042E61C9162C0E09001D4FCB /* libSDWebImageARC.a */; };
 		042E6290162C0F71001D4FCB /* .dropbox in Resources */ = {isa = PBXBuildFile; fileRef = 042E61D0162C0F71001D4FCB /* .dropbox */; };
@@ -467,9 +467,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		04044A7C162F1302002D942E /* UserCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserCell.h; sourceTree = "<group>"; };
-		04044A7D162F1302002D942E /* UserCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserCell.m; sourceTree = "<group>"; };
-		04044A7F162F1318002D942E /* UserCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = UserCell.xib; sourceTree = "<group>"; };
+		040D337B1641B1E10026BB56 /* UserCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserCell.h; sourceTree = "<group>"; };
+		040D337C1641B1E10026BB56 /* UserCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserCell.m; sourceTree = "<group>"; };
+		040D337D1641B1E10026BB56 /* UserCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = UserCell.xib; sourceTree = "<group>"; };
 		042E61BB162C0DBD001D4FCB /* FacebookSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FacebookSDK.framework; sourceTree = "<group>"; };
 		042E61BD162C0E08001D4FCB /* SDWebImage.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = SDWebImage.xcodeproj; path = SDWebImage/SDWebImage.xcodeproj; sourceTree = "<group>"; };
 		042E61D0162C0F71001D4FCB /* .dropbox */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = .dropbox; sourceTree = "<group>"; };
@@ -1993,13 +1993,13 @@
 		46E1C1071469B6AA00BE6023 /* UserScreen */ = {
 			isa = PBXGroup;
 			children = (
+				040D337B1641B1E10026BB56 /* UserCell.h */,
+				040D337C1641B1E10026BB56 /* UserCell.m */,
+				040D337D1641B1E10026BB56 /* UserCell.xib */,
 				4629046814AC8EBF00365590 /* UserView.h */,
 				4629046914AC8ED400365590 /* UserView.m */,
 				46A2748E1497ABAF0084D0F9 /* ProUserRequiredScreen.h */,
 				46A2748F1497ABB90084D0F9 /* ProUserRequiredScreen.m */,
-				04044A7C162F1302002D942E /* UserCell.h */,
-				04044A7D162F1302002D942E /* UserCell.m */,
-				04044A7F162F1318002D942E /* UserCell.xib */,
 			);
 			path = UserScreen;
 			sourceTree = "<group>";
@@ -2538,7 +2538,6 @@
 				042E6353162C10B4001D4FCB /* appicon.png in Resources */,
 				045FC31F162DE57F00C19955 /* UserScreen.png in Resources */,
 				045FC320162DE57F00C19955 /* UserScreen@2x.png in Resources */,
-				04044A80162F1318002D942E /* UserCell.xib in Resources */,
 				0472C6AE16382EC400B5D8BD /* bg_log.png in Resources */,
 				0472C6AF16382EC400B5D8BD /* bg_log@2x.png in Resources */,
 				0472C6B016382EC400B5D8BD /* bg_log@2x~ipad.png in Resources */,
@@ -2575,6 +2574,7 @@
 				0460FCDD163EDBFF00040546 /* btn_plus.png in Resources */,
 				0460FCE0163EDC6C00040546 /* btn_plus_active@2x.png in Resources */,
 				0460FCE2163EDC8C00040546 /* btn_plus@2x.png in Resources */,
+				040D337F1641B1E10026BB56 /* UserCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2682,7 +2682,7 @@
 				E4AC0B8815C934150031D1B4 /* AppDelegateSuperClass.m in Sources */,
 				E4AC0B8915C934150031D1B4 /* AppDelegate_iPad.m in Sources */,
 				0433EB851608AA5A00FBE123 /* MBProgressHUD.m in Sources */,
-				04044A7E162F1302002D942E /* UserCell.m in Sources */,
+				040D337E1641B1E10026BB56 /* UserCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

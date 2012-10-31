@@ -50,6 +50,7 @@ BOOL formProgramDetail;
 
 -(void)configureFavoriteChannelView {    
    // self.navigationController.navigationBar.barStyle = UIBarStyleBlackTranslucent;
+    
     self.navigationController.navigationBar.tintColor = [UIUtils colorFromHexColor:@"36b6d5"];
     
 	[self createTableView];

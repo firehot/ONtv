@@ -14,7 +14,16 @@ NSString *searchChannelPlaceHolderStr;
 NSString *synchingChannelsHUDLabel;
 NSString *pleaseSelectChannelsAlertStr;
 
+@implementation UINavigationBar (UINavigationBarCategory)
 
+- (void)drawRect:(CGRect)rect
+{
+    UIImage *image = [UIImage imageNamed: @"bg_bartop.png"];
+    [image drawInRect:CGRectMake(0, 0, self.frame.size.width, self.frame.size.height)];
+}
+
+
+@end
 
 @interface AddChannelsViewController()
 
@@ -45,7 +54,6 @@ NSString *pleaseSelectChannelsAlertStr;
 
 
 @end
-
 
 @implementation AddChannelsViewController
 
@@ -138,13 +146,13 @@ int searchFlag = 0;
 #pragma mark -
 
 -(void) configureAddFavoriteChannelView {
-	
-    self.navigationController.navigationBar.barStyle = UIBarStyleDefault;
-   // self.navigationController.navigationBar.tintColor = [UIUtils colorFromHexColor:@"b00a4f"];
-    self.navigationController.navigationBar.tintColor=[UIColor colorWithPatternImage:[UIImage imageNamed:@"bg_bartop.png"]];
-    if ([self.navigationController.navigationBar respondsToSelector:@selector( setBackgroundImage:forBarMetrics:)]){
-        [self.navigationController.navigationBar setBackgroundImage:[UIImage imageNamed:@"bg_bartop.png"] forBarMetrics:UIBarMetricsDefault];
+
+    if ([self.navigationController.navigationBar respondsToSelector:@selector(setBackgroundImage:forBarMetrics:)] )
+    {
+        UIImage *image = [UIImage imageNamed:@"bg_bartop"];
+        [self.navigationController.navigationBar setBackgroundImage:image forBarMetrics:UIBarMetricsDefault];
     }
+
 	[self addSearchBar];
 	NSMutableArray *arrTemp = [[NSMutableArray alloc] init];
 	self.addChannelsArray = arrTemp;
@@ -189,8 +197,11 @@ int searchFlag = 0;
         
     [self.channelsTableView setFrame:CGRectMake(channelsTableView.frame.origin.x, channelsTableView.frame.origin.y, channelsTableView.frame.size.width, 371)];
 
-    self.navigationController.navigationBar.barStyle = UIBarStyleBlackTranslucent;
-    self.navigationController.navigationBar.tintColor = [UIUtils colorFromHexColor:@"b00a4f"];  
+    if ([self.navigationController.navigationBar respondsToSelector:@selector(setBackgroundImage:forBarMetrics:)] )
+    {
+        UIImage *image = [UIImage imageNamed:@"bg_bartop"];
+        [self.navigationController.navigationBar setBackgroundImage:image forBarMetrics:UIBarMetricsDefault];
+    }
     [self addButtonOnNavigationBar];
 	
     if(self.addChannelsArray) {

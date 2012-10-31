@@ -75,7 +75,7 @@
 - (void)createCommonUI {
 
     //UIImage *ontvLogoImage  = [UIImage imageNamed:@"HeaderTitleBackground"];
-    UIImageView *back=[[UIImageView alloc] initWithImage:[UIImage imageNamed:@"bg_title.png"]];
+    UIImageView *back=[[UIImageView alloc] initWithImage:[UIImage imageNamed:@"bg_title"]];
     
     [self addSubview:back];
     [self setUserInteractionEnabled:YES];
@@ -99,7 +99,7 @@
     [self addSubview:ChannelLogoBGIV];
     
     
-    UIImageView *backgrounfImage=[[UIImageView alloc] initWithImage:[UIImage imageNamed:@"bg_title.png"]];
+    UIImageView *backgrounfImage=[[UIImageView alloc] initWithImage:[UIImage imageNamed:@"bg_title"]];
     [backgrounfImage setFrame:(CGRectMake(0, 0, 320, 45))];
     [self addSubview:backgrounfImage];
        
@@ -110,13 +110,20 @@
     self.channelLogoIV.contentMode = UIViewContentModeScaleAspectFit;
     [ChannelLogoBGIV addSubview:self.channelLogoIV];
     
-    UILabel *tempProgramNameLabel=[[UILabel alloc] initWithFrame:CGRectMake(17+90+20, 48, 100, 34)];
-    tempProgramNameLabel.textColor=[UIColor blackColor];
-    tempProgramNameLabel.font=[UIFont fontWithName:@"Helvetica" size:14.0f];
-    [self addSubview:tempProgramNameLabel];
+    UIView *divider=[[UIView alloc] initWithFrame:CGRectMake(120, 55, 1, 25)];
+    [divider setBackgroundColor:[UIColor grayColor]];
+    [self addSubview:divider];
+    
+    UILabel *tempCategoryName = [[UILabel alloc] initWithFrame:CGRectMake(136, 55, 170, 25)];
+    [tempCategoryName setBackgroundColor:[UIColor clearColor]];
+    [tempCategoryName setFont:[UIFont boldSystemFontOfSize:14.0f]];
+    [tempCategoryName setTextColor:[UIColor blackColor]];
+    self.channelNameLabel=tempCategoryName;
+    [self addSubview:self.channelNameLabel];
+    
     
     UIButton *leftButton=[[UIButton alloc] initWithFrame:CGRectMake(5, 14.5f, 11, 16)];
-    [leftButton setBackgroundImage:[UIImage imageNamed:@"ic_pagination_arrow_left.png"] forState:UIControlStateNormal];
+    [leftButton setBackgroundImage:[UIImage imageNamed:@"ic_pagination_arrow_left"] forState:UIControlStateNormal];
     self.leftPagination = leftButton;
     [self addSubview:self.leftPagination];
     
@@ -125,7 +132,7 @@
     [self createPageControlWithFrame:CGRectMake(16, 0, 90, 45)];
     
     UIButton *rightButton=[[UIButton alloc] initWithFrame:CGRectMake(16+90, 14.5f, 11, 16)];
-    [rightButton setBackgroundImage:[UIImage imageNamed:@"ic_pagination_arrow_right.png"] forState:UIControlStateNormal];
+    [rightButton setBackgroundImage:[UIImage imageNamed:@"ic_pagination_arrow_right"] forState:UIControlStateNormal];
     self.rightPagination = rightButton;
     [self addSubview:self.rightPagination];
     
@@ -143,30 +150,49 @@
 
 - (void)createUIForCategoryHeader {
     
-   
+    UIView *back=[[UIView alloc] initWithFrame:CGRectMake(0, 0, 320, 90)];
+    [back setBackgroundColor:[UIColor whiteColor]];
+    [self addSubview:back];
     
-    UIImageView *backgrounfImage=[[UIImageView alloc] initWithImage:[UIImage imageNamed:@"bg_title.png"]];
+    UIImageView *backgrounfImage=[[UIImageView alloc] initWithImage:[UIImage imageNamed:@"bg_title"]];
     [backgrounfImage setFrame:(CGRectMake(0, 0, 320, 45))];
     [self addSubview:backgrounfImage];
     
-    UIImageView *ChannelLogoBGIV = [UIControls createUIImageViewWithFrame:CGRectMake(5, 5, 38, 37)];
-    UIImage *ChannelLogoBGImage  = [UIImage imageNamed:@"CategoryBackGround"];
-    [ChannelLogoBGIV setImage:ChannelLogoBGImage];
-    [ChannelLogoBGIV setContentMode:UIViewContentModeScaleAspectFit];
-    [self addSubview:ChannelLogoBGIV];    
-    
-    
-     UIImageView *tempEGOIV = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"bigChannelLogo"]];
+     
+    UIImageView *tempEGOIV = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"bigChannelLogo"]];
     self.channelLogoIV = tempEGOIV;
-    self.channelLogoIV.frame = CGRectMake(10, 10, 20, 20);	
-    [ChannelLogoBGIV addSubview:self.channelLogoIV];
+    self.channelLogoIV.frame = CGRectMake(20, 55, 34.5f, 28.5f);
+    [self addSubview:self.channelLogoIV];
+    
+    UILabel *tempCategoryName = [[UILabel alloc] initWithFrame:CGRectMake(65, 55, 200, 25)];
+    [tempCategoryName setBackgroundColor:[UIColor clearColor]];
+    [tempCategoryName setFont:[UIFont boldSystemFontOfSize:14.0f]];
+    [tempCategoryName setTextColor:[UIColor blackColor]];
+    self.categoryNameLabel=tempCategoryName;
+    [self addSubview:self.categoryNameLabel];
+        
+    
+    UIButton *leftButton=[[UIButton alloc] initWithFrame:CGRectMake(5, 14.5f, 11, 16)];
+    [leftButton setBackgroundImage:[UIImage imageNamed:@"ic_pagination_arrow_left"] forState:UIControlStateNormal];
+    self.leftPagination = leftButton;
+    [self addSubview:self.leftPagination];
     
     
-    [self createPageControlScrollViewWithFrame:CGRectMake(65, 0, 100, 49)];
+    [self createPageControlScrollViewWithFrame:CGRectMake(16, 0, 90, 45)];
+    [self createPageControlWithFrame:CGRectMake(16, 0, 90, 45)];
+    
+    UIButton *rightButton=[[UIButton alloc] initWithFrame:CGRectMake(16+90, 14.5f, 11, 16)];
+    [rightButton setBackgroundImage:[UIImage imageNamed:@"ic_pagination_arrow_right"] forState:UIControlStateNormal];
+    self.rightPagination = rightButton;
+    [self addSubview:self.rightPagination];
+    
+    UILabel *showsLabel = [[UILabel alloc] initWithFrame:CGRectMake(90+27+60, 14.5f, 60, 16)];
+    [showsLabel setText:@"Shows:"];
+    [showsLabel setBackgroundColor:[UIColor clearColor]];
+    [showsLabel setTextColor:[UIColor whiteColor]];
+    [showsLabel setFont:[UIFont boldSystemFontOfSize:12.0f]];
+    [self addSubview:showsLabel];
 
-    [self createPageControlWithFrame:CGRectMake(0, 0, 100, 49)];
-    
-    [self createPageControlLabelWithFrame:CGRectMake(68, 30, 100, 20)];
     
     [self CreateDateUIView];
     

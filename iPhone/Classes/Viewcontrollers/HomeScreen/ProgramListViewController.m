@@ -373,26 +373,21 @@ NSString *searchHeaderTodayLabelStr;
     
     if (_menuSelected == other) {
     
-        NSString *imageName = [ChannelCategory getChannelCatgegoryType:programObj.type];
-        UIImage *image = [UIImage imageNamed:imageName];
-        [cell.categoryImageView setFrame:CGRectMake(cell.contentView.bounds.size.width-55, 15, image.size.width, image.size.height)];
-        
-        
-        UIImage *categoryImage = [UIImage imageNamed:imageName];
-        [cell.categoryImageView setImage:categoryImage];
+        //        NSString *imageName = [ChannelCategory getChannelCatgegoryType:programObj.type];
+        //        UIImage *image = [UIImage imageNamed:imageName];
+        //        [cell.categoryImageView setFrame:CGRectMake(cell.contentView.bounds.size.width-55, 15, image.size.width, image.size.height)];
+        //        UIImage *categoryImage = [UIImage imageNamed:imageName];
+        //        [cell.categoryImageView setImage:categoryImage];
         cell.backgroundColor=[UIColor grayColor];
         
     } else if (_menuSelected == Categories) {
-        
-    
+   
         for (int i = 0; i < [self.channelArray count]; i++) {
-           
-            
+         
             Channel *channelObj = [self.channelArray objectAtIndex:i];
             
             if (channelObj.id == programObj.channel) {
-                
-                
+              
                 if([channelObj.imageObjectsArray count] !=0 || channelObj.imageObjectsArray != nil) {
                 
                     NSMutableString *url = [[NSMutableString alloc] initWithString:BASEURL];
@@ -401,35 +396,27 @@ NSString *searchHeaderTodayLabelStr;
                     if(imageObject.src != nil)
                         [url appendString:imageObject.src];
                     [cell.categoryImageView setFrame:CGRectMake(cell.contentView.bounds.size.width-78, 15, 50, 20)];
-
                     [cell.categoryImageView setImageWithURL:[NSURL URLWithString:url] placeholderImage:[UIImage imageNamed:@"bigChannelLogo"]];
-
                     break;
                 }
-                
-                
+                             
             }
         }
         
     }
-    
+    [cell setBackgroundColor:[UIUtils colorFromHexColor:GRAY]];
     [cell.programImageView setHidden:YES];
     [cell.programTeaserLabel setHidden:YES];
-
     [cell.programProLabel1 setText:@""];
     [cell.programTeaserLabel setText:@""];
     [cell.programProLabel3 setText:@""];
-
-    
     
     AppDelegate_iPhone *appDelegate = DELEGATE;
 
-    
     if ([appDelegate.user.deviceSummaryListing isEqualToString:@"1"]) {
         
         NSMutableString *urlStr = [[NSMutableString alloc] initWithString:BASEURL];
-
-        
+       
         if([programObj.imgSrc isStringPresent]) { // if image is present
             
             [cell.programProLabel1 setHidden:NO];
@@ -708,18 +695,14 @@ NSString *searchHeaderTodayLabelStr;
     [_programHeaderView.rightPagination addTarget:self action:@selector(handleSwipeFromLeft) forControlEvents:UIControlEventTouchUpInside];
     [_programHeaderView.leftPagination addTarget:self action:@selector(handleSwipeFromRight) forControlEvents:UIControlEventTouchUpInside];
     [_programHeaderView.dateButton addTarget:self action:@selector(dayButtonTapped:) forControlEvents:UIControlEventTouchUpInside];
-        
     
     if (_menuSelected == other) {
-                          
         
         [_programHeaderView.pageControl setNumberOfPages:[self.channelArray count]];
         [_programHeaderView.pageControl setCurrentPage:_index];
         [_programHeaderView.pageControl setFrame:CGRectMake(0,0,(18*([self.channelArray count])),49)];
         [_programHeaderView.pageControlScrollView setContentSize:CGSizeMake((18*([self.channelArray count])), 49)];
         [_programHeaderView.pageControl setNumberOfPages:[self.channelArray count]];
-        
-        
         
         
     } else if (_menuSelected == Categories)  {
@@ -1001,7 +984,10 @@ NSString *searchHeaderTodayLabelStr;
 - (void)fetchProgramsForChannel:(int)channelId {
     
     Channel *channelObj = [self.channelArray objectAtIndex:_index];
+    [_programHeaderView.channelNameLabel setText:channelObj.title];
     
+    
+        
     NSMutableString *urlStr = [[NSMutableString alloc] initWithString:BASEURL];
     Image *imageObj = [channelObj.imageObjectsArray objectAtIndex:1];
 		
@@ -1010,10 +996,9 @@ NSString *searchHeaderTodayLabelStr;
         [urlStr appendString:imageObj.src];
 
         [_programHeaderView.channelLogoIV setImageWithURL:[NSURL URLWithString:urlStr] placeholderImage:[UIImage imageNamed:@"bigChannelLogo"]];
-        
+               
     }   
     
-
     [self createProgramProxy];
     
     [self.programProxy getProgramsForChannelId:channelId AndStartDate:self.startDateString AndEndDate:self.endDateString];
@@ -1022,13 +1007,72 @@ NSString *searchHeaderTodayLabelStr;
 
 
 // called to fetch the Programs for Selected Category.
+- (NSString*)colorForCatgegoryType:(NSString*)type
+{
+    
+    if ([type isEqualToString:@"documentary"]) {
+        
+        return @"7959c3";
+        
+    } else if ([type isEqualToString:@"entertainment"]) {
+        
+        return @"c03e8d";
+        
+    } else if ([type isEqualToString:@"kids"]) {
+        
+        return @"17b8cb";
+        
+    } else if ([type isEqualToString:@"movie"]) {
+        
+        return @"a51311";
+        
+    } else if ([type isEqualToString:@"music"]) {
+        
+        return @"f0db2a";
+        
+    } else if ([type isEqualToString:@"news"]) {
+        
+        return @"004f92";
+        
+    } else if ([type isEqualToString:@"serie"]) {
+        
+        return @"e08e00";
+        
+    } else if ([type isEqualToString:@"show"]) {
+        
+        //return @"ShowCategory";
+        return @"DramaCategory";
+        
+    } else if ([type isEqualToString:@"sport"]) {
+        
+        return @"1bab5f";
+        
+    } else if ([type isEqualToString:@"drama"]) {
+        
+        return @"1bab5f";
+        
+    } else if ([type isEqualToString:@"science"]) {
+        
+        return @"FFFFFF";
+        
+    }
+    
+    return @"000000";
+    
+}
+
 
 - (void)fetchProgramsForCategory:(NSString*)categoryType {
     
 
-   UIImage *imageObj = [UIImage imageNamed:[ChannelCategory getChannelCatgegoryType:categoryType]]; 
-    
-    _programHeaderView.channelLogoIV.image = imageObj;
+   //UIImage *imageObj = [UIImage imageNamed:[ChannelCategory getChannelCatgegoryType:categoryType]];
+    NSString *colorName=[self colorForCatgegoryType:categoryType];
+    UIView *categoryView=[[UIView alloc] initWithFrame:CGRectMake(0, 0, 34.5f, 28.5f)];
+    [categoryView.layer setCornerRadius:5.0f];
+    [categoryView setBackgroundColor:[UIUtils colorFromHexColor:colorName]];
+          
+    [_programHeaderView.channelLogoIV addSubview:categoryView];
+    [_programHeaderView.categoryNameLabel setText:categoryType];
 
 
     NSMutableArray *categoryIdArray = [[NSMutableArray alloc] init];

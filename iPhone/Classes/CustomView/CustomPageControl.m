@@ -20,7 +20,11 @@
     for (int i = 0; i < [self.subviews count]; i++)
     {
         UIImageView* dot = [self.subviews objectAtIndex:i];
-        if (i == self.currentPage) dot.image = activeImage;
+        [dot setFrame:CGRectMake(0, self.frame.size.height-32, 14, 14)];
+        if (i>0) {
+               [dot setFrame:CGRectMake((14*i)+(10*(i-1)), self.frame.size.height-32, 14, 14)];
+        }
+                if (i == self.currentPage) dot.image = activeImage;
         else dot.image = inactiveImage;
     }
 }

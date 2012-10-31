@@ -23,6 +23,8 @@
 @property (nonatomic, weak) id<HeaderViewDelegate> headerViewDelegate;
 @property (nonatomic, weak) UIButton *rightPagination;
 @property (nonatomic, weak) UIButton *leftPagination;
+@property (nonatomic, weak) UILabel *categoryNameLabel;
+@property (nonatomic, weak) UILabel *channelNameLabel;
 
 - (id)initWithFrame:(CGRect)frame andType:(MenuBarButton)type;
 
