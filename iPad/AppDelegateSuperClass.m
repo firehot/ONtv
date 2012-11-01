@@ -9,6 +9,7 @@
 #import <AudioToolbox/AudioToolbox.h>
 #import "UIDevice+IdentifierAddition.h"
 #import "DeviceDataModel.h"
+#import "iPadLoginScreenViewController.h"
 
 #define CURRENT_SCHEMA_VERSION 0
 
@@ -350,7 +351,7 @@
     
     
     if(!self.loginScreenViewController) {
-		LoginScreenViewController *vcTemp = [[LoginScreenViewController alloc] initWithNibName:nil bundle:nil];
+		iPadLoginScreenViewController *vcTemp = [[iPadLoginScreenViewController alloc] initWithNibName:nil bundle:nil];
 		self.loginScreenViewController = vcTemp;
 	}
     

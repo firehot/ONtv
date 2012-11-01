@@ -17,6 +17,8 @@
 		0435DD671642A46600C92E44 /* bg_log@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0435DD631642A46400C92E44 /* bg_log@2x.png */; };
 		0435DD681642A46600C92E44 /* bg_log@2x~ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = 0435DD641642A46500C92E44 /* bg_log@2x~ipad.png */; };
 		0435DD691642A46600C92E44 /* bg_log~ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = 0435DD651642A46500C92E44 /* bg_log~ipad.png */; };
+		0435DD6D1642A94500C92E44 /* iPadLoginScreenViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0435DD6C1642A94500C92E44 /* iPadLoginScreenViewController.m */; };
+		0435DD701642D99400C92E44 /* iPadCreateNewAccountViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0435DD6F1642D99400C92E44 /* iPadCreateNewAccountViewController.m */; };
 		0445A2AC1618A19A00BAD6F8 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0445A2AB1618A19A00BAD6F8 /* Default-568h@2x.png */; };
 		04756AFA161DB707003591FE /* SplashScreenViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 04756AF9161DB707003591FE /* SplashScreenViewController.xib */; };
 		0489B9371612548C00CBCB6E /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0489B9361612548C00CBCB6E /* MapKit.framework */; };
@@ -429,6 +431,10 @@
 		0435DD631642A46400C92E44 /* bg_log@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "bg_log@2x.png"; sourceTree = "<group>"; };
 		0435DD641642A46500C92E44 /* bg_log@2x~ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "bg_log@2x~ipad.png"; sourceTree = "<group>"; };
 		0435DD651642A46500C92E44 /* bg_log~ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "bg_log~ipad.png"; sourceTree = "<group>"; };
+		0435DD6B1642A94500C92E44 /* iPadLoginScreenViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = iPadLoginScreenViewController.h; sourceTree = "<group>"; };
+		0435DD6C1642A94500C92E44 /* iPadLoginScreenViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = iPadLoginScreenViewController.m; sourceTree = "<group>"; };
+		0435DD6E1642D99400C92E44 /* iPadCreateNewAccountViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = iPadCreateNewAccountViewController.h; sourceTree = "<group>"; };
+		0435DD6F1642D99400C92E44 /* iPadCreateNewAccountViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = iPadCreateNewAccountViewController.m; sourceTree = "<group>"; };
 		0445A2AB1618A19A00BAD6F8 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		04756AF9161DB707003591FE /* SplashScreenViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SplashScreenViewController.xib; sourceTree = "<group>"; };
 		0489B9361612548C00CBCB6E /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
@@ -977,6 +983,17 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
+		0435DD6A1642A8B700C92E44 /* LoginScreen */ = {
+			isa = PBXGroup;
+			children = (
+				0435DD6B1642A94500C92E44 /* iPadLoginScreenViewController.h */,
+				0435DD6C1642A94500C92E44 /* iPadLoginScreenViewController.m */,
+				0435DD6E1642D99400C92E44 /* iPadCreateNewAccountViewController.h */,
+				0435DD6F1642D99400C92E44 /* iPadCreateNewAccountViewController.m */,
+			);
+			name = LoginScreen;
+			sourceTree = "<group>";
+		};
 		049B41C71641DF4C007FCD2B /* Images */ = {
 			isa = PBXGroup;
 			children = (
@@ -1381,6 +1398,7 @@
 		2860E32A111B888700E27156 /* iPad */ = {
 			isa = PBXGroup;
 			children = (
+				0435DD6A1642A8B700C92E44 /* LoginScreen */,
 				3D0D48E615C7C40C0086D037 /* Categories */,
 				3D05523515BE80A700F5C11B /* FavoriteChannel */,
 				3DBC6E6015BD83DC00A4A7E8 /* AppDelegateSuperClass.h */,
@@ -2412,6 +2430,8 @@
 				0433EB851608AA5A00FBE123 /* MBProgressHUD.m in Sources */,
 				049B3F0C1641DE35007FCD2B /* NSDateFormatter+RFC_1123.m in Sources */,
 				0416FD511641E546005D638B /* UserCell.m in Sources */,
+				0435DD6D1642A94500C92E44 /* iPadLoginScreenViewController.m in Sources */,
+				0435DD701642D99400C92E44 /* iPadCreateNewAccountViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

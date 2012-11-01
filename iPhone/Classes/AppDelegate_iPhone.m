@@ -45,6 +45,8 @@ NSString *const FBSessionStateChangedNotification = @"com.example.Login:FBSessio
 
 @synthesize createNewAccountViewController = _createNewAccountViewController;
 
+@synthesize iPadCreateNewAccountViewControlle=_iPadCreateNewAccountViewControlle;
+
 @synthesize selectedMenuItem = _selectedMenuItem;
 
 @synthesize rootNavController = _rootNavController;

@@ -2,6 +2,7 @@
 #import <UIKit/UIKit.h>
 
 #import <FacebookSDK/FacebookSDK.h>
+#import "iPadLoginScreenViewController.h"
 
 @interface AppDelegateSuperClass : NSObject <UIApplicationDelegate,LoginProxyDelegate,DeviceProxyDelegate, UIAlertViewDelegate> {
     UIWindow *window;	
@@ -34,7 +35,7 @@
 
 @property (nonatomic, strong) FavoriteChannelsViewController *favoriteChannelsViewController;
 
-@property (nonatomic, strong) LoginScreenViewController *loginScreenViewController;
+@property (nonatomic, strong) iPadLoginScreenViewController *loginScreenViewController;
 
 @property (nonatomic, strong) CreateNewAccountViewController *createNewAccountViewController;
 

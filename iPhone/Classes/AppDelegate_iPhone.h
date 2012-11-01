@@ -9,6 +9,7 @@
 #import "CreateNewAccountViewController.h"
 #import "DeviceProxy.h"
 #import "ONTVContainerViewController.h"
+#import "iPadCreateNewAccountViewController.h"
 
 #import <FacebookSDK/FacebookSDK.h>
 
@@ -49,6 +50,8 @@ extern NSString *const FBSessionStateChangedNotification;
 @property (nonatomic, strong) LoginScreenViewController *loginScreenViewController;
 
 @property (nonatomic, strong) CreateNewAccountViewController *createNewAccountViewController;
+
+@property (nonatomic, strong) iPadCreateNewAccountViewController *iPadCreateNewAccountViewControlle;
 
 @property (nonatomic, assign) MenuBarButton selectedMenuItem;  
 
