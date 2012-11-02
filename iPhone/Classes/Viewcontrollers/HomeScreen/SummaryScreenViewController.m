@@ -304,7 +304,7 @@
     [planBtn setTitle:NSLocalizedString(@"Add notification",nil) forState:UIControlStateNormal];
     [planBtn setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
     planBtn.titleLabel.font = [UIFont boldSystemFontOfSize:12.0f];
-    planBtn.contentEdgeInsets = UIEdgeInsetsMake(0.0f, 45.0f, 0.0f, 15.0f);
+    planBtn.contentEdgeInsets = UIEdgeInsetsMake(0.0f, 40.0f, 0.0f, 10.0f);
     
     [planBtn sizeToFit];
     planBtn.frame = CGRectOffset(planBtn.frame, 10.0f, 10.0f);
@@ -325,8 +325,8 @@
     [self.recommendedBtn setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
     self.recommendedBtn.titleLabel.font = [UIFont boldSystemFontOfSize:12.0f];
    
-    self.recommendedBtn.contentEdgeInsets = UIEdgeInsetsMake(0.0f, 45.0f, 0.0f, 15.0f);
-    self.recommendedBtn.frame = CGRectOffset(self.recommendedBtn.frame, CGRectGetMaxX(planBtn.frame) + 5.0f, CGRectGetMinY(planBtn.frame));
+    self.recommendedBtn.contentEdgeInsets = UIEdgeInsetsMake(0.0f, 40.0f, 0.0f, 10.0f);
+    self.recommendedBtn.frame = CGRectOffset(self.recommendedBtn.frame, CGRectGetMaxX(planBtn.frame) + 10.0f, CGRectGetMinY(planBtn.frame));
     [self.recommendedBtn sizeToFit];
     [_summaryScrollView addSubview:planBtn];
     [_summaryScrollView addSubview:self.recommendedBtn];
