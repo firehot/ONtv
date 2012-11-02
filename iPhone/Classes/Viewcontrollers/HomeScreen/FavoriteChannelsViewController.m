@@ -265,10 +265,25 @@ BOOL formProgramDetail;
     
 	self.favoriteChannelsTableView = channelTableView;	
     self.favoriteChannelsTableView.frame = CGRectMake(0,0,self.view.bounds.size.width,self.view.bounds.size.height);
+    self.favoriteChannelsTableView.contentOffset = CGPointMake(0.0, 44.0);
+    self.favoriteChannelsTableView.contentInset=UIEdgeInsetsMake(-self.searchDisplayController.searchBar.frame.size.height,0,0,0);
     self.favoriteChannelsTableView.delegate = self;
 	self.favoriteChannelsTableView.dataSource = self;	
 	[self.view addSubview:self.favoriteChannelsTableView];
 	self.favoriteChannelsTableView.hidden = NO;
+}
+
+-(void)scrollViewDidEndDragging:(UIScrollView *)scrollView willDecelerate:(BOOL)decelerate{
+    CGPoint offset=self.favoriteChannelsTableView.contentOffset;
+    
+    CGFloat barHeight=self.searchDisplayController.searchBar.frame.size.height;
+    if (self.favoriteChannelsTableView.contentOffset.y <= barHeight/2.0f) {
+        self.favoriteChannelsTableView.contentInset=UIEdgeInsetsZero;
+    }else{
+        self.favoriteChannelsTableView.contentInset=UIEdgeInsetsMake(-barHeight,0,0,0);
+    }
+    
+    self.favoriteChannelsTableView.contentOffset=offset;
 }
 
 
@@ -373,9 +388,9 @@ BOOL formProgramDetail;
 	self.searchBarForChannels.delegate = self;
 	self.searchBarForChannels.placeholder = searchbarPlaceHolderStr;
 	self.favoriteChannelsTableView.tableHeaderView = self.searchBarForChannels;
-
     [self.view bringSubviewToFront:self.searchBarForChannels];
     [self.favoriteChannelsTableView setNeedsLayout];
+    
 }
 
 #pragma mark -
@@ -808,35 +823,32 @@ BOOL formProgramDetail;
     
 	if(searchFlag!= 1) {
         
-       [tableView setSeparatorStyle:UITableViewCellSeparatorStyleSingleLine];
-
-        
-       //[cell.backgroundView setBackgroundColor:[UIColor colorWithPatternImage:[UIImage imageNamed:@"cellImage"]]];
+        [tableView setSeparatorStyle:UITableViewCellSeparatorStyleSingleLine];
         cell.backgroundView.backgroundColor=[UIColor whiteColor];
         UIView *viewd = [[UIView alloc] initWithFrame:CGRectMake(100, 0, 1, 50)];
         viewd.backgroundColor=[UIUtils colorFromHexColor:@"e6e5e4"];
         
         [cell.contentView addSubview:viewd];
-
+        
         [cell.categoryImageView setHidden:YES];
         
 		Channel *newChannel = [self.favoriteChannelArray objectAtIndex:indexPath.row];
-				
+        
 		NSMutableString *url = [[NSMutableString alloc] initWithString:BASEURL];
 		if([newChannel.imageObjectsArray count] !=0 || newChannel.imageObjectsArray != nil) {
             
             [cell.logoBackgroundImageView setHidden:NO];
             [cell.logoImageView setFrame:CGRectMake(16, 11, 75, 30)];
 			Image *imageObject = [newChannel.imageObjectsArray objectAtIndex:0];
-            
             DLog(@"channel server path string %@", imageObject.src);
-			if(imageObject.src != nil)
+			
+            if(imageObject.src != nil) {
 				[url appendString:imageObject.src];
+            }
 			[cell setPhoto:url];
 		}
      
-
-        
+       
         if(isEditButtonClicked == YES) {
             
             
@@ -932,7 +944,7 @@ BOOL formProgramDetail;
                 
                 Program *newProgram = [searchProgramArray objectAtIndex:indexPath.row];            
                 [cell addTime1Label];
-                [cell.time1Label setFrame:CGRectMake(10, 5, 200, 20)];
+                [cell.time1Label setFrame:CGRectMake(110, 15, 140, 20)];
                 cell.time1Label.text = newProgram.title;
 
                 
@@ -955,12 +967,11 @@ BOOL formProgramDetail;
                 if(startTime != nil && endTime != nil) {
                     
                     [cell addTime2Label];	
-                    [cell.time2Label setFrame:CGRectMake(10, 5+20, 200, 20)];
+                    [cell.time2Label setFrame:CGRectMake(10, 15, 100, 20)];
                     cell.time2Label.text = [startTime stringByAppendingFormat:@" - %@",endTime];
                     
                 } 
-    
-        
+            
                 // set channel logo image to image view 
                         
                 for(Channel *newChannel in self.favoriteChannelArray) {
@@ -970,7 +981,7 @@ BOOL formProgramDetail;
                             NSMutableString *url = [[NSMutableString alloc] initWithString:BASEURL];
                             if(imageObject.src != nil)
                             [url appendString:imageObject.src];
-                            [cell.logoImageView setFrame:CGRectMake(210, 15, 45, 20)];
+                            [cell.logoImageView setFrame:CGRectMake(self.view.bounds.size.width-70, 15, 45, 20)];
                             [cell.logoImageView setImageWithURL:[NSURL URLWithString:url] placeholderImage:[UIImage imageNamed:@"bigChannelLogo"]];
                             
                             DLog(@"channel server path string %@", imageObject.src);
@@ -978,22 +989,9 @@ BOOL formProgramDetail;
                         }
                     }
                 }
-
-                [cell.categoryImageView setHidden:NO];
-                NSString *imageName = [ChannelCategory getChannelCatgegoryType:newProgram.type];
-                NSString *imagePath = [[NSBundle mainBundle]pathForResource:imageName ofType:@"png"];
-                UIImage *image = [[UIImage alloc]initWithContentsOfFile:imagePath];
-                [cell.categoryImageView setFrame:CGRectMake(265, 15, image.size.width, image.size.height)];
-        
-                UIImage *categoryImage = [UIImage imageNamed:imageName];
-                [cell.categoryImageView setImage:categoryImage];
-                
-         
-                
+              
     }
-    
-    cell.selectedBackgroundView = [[UIImageView alloc] 
-                                    initWithImage:[UIImage imageNamed:@"cell_selected.png"]];
+
 	return cell;
 }
 		
@@ -1255,7 +1253,7 @@ BOOL formProgramDetail;
         
     } else {
     
-        return 49;    
+        return 45;
 
     } 
     
@@ -1281,10 +1279,9 @@ BOOL formProgramDetail;
         NSString *sectionTitle = [NSString stringWithFormat:@"%@ d. %@",dayString,dateString];
         
         
-        UIView *headerView = [UIControls createUIViewWithFrame:CGRectMake(0, 0, self.view.frame.size.width, 49) BackGroundColor:LIGHTGRAY];
-        
-        UILabel *headerLabel = [UIControls createUILabelWithFrame:CGRectMake(10, 0, 310, 49) FondSize:15 FontName:SYSTEMBOLD FontHexColor:BLUE LabelText:@""];
-        
+        UIView *headerView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, self.view.bounds.size.width, 45)];
+        headerView.backgroundColor=[UIColor colorWithPatternImage:[UIImage imageNamed:@"bg_title"]];
+        UILabel *headerLabel = [UIControls createUILabelWithFrame:CGRectMake(10, 0, 310, 49) FondSize:15 FontName:SYSTEMBOLD FontHexColor:White LabelText:@""];
         [headerLabel setText:sectionTitle];
         [headerView addSubview:headerLabel];
         
