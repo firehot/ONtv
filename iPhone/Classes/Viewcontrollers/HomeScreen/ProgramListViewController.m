@@ -997,7 +997,7 @@ NSString *searchHeaderTodayLabelStr;
     
         
     NSMutableString *urlStr = [[NSMutableString alloc] initWithString:BASEURL];
-    Image *imageObj = [channelObj.imageObjectsArray objectAtIndex:1];
+    Image *imageObj = [channelObj.imageObjectsArray objectAtIndex:0];
 		
     if(imageObj.src != nil) {
 	

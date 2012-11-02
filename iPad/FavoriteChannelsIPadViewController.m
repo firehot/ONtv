@@ -26,6 +26,16 @@ NSString *searchbarPlaceHolderStr;
 NSString *searchHeaderTodayLabelStr;
 
 BOOL formProgramDetail;
+@implementation UINavigationBar (UINavigationBarCategory)
+
+- (void)drawRect:(CGRect)rect
+{
+    UIImage *image = [UIImage imageNamed: @"bg_bartop.png"];
+    [image drawInRect:CGRectMake(0, 0, self.frame.size.width, self.frame.size.height)];
+}
+
+
+@end
 
 
 @implementation FavoriteChannelsIPadViewController
@@ -49,9 +59,12 @@ BOOL formProgramDetail;
 #pragma mark User defined methods
 
 -(void)configureFavoriteChannelView {    
-   // self.navigationController.navigationBar.barStyle = UIBarStyleBlackTranslucent;
     
-    self.navigationController.navigationBar.tintColor = [UIUtils colorFromHexColor:@"36b6d5"];
+    if ([self.navigationController.navigationBar respondsToSelector:@selector(setBackgroundImage:forBarMetrics:)] )
+    {
+        UIImage *image = [UIImage imageNamed:@"bg_bartop"];
+        [self.navigationController.navigationBar setBackgroundImage:image forBarMetrics:UIBarMetricsDefault];
+    }
     
 	[self createTableView];
     
@@ -75,7 +88,7 @@ BOOL formProgramDetail;
 	}
 	
     
-    [self createMenuBar];
+    [self createMenuBarForiPad];
     [self callFavoriteChannelProxy];
 	appDelegate.currentViewController = self;
     

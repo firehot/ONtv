@@ -240,7 +240,7 @@
             
         } else {
             
-            imageObject = [self.channel.imageObjectsArray objectAtIndex:1];
+            imageObject = [self.channel.imageObjectsArray objectAtIndex:0];
         }
         
         

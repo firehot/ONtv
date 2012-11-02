@@ -141,7 +141,7 @@
 
 - (void)createProgramProxy;
 
-
+- (void)createMenuBarForiPad;
 
 -(void) editButtonTapped : (UIButton *) sender;
 -(void) addButtonTapped : (UIButton *) sender;

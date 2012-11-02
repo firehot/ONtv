@@ -827,7 +827,7 @@ BOOL formProgramDetail;
             
             [cell.logoBackgroundImageView setHidden:NO];
             [cell.logoImageView setFrame:CGRectMake(16, 11, 75, 30)];
-			Image *imageObject = [newChannel.imageObjectsArray objectAtIndex:1];
+			Image *imageObject = [newChannel.imageObjectsArray objectAtIndex:0];
             
             DLog(@"channel server path string %@", imageObject.src);
 			if(imageObject.src != nil)
@@ -1596,6 +1596,21 @@ BOOL formProgramDetail;
 
     [self.menuBarView highLightcurrentSelectedButton:appDelegate.selectedMenuItem];
         
+}
+- (void)createMenuBarForiPad {
+    
+    MenuBar *tempMenuBar = [[MenuBar alloc] initWithFrame:CGRectMake(0, 0, 197, 44)];
+    self.menuBarView = tempMenuBar;
+    self.menuBarView.menuBarDelegate = self;
+ 
+    UIView *men=[[UIView alloc] initWithFrame:CGRectMake(0, 0, 197, 44)];
+    [men addSubview:self.menuBarView];
+    self.navigationItem.titleView = men;
+    
+    AppDelegate_iPhone *appDelegate = DELEGATE;
+    
+    [self.menuBarView highLightcurrentSelectedButton:appDelegate.selectedMenuItem];
+    
 }
 
 - (void)menubarButtonClicked:(MenuBarButton)buttonType {
