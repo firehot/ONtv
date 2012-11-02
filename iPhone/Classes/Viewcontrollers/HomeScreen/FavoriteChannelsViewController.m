@@ -116,6 +116,7 @@ BOOL formProgramDetail;
  
     
     [self setLocalizedValues];
+    
 	[self configureFavoriteChannelView];
     
 
@@ -123,6 +124,21 @@ BOOL formProgramDetail;
 
 
 - (void)viewWillAppear:(BOOL)animated {
+        self.favoriteChannelsTableView.contentInset=UIEdgeInsetsMake(-self.searchDisplayController.searchBar.frame.size.height,0,0,0);
+    self.favoriteChannelsTableView.contentOffset = CGPointMake(0.0, 44.0);
+    //show the cancel button in your search bar
+    self.searchBarForChannels.showsCancelButton = NO;
+    //Iterate the searchbar sub views
+    for (UIView *subView in searchBarForChannels.subviews) {
+        //Find the button
+        if([subView isKindOfClass:[UIButton class]])
+        {
+            //Change its properties
+            UIButton *cancelButton = (UIButton *)[searchBarForChannels.subviews lastObject];
+            [cancelButton setBackgroundImage:[UIImage imageNamed:@"btn_edit"] forState:UIControlStateNormal];
+            //cancelButton.titleLabel.text = @"Changed";
+        }
+    }
     
     [super viewWillAppear:animated];
     
@@ -210,13 +226,12 @@ BOOL formProgramDetail;
     
     
     self.navigationController.navigationBar.barStyle = UIBarStyleBlack;
-    //self.navigationController.navigationBar.tintColor = [UIUtils colorFromHexColor:@"b00a4f"];
     if ([self.navigationController.navigationBar respondsToSelector:@selector(setBackgroundImage:forBarMetrics:)] )
     {
         UIImage *image = [UIImage imageNamed:@"bg_bartop"];
         [self.navigationController.navigationBar setBackgroundImage:image forBarMetrics:UIBarMetricsDefault];
     }
-
+    
 	[self createTableView];
     
 	AppDelegate_iPhone *appDelegate = DELEGATE;
@@ -246,7 +261,17 @@ BOOL formProgramDetail;
     
     
     self.endDateString = [UIUtils endTimeFromGivenDate:[NSDate date]];
-    
+    self.searchBarForChannels.showsCancelButton = YES;
+    for (UIView *subView in searchBarForChannels.subviews) {
+        //Find the button
+        if([subView isKindOfClass:[UIButton class]])
+        {
+            //Change its properties
+            UIButton *cancelButton = (UIButton *)[searchBarForChannels.subviews lastObject];
+            [cancelButton setBackgroundImage:[UIImage imageNamed:@"btn_edit"] forState:UIControlStateNormal];
+            //cancelButton.titleLabel.text = @"Changed";
+        }
+    }
     [self addSearchBar];
     [self.favoriteChannelsTableView  setFrame: CGRectMake(0,0, self.view.bounds.size.width, self.view.bounds.size.height)];
 
@@ -266,7 +291,7 @@ BOOL formProgramDetail;
 	self.favoriteChannelsTableView = channelTableView;	
     self.favoriteChannelsTableView.frame = CGRectMake(0,0,self.view.bounds.size.width,self.view.bounds.size.height);
     self.favoriteChannelsTableView.contentOffset = CGPointMake(0.0, 44.0);
-    self.favoriteChannelsTableView.contentInset=UIEdgeInsetsMake(-self.searchDisplayController.searchBar.frame.size.height,0,0,0);
+
     self.favoriteChannelsTableView.delegate = self;
 	self.favoriteChannelsTableView.dataSource = self;	
 	[self.view addSubview:self.favoriteChannelsTableView];
@@ -381,10 +406,14 @@ BOOL formProgramDetail;
 -(void) addSearchBar {
     
 	UISearchBar *tempSearchbar = [[UISearchBar alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, 44)];
+  
 	self.searchBarForChannels = tempSearchbar;
-    self.searchBarForChannels.barStyle = UIBarStyleBlackTranslucent;
-    self.searchBarForChannels.tintColor = [UIUtils colorFromHexColor:@"b00a4f"];
-	self.searchBarForChannels.showsCancelButton = YES;
+    UIImageView *im=[[UIImageView alloc]init];
+    [im setImage:[UIImage imageNamed:@"bg_bartop"]];
+    [im setFrame:CGRectMake(0, 0, tempSearchbar.frame.size.width, tempSearchbar.frame.size.height)];
+    [self.searchBarForChannels insertSubview:im atIndex:1];
+    self.searchBarForChannels.showsCancelButton = YES;
+	  searchBarForChannels.tintColor=[UIUtils colorFromHexColor:@"b00a4f"];
 	self.searchBarForChannels.delegate = self;
 	self.searchBarForChannels.placeholder = searchbarPlaceHolderStr;
 	self.favoriteChannelsTableView.tableHeaderView = self.searchBarForChannels;
@@ -1449,7 +1478,10 @@ BOOL formProgramDetail;
     
     self.searchBarForChannels.tintColor = [UIUtils colorFromHexColor:@"b00a4f"];
     
-    self.navigationItem.rightBarButtonItem = nil;
+   // self.navigationItem.rightBarButtonItem = nil;
+    UIButton *save = [UIUtils createBackButtonWithTarget:self action:@selector(swithToHomeFromSearchScreen)];
+    UIBarButtonItem *backButton = [[UIBarButtonItem alloc] initWithCustomView:save];
+	self.navigationItem.leftBarButtonItem = backButton;
 	[self dismissModalViewControllerAnimated:YES];
     
 }

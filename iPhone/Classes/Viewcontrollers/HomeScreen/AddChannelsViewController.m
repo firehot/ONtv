@@ -283,8 +283,11 @@ int searchFlag = 0;
     
 	UISearchBar *tempSearchbar = [[UISearchBar alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, 44)];
 	self.searchBarForChannels = tempSearchbar;
-    self.searchBarForChannels.barStyle = UIBarStyleBlackTranslucent;
-    self.searchBarForChannels.tintColor = [UIUtils colorFromHexColor:@"b00a4f"];
+    UIImageView *im=[[UIImageView alloc]init];
+    [im setImage:[UIImage imageNamed:@"bg_bartop"]];
+    [im setFrame:CGRectMake(0, 0, tempSearchbar.frame.size.width, tempSearchbar.frame.size.height)];
+    [self.searchBarForChannels insertSubview:im atIndex:1];
+      searchBarForChannels.tintColor=[UIUtils colorFromHexColor:@"b00a4f"];
 	self.searchBarForChannels.showsCancelButton = YES;
 	self.searchBarForChannels.delegate = self;
 	self.searchBarForChannels.placeholder = searchChannelPlaceHolderStr;
