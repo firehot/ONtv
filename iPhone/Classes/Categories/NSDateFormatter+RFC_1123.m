@@ -12,6 +12,8 @@
 +(NSDateFormatter*)rfc1123Formatter
 {
     NSDateFormatter *df = [[NSDateFormatter alloc] init];
+    NSLocale *en_locale = [[NSLocale alloc] initWithLocaleIdentifier:@"en_US"];
+    [df setLocale:en_locale];
     df.timeZone = [NSTimeZone timeZoneWithAbbreviation:@"GMT"];
     df.dateFormat = @"EEE',' dd MMM yyyy HH':'mm':'ss 'GMT'";
     return df;

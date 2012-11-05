@@ -74,20 +74,20 @@
     double runtimeDone = ([program timeOfProgramSinceNowInMins]+0.0)/[program lengthOfProgramInMins];
     if (runtimeDone > 1) runtimeDone = 1.0;
     
-    UILabel *timebarFG = [[UILabel alloc] initWithFrame:CGRectMake(10, 40, (view.frame.size.width-20)*runtimeDone, 10)];
-    [timebarFG setBackgroundColor:[UIUtils colorFromHexColor:BLUE]];    
+  //  UILabel *timebarFG = [[UILabel alloc] initWithFrame:CGRectMake(10, 40, (view.frame.size.width-20)*runtimeDone, 10)];
+  //  [timebarFG setBackgroundColor:[UIUtils colorFromHexColor:BLUE]];
 
     UIRectCorner roundedCorners = runtimeDone == 1 ? (UIRectCornerAllCorners) : (UIRectCornerTopLeft|UIRectCornerBottomLeft);
     
-    UIBezierPath *maskPath = [UIBezierPath bezierPathWithRoundedRect:timebarFG.bounds 
-                                                   byRoundingCorners:roundedCorners
-                                                         cornerRadii:CGSizeMake(5.0, 5.0)];
-    CAShapeLayer *maskLayer = [CAShapeLayer layer];
-    maskLayer.frame = timebarFG.bounds;
-    maskLayer.path = maskPath.CGPath;
-    timebarFG.layer.mask = maskLayer;
+  //  UIBezierPath *maskPath = [UIBezierPath bezierPathWithRoundedRect:timebarFG.bounds
+                                                 //  byRoundingCorners:roundedCorners
+                                                   //      cornerRadii:CGSizeMake(5.0, 5.0)];
+  //  CAShapeLayer *maskLayer = [CAShapeLayer layer];
+   // maskLayer.frame = timebarFG.bounds;
+ //   maskLayer.path = maskPath.CGPath;
+   // timebarFG.layer.mask = maskLayer;
     
-    [view addSubview:timebarFG];
+   // [view addSubview:timebarFG];
 }
 
 - (void) addBottomLine{
