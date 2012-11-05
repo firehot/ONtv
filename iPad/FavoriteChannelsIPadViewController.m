@@ -92,12 +92,24 @@ BOOL formProgramDetail;
     [self callFavoriteChannelProxy];
 	appDelegate.currentViewController = self;
     
+    NSDate *startDate=[NSDate date];
     
-    self.startDateString = [UIUtils stringFromGivenDate:[NSDate date] withLocale: @"en_US" andFormat: @"EEEddMMMyyyy hh:mm:ss"];
+    NSDateFormatter *localDateFormat = [[NSDateFormatter alloc] init];
+    [localDateFormat setTimeZone:[NSTimeZone localTimeZone]];
+    [localDateFormat setDateFormat:@"EEEddMMMyyyy hh:mm:ss"];
+    [localDateFormat setLocale:[[NSLocale alloc] initWithLocaleIdentifier:@"en_US"]];
+    
+    NSString * localDateStr = [localDateFormat stringFromDate:startDate];
+    self.startDateString=localDateStr;
+    
+    // self.startDateString=[UIUtils startTimeFromGivenDate:[NSDate date]];;
+    
+    
     self.endDateString = [UIUtils endTimeFromGivenDate:[NSDate date]];
+
     
     [self addSearchBar];
-    [self.favoriteChannelsTableView  setFrame: CGRectMake(0,0, self.view.bounds.size.width, self.view.bounds.size.height)]; 
+    [self.favoriteChannelsTableView  setFrame: CGRectMake(0,0, self.view.bounds.size.width, self.view.bounds.size.height)];
 }
 
 -(void) createTableView {
