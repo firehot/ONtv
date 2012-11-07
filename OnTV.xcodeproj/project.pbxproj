@@ -24,6 +24,10 @@
 		044084511644002900BA0C19 /* recomd_btn.png in Resources */ = {isa = PBXBuildFile; fileRef = 0440844D1644002900BA0C19 /* recomd_btn.png */; };
 		044084521644002900BA0C19 /* recomd_btn@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0440844E1644002900BA0C19 /* recomd_btn@2x.png */; };
 		0445A2AC1618A19A00BAD6F8 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0445A2AB1618A19A00BAD6F8 /* Default-568h@2x.png */; };
+		0450A8EE164A62A000657C03 /* CellHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = 0450A8ED164A62A000657C03 /* CellHeader.m */; };
+		0450A8F0164A62C300657C03 /* CellHeader.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0450A8EF164A62C300657C03 /* CellHeader.xib */; };
+		0450A8F3164A654900657C03 /* CellProScreen.m in Sources */ = {isa = PBXBuildFile; fileRef = 0450A8F2164A654900657C03 /* CellProScreen.m */; };
+		0450A8F5164A655C00657C03 /* CellProScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0450A8F4164A655C00657C03 /* CellProScreen.xib */; };
 		04756AFA161DB707003591FE /* SplashScreenViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 04756AF9161DB707003591FE /* SplashScreenViewController.xib */; };
 		0489B9371612548C00CBCB6E /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0489B9361612548C00CBCB6E /* MapKit.framework */; };
 		049B3F0C1641DE35007FCD2B /* NSDateFormatter+RFC_1123.m in Sources */ = {isa = PBXBuildFile; fileRef = 049B3F0B1641DE35007FCD2B /* NSDateFormatter+RFC_1123.m */; };
@@ -268,6 +272,7 @@
 		049B446C1641DF4C007FCD2B /* plan_btn@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 049B43291641DF4C007FCD2B /* plan_btn@2x.png */; };
 		049B446D1641DF4C007FCD2B /* plan_btn_active.png in Resources */ = {isa = PBXBuildFile; fileRef = 049B432A1641DF4C007FCD2B /* plan_btn_active.png */; };
 		049B446E1641DF4C007FCD2B /* plan_btn_active@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 049B432B1641DF4C007FCD2B /* plan_btn_active@2x.png */; };
+		04A0D02B164846BB0069DF1C /* SearchBarForFav.m in Sources */ = {isa = PBXBuildFile; fileRef = 04A0D02A164846BB0069DF1C /* SearchBarForFav.m */; };
 		1D60589F0D05DD5A006BFB54 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1D30AB110D05D00D00671497 /* Foundation.framework */; };
 		1DF5F4E00D08C38300B7A737 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1DF5F4DF0D08C38300B7A737 /* UIKit.framework */; };
 		2860E329111B887F00E27156 /* MainWindow_iPhone.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2860E327111B887F00E27156 /* MainWindow_iPhone.xib */; };
@@ -440,6 +445,12 @@
 		0440844D1644002900BA0C19 /* recomd_btn.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = recomd_btn.png; sourceTree = "<group>"; };
 		0440844E1644002900BA0C19 /* recomd_btn@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "recomd_btn@2x.png"; sourceTree = "<group>"; };
 		0445A2AB1618A19A00BAD6F8 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
+		0450A8EC164A62A000657C03 /* CellHeader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CellHeader.h; sourceTree = "<group>"; };
+		0450A8ED164A62A000657C03 /* CellHeader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CellHeader.m; sourceTree = "<group>"; };
+		0450A8EF164A62C300657C03 /* CellHeader.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CellHeader.xib; sourceTree = "<group>"; };
+		0450A8F1164A654900657C03 /* CellProScreen.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CellProScreen.h; sourceTree = "<group>"; };
+		0450A8F2164A654900657C03 /* CellProScreen.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CellProScreen.m; sourceTree = "<group>"; };
+		0450A8F4164A655C00657C03 /* CellProScreen.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CellProScreen.xib; sourceTree = "<group>"; };
 		04756AF9161DB707003591FE /* SplashScreenViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SplashScreenViewController.xib; sourceTree = "<group>"; };
 		0489B9361612548C00CBCB6E /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		049B3F0A1641DE35007FCD2B /* NSDateFormatter+RFC_1123.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDateFormatter+RFC_1123.h"; sourceTree = "<group>"; };
@@ -685,6 +696,8 @@
 		049B43291641DF4C007FCD2B /* plan_btn@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "plan_btn@2x.png"; sourceTree = "<group>"; };
 		049B432A1641DF4C007FCD2B /* plan_btn_active.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = plan_btn_active.png; sourceTree = "<group>"; };
 		049B432B1641DF4C007FCD2B /* plan_btn_active@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "plan_btn_active@2x.png"; sourceTree = "<group>"; };
+		04A0D029164846BB0069DF1C /* SearchBarForFav.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SearchBarForFav.h; sourceTree = "<group>"; };
+		04A0D02A164846BB0069DF1C /* SearchBarForFav.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SearchBarForFav.m; sourceTree = "<group>"; };
 		1D30AB110D05D00D00671497 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		1D6058910D05DD3D006BFB54 /* TimeFor.TV.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TimeFor.TV.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1DF5F4DF0D08C38300B7A737 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
@@ -1688,6 +1701,8 @@
 				E445BA2015AF94870065A5E8 /* TextFieldCell.m */,
 				E445BA3415AFEA8B0065A5E8 /* SegmentedControl.h */,
 				E445BA3515AFEA8B0065A5E8 /* SegmentedControl.m */,
+				04A0D029164846BB0069DF1C /* SearchBarForFav.h */,
+				04A0D02A164846BB0069DF1C /* SearchBarForFav.m */,
 			);
 			path = CustomView;
 			sourceTree = "<group>";
@@ -1879,6 +1894,12 @@
 				4629046914AC8ED400365590 /* UserView.m */,
 				46A2748E1497ABAF0084D0F9 /* ProUserRequiredScreen.h */,
 				46A2748F1497ABB90084D0F9 /* ProUserRequiredScreen.m */,
+				0450A8EC164A62A000657C03 /* CellHeader.h */,
+				0450A8ED164A62A000657C03 /* CellHeader.m */,
+				0450A8EF164A62C300657C03 /* CellHeader.xib */,
+				0450A8F1164A654900657C03 /* CellProScreen.h */,
+				0450A8F2164A654900657C03 /* CellProScreen.m */,
+				0450A8F4164A655C00657C03 /* CellProScreen.xib */,
 			);
 			path = UserScreen;
 			sourceTree = "<group>";
@@ -2321,6 +2342,8 @@
 				044084501644002900BA0C19 /* recomd_btn_pressed@2x.png in Resources */,
 				044084511644002900BA0C19 /* recomd_btn.png in Resources */,
 				044084521644002900BA0C19 /* recomd_btn@2x.png in Resources */,
+				0450A8F0164A62C300657C03 /* CellHeader.xib in Resources */,
+				0450A8F5164A655C00657C03 /* CellProScreen.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2432,6 +2455,9 @@
 				0416FD511641E546005D638B /* UserCell.m in Sources */,
 				0435DD6D1642A94500C92E44 /* iPadLoginScreenViewController.m in Sources */,
 				0435DD701642D99400C92E44 /* iPadCreateNewAccountViewController.m in Sources */,
+				04A0D02B164846BB0069DF1C /* SearchBarForFav.m in Sources */,
+				0450A8EE164A62A000657C03 /* CellHeader.m in Sources */,
+				0450A8F3164A654900657C03 /* CellProScreen.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

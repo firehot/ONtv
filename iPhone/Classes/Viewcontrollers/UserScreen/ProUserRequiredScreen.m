@@ -23,6 +23,8 @@ NSString *noCommercialStr;
 
 - (void)createMenuBar;
 
+- (void) createTableView;
+
 
 @end
 
@@ -50,7 +52,6 @@ NSString *noCommercialStr;
 }
 
 
-
 #pragma mark -
 #pragma mark Create UI
 
@@ -69,13 +70,26 @@ NSString *noCommercialStr;
     
 }
 
+#pragma mark - 
+#pragma mark Table Voew DataSource
+
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+    return 9;
+}
+
+
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+    
+}
+
 
 #pragma Mark -
 #pragma Create UI -
 
 - (void)createUI {
     
-    [self.view setBackgroundColor:[UIColor whiteColor]];
+    [self.view setBackgroundColor:[UIUtils colorFromHexColor:@"353535"]];
     
     [self setLocalizedValues];
     
@@ -91,6 +105,10 @@ NSString *noCommercialStr;
     [self createBottomProUserView];
     
     [self createMenuBar];
+}
+
+- (void) createTableView {
+
 }
 
 

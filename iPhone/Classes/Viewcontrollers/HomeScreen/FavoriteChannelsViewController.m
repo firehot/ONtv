@@ -238,17 +238,12 @@ BOOL formProgramDetail;
 	if(appDelegate.isGuest == NO) {	
 		[self addEditButton];	
 	}
-	
-    
+	    
     [self createMenuBar];
     [self callFavoriteChannelProxy];
+    
 	appDelegate.currentViewController = self;
-    
-    
-    // self.startDateString = [UIUtils stringFromGivenDate:[NSDate date] withLocale: @"en_US" andFormat: @"EEEddMMMyyyy hh:mm:ss"];
-    
     NSDate *startDate=[NSDate date];
-    
     NSDateFormatter *localDateFormat = [[NSDateFormatter alloc] init];
     [localDateFormat setTimeZone:[NSTimeZone localTimeZone]];
     [localDateFormat setDateFormat:@"EEEddMMMyyyy hh:mm:ss"];
@@ -256,10 +251,7 @@ BOOL formProgramDetail;
     
     NSString * localDateStr = [localDateFormat stringFromDate:startDate];
     self.startDateString=localDateStr;
-    
-    // self.startDateString=[UIUtils startTimeFromGivenDate:[NSDate date]];;
-    
-    
+       
     self.endDateString = [UIUtils endTimeFromGivenDate:[NSDate date]];
     self.searchBarForChannels.showsCancelButton = YES;
     for (UIView *subView in searchBarForChannels.subviews) {
@@ -277,6 +269,7 @@ BOOL formProgramDetail;
 
 	
 }
+
 
 -(void) createTableView {
     

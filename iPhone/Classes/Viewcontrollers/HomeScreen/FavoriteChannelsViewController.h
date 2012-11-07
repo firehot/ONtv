@@ -12,7 +12,7 @@
 #import "CategoryView.h"
 
 
-@interface FavoriteChannelsViewController : ONTVUIViewController<UITableViewDelegate,UITableViewDataSource,UISearchBarDelegate,ChannelProxyDelegate,ProgramProxyDelegate,MenuBarDelegate, LoginProxyDelegate> {
+@interface FavoriteChannelsViewController : ONTVUIViewController<UITableViewDelegate,UITableViewDataSource,UISearchBarDelegate,ChannelProxyDelegate,ProgramProxyDelegate,MenuBarDelegate, LoginProxyDelegate, UITextFieldDelegate> {
 	
     __weak UITableView *favoriteChannelsTableView;
 	NSMutableArray *favoriteChannelArray;
@@ -142,6 +142,9 @@
 - (void)createProgramProxy;
 
 - (void)createMenuBarForiPad;
+
+
+- (void)setCloseButtonFont:(UIFont *)font textColor:(UIColor *)textColor;
 
 -(void) editButtonTapped : (UIButton *) sender;
 -(void) addButtonTapped : (UIButton *) sender;

@@ -5,7 +5,7 @@
 #import "MenuBar.h"
 #import "ONTVUIViewController.h"
 
-@interface ProUserRequiredScreen : ONTVUIViewController <MenuBarDelegate> {
+@interface ProUserRequiredScreen : ONTVUIViewController <MenuBarDelegate,UITableViewDelegate, UITableViewDataSource> {
     
 }
 
