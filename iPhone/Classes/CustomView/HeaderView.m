@@ -143,6 +143,11 @@
     [showsLabel setTextColor:[UIColor whiteColor]];
     [showsLabel setFont:[UIFont boldSystemFontOfSize:12.0f]];
     [self addSubview:showsLabel];
+    self.layer.shadowColor = [UIColor blackColor].CGColor;
+    self.layer.shadowOffset = CGSizeMake(0, 1);
+    self.layer.shadowOpacity = 0.8;
+    self.layer.shadowRadius = 1.0;
+    self.clipsToBounds = NO;
     
     [self CreateDateUIView];
 }
@@ -192,7 +197,11 @@
     [showsLabel setTextColor:[UIColor whiteColor]];
     [showsLabel setFont:[UIFont boldSystemFontOfSize:12.0f]];
     [self addSubview:showsLabel];
-
+    self.layer.shadowColor = [UIColor blackColor].CGColor;
+    self.layer.shadowOffset = CGSizeMake(0, 1);
+    self.layer.shadowOpacity = 0.8;
+    self.layer.shadowRadius = 1.0;
+    self.clipsToBounds = NO;
     
     [self CreateDateUIView];
     

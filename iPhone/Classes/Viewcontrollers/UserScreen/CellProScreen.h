@@ -10,7 +10,7 @@
 
 @interface CellProScreen : UITableViewCell
 
-@property (nonatomic) IBOutlet UILabel *textLabel;
+@property (nonatomic) IBOutlet UILabel *functionLabel;
 @property (nonatomic) IBOutlet UIImageView *plusImage;
 
 @end

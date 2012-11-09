@@ -10,6 +10,8 @@
 		0416FD511641E546005D638B /* UserCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0416FD4F1641E546005D638B /* UserCell.m */; };
 		0416FD521641E546005D638B /* UserCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0416FD501641E546005D638B /* UserCell.xib */; };
 		0416FD541641E580005D638B /* UserFirstCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0416FD531641E580005D638B /* UserFirstCell.xib */; };
+		042DCE3B164D55EC0035BDE9 /* ic_red.png in Resources */ = {isa = PBXBuildFile; fileRef = 042DCE39164D55EC0035BDE9 /* ic_red.png */; };
+		042DCE3C164D55EC0035BDE9 /* ic_red@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 042DCE3A164D55EC0035BDE9 /* ic_red@2x.png */; };
 		042E61BC162C0DBD001D4FCB /* FacebookSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 042E61BB162C0DBD001D4FCB /* FacebookSDK.framework */; };
 		042E61CE162C0E1D001D4FCB /* libSDWebImageARC.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 042E61C9162C0E09001D4FCB /* libSDWebImageARC.a */; };
 		0433EB851608AA5A00FBE123 /* MBProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 0433EB841608AA5A00FBE123 /* MBProgressHUD.m */; };
@@ -428,6 +430,8 @@
 		0416FD4F1641E546005D638B /* UserCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserCell.m; sourceTree = "<group>"; };
 		0416FD501641E546005D638B /* UserCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = UserCell.xib; sourceTree = "<group>"; };
 		0416FD531641E580005D638B /* UserFirstCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = UserFirstCell.xib; sourceTree = "<group>"; };
+		042DCE39164D55EC0035BDE9 /* ic_red.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ic_red.png; sourceTree = "<group>"; };
+		042DCE3A164D55EC0035BDE9 /* ic_red@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ic_red@2x.png"; sourceTree = "<group>"; };
 		042E61BB162C0DBD001D4FCB /* FacebookSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FacebookSDK.framework; sourceTree = "<group>"; };
 		042E61BD162C0E08001D4FCB /* SDWebImage.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = SDWebImage.xcodeproj; path = SDWebImage/SDWebImage.xcodeproj; sourceTree = "<group>"; };
 		0433EB831608AA5500FBE123 /* MBProgressHUD.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MBProgressHUD.h; sourceTree = "<group>"; };
@@ -1171,6 +1175,8 @@
 		049B42551641DF4C007FCD2B /* sliced_ios */ = {
 			isa = PBXGroup;
 			children = (
+				042DCE39164D55EC0035BDE9 /* ic_red.png */,
+				042DCE3A164D55EC0035BDE9 /* ic_red@2x.png */,
 				049B42561641DF4C007FCD2B /* .dropbox */,
 				049B42571641DF4C007FCD2B /* appicon.png */,
 				049B42581641DF4C007FCD2B /* appicon@2x.png */,
@@ -2344,6 +2350,8 @@
 				044084521644002900BA0C19 /* recomd_btn@2x.png in Resources */,
 				0450A8F0164A62C300657C03 /* CellHeader.xib in Resources */,
 				0450A8F5164A655C00657C03 /* CellProScreen.xib in Resources */,
+				042DCE3B164D55EC0035BDE9 /* ic_red.png in Resources */,
+				042DCE3C164D55EC0035BDE9 /* ic_red@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
