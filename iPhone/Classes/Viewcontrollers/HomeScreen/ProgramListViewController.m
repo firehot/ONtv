@@ -716,15 +716,13 @@ NSString *searchHeaderTodayLabelStr;
     } else if (_menuSelected == Categories)  {
         
         [_programHeaderView.pageControl setNumberOfPages:[self.categoryArray count]];
-        
-        
+                
         [_programHeaderView.pageControl setCurrentPage:_index];
         
         [_programHeaderView.pageControl setFrame:CGRectMake(0,0,(18*([self.categoryArray count])),49)];
         [_programHeaderView.pageControlScrollView setContentSize:CGSizeMake((18*([self.categoryArray count])), 49)];
         [_programHeaderView.pageControl setNumberOfPages:[self.categoryArray count]];
         
-
     }
     
     
@@ -1080,8 +1078,11 @@ NSString *searchHeaderTodayLabelStr;
     [categoryView setBackgroundColor:[UIUtils colorFromHexColor:colorName]];
           
     [_programHeaderView.channelLogoIV addSubview:categoryView];
-    [_programHeaderView.categoryNameLabel setText:categoryType];
-
+   
+    
+    CategoryDataModel *categoryObj=[self.categoryArray objectAtIndex:_index];
+    
+     [_programHeaderView.categoryNameLabel setText:categoryObj.categoryTitle];
 
     NSMutableArray *categoryIdArray = [[NSMutableArray alloc] init];
     

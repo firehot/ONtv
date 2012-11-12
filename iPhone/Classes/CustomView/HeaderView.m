@@ -85,7 +85,8 @@
 
 - (void)createUIForHomeHeader {
     
-    self.headerTitleLbl =[UIControls createUILabelWithFrame:CGRectMake(10, 0, 150, 49) FondSize:16 FontName:@"System Bold" FontHexColor:@"FFFFFF" LabelText:@""];
+    self.headerTitleLbl =[UIControls createUILabelWithFrame:CGRectMake(10, 10, 150, 25) FondSize:16 FontName:@"System Bold" FontHexColor:@"FFFFFF" LabelText:@""];
+   // self.headerTitleLbl.textAlignment=NSTextAlignmentCenter;
     [self addSubview:self.headerTitleLbl];
     
     [self CreateDateUIView];
@@ -210,7 +211,7 @@
 
 - (void)createUIForPlanHeader {
     
-    self.headerTitleLbl =[UIControls createUILabelWithFrame:CGRectMake(10, 0, 150, 49) FondSize:16 FontName:@"System Bold" FontHexColor:@"FFFFFF" LabelText:@""];
+    self.headerTitleLbl =[UIControls createUILabelWithFrame:CGRectMake(10, 10, 150, 25) FondSize:16 FontName:@"System Bold" FontHexColor:@"FFFFFF" LabelText:@""];
     UIImageView *back=[[UIImageView alloc] initWithImage:[UIImage imageNamed:@"bg_title.png"]];
     
     [self addSubview:back];
@@ -294,7 +295,7 @@
     SegmentedControl *tempSegmentedControl = [[SegmentedControl alloc] initWithItems:itemArray];
     self.segmentedControl = tempSegmentedControl;
     
-    [self.segmentedControl setFrame:CGRectMake(self.bounds.size.width - 10 - 120, 10,120,30)];
+    [self.segmentedControl setFrame:CGRectMake(self.bounds.size.width - 10 - 120, 7,120,30)];
     [self.segmentedControl setSelectedSegmentIndex:0];
     //[self.segmentedControl setMomentary:YES];
     

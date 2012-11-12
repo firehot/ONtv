@@ -136,7 +136,7 @@
     
     UIView *topView  = [UIControls createUIViewWithFrame:CGRectMake(0, 0, self.view.bounds.size.width, 90) BackGroundColor:@"FFFFFF"];
     topView.autoresizingMask = UIViewAutoresizingFlexibleWidth;
-   
+
     UIImageView *topImage = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"bg_title.png"]];
     [topImage setFrame:CGRectMake(0, 0, self.view.bounds.size.width, 45)];
     [topView addSubview:topImage];
@@ -202,7 +202,7 @@
         
         currentSize = [self getSizeFor:time withConstrained:CGSizeMake(250,30)];
         
-        UILabel *ProgramTimeDetails = [UIControls createUILabelWithFrame:CGRectMake(10, currentPoint.y+10, 180, 30) FondSize:12 FontName:@"Helvetica-Bold" FontHexColor:@"000000" LabelText:time];
+        UILabel *ProgramTimeDetails = [UIControls createUILabelWithFrame:CGRectMake(10, currentPoint.y+10, 180, 25) FondSize:12 FontName:@"Helvetica-Bold" FontHexColor:@"000000" LabelText:time];
         //ProgramTimeDetails.autoresizingMask=(UIViewAutoresizingFlexibleWidth);
         [topView addSubview:ProgramTimeDetails];
         
@@ -266,9 +266,11 @@
     currentPoint.y += 45;
     
     [topView setFrame:CGRectMake(0, 0, self.view.bounds.size.width, currentPoint.y)];
+
     
     
     [self createBottomScreenAtYPosition:currentPoint.y];
+    
 }
 
 
@@ -284,7 +286,13 @@
     
     UIScrollView *scrollView = [[UIScrollView alloc] initWithFrame:CGRectMake(0,yCoordinate,self.view.bounds.size.width,self.view.bounds.size.height - yCoordinate)];
     scrollView.backgroundColor=[UIUtils colorFromHexColor:@"e6e5e4"];
-    _summaryScrollView = scrollView; 
+    _summaryScrollView = scrollView;
+    _summaryScrollView.layer.shadowColor = [UIColor blackColor].CGColor;
+    _summaryScrollView.layer.shadowOffset = CGSizeMake(1, 0);
+    _summaryScrollView.layer.shadowOpacity = 0.8;
+    _summaryScrollView.layer.shadowRadius = 1.3;
+    _summaryScrollView.clipsToBounds = NO;
+    
     [_summaryScrollView setUserInteractionEnabled:YES];
     
     _summaryScrollView.autoresizingMask = UIViewAutoresizingFlexibleWidth|UIViewAutoresizingFlexibleHeight;

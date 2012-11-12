@@ -267,6 +267,7 @@ NSString *pushNotificationCellHeaderStr;
         }
         
         cell.loggedInLabel.text=logOutCellHeaderStr;
+       
         AppDelegate_iPhone *appDelegate = DELEGATE;
         cell.userName.text=appDelegate.user.name;
         if (![appDelegate.user.img isEqualToString:@""]) {

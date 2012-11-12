@@ -16,6 +16,7 @@
     __weak UIImageView *programImage;
     CGRect programIVFrame;
     __weak UIScrollView *_summaryScrollView;
+  
 
 }
 @property (strong, nonatomic) NSMutableDictionary *postParams;
