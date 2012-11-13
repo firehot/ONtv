@@ -108,16 +108,9 @@ UILabel *titleLabel;
 
 
 - (void)dealloc {
-    
-    
-    
-    
-    
-    
-    
+       
     [[NSNotificationCenter defaultCenter] removeObserver:self];
-    
-    
+        
 }
 
 

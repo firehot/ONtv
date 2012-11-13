@@ -138,8 +138,9 @@
     [self addSubview:self.rightPagination];
     
         
-    UILabel *showsLabel = [[UILabel alloc] initWithFrame:CGRectMake(90+27+60, 14.5f, 60, 16)];
-    [showsLabel setText:@"Shows:"];
+    UILabel *showsLabel = [[UILabel alloc] initWithFrame:CGRectMake(90+27+55, 14.5f, 60, 16)];
+  
+    [showsLabel setText:NSLocalizedString(@"Shows",nil)];
     [showsLabel setBackgroundColor:[UIColor clearColor]];
     [showsLabel setTextColor:[UIColor whiteColor]];
     [showsLabel setFont:[UIFont boldSystemFontOfSize:12.0f]];
@@ -192,8 +193,9 @@
     self.rightPagination = rightButton;
     [self addSubview:self.rightPagination];
     
-    UILabel *showsLabel = [[UILabel alloc] initWithFrame:CGRectMake(90+27+60, 14.5f, 60, 16)];
-    [showsLabel setText:@"Shows:"];
+    UILabel *showsLabel = [[UILabel alloc] initWithFrame:CGRectMake(90+27+55, 14.5f, 60, 16)];
+    
+    [showsLabel setText:NSLocalizedString(@"Shows",nil)];
     [showsLabel setBackgroundColor:[UIColor clearColor]];
     [showsLabel setTextColor:[UIColor whiteColor]];
     [showsLabel setFont:[UIFont boldSystemFontOfSize:12.0f]];
@@ -254,14 +256,7 @@
 }
 
 - (void)CreateDateUIView { 
-    //Label that shows text "Shows"
-    
-    //self.headerTitleShowLbl =[UIControls createUILabelWithFrame:CGRectMake(self.bounds.size.width-130, 0, 48, 49) FondSize:13 FontName:@"System Bold" FontHexColor:@"858585" LabelText:@""];
-    
-   // self.headerTitleShowLbl.autoresizingMask=UIViewAutoresizingFlexibleLeftMargin;
-
-   // [self addSubview:self.headerTitleShowLbl];
-
+ 
     self.headerTitleShowsValueLbl =[UIControls createUILabelWithFrame:CGRectMake(self.bounds.size.width-85, 5, 70, 34) FondSize:13 FontName:@"System Bold" FontHexColor:@"FFFFFF" LabelText:@""];
     [self.headerTitleShowsValueLbl setTextAlignment:UITextAlignmentCenter];
     
