@@ -124,7 +124,7 @@ BOOL formProgramDetail;
 
 
 - (void)viewWillAppear:(BOOL)animated {
-        self.favoriteChannelsTableView.contentInset=UIEdgeInsetsMake(-self.searchDisplayController.searchBar.frame.size.height,0,0,0);
+    self.favoriteChannelsTableView.contentInset=UIEdgeInsetsMake(-self.searchDisplayController.searchBar.frame.size.height,0,0,0);
     self.favoriteChannelsTableView.contentOffset = CGPointMake(0.0, 44.0);
     //show the cancel button in your search bar
     self.searchBarForChannels.showsCancelButton = NO;
@@ -177,8 +177,7 @@ BOOL formProgramDetail;
     }
     isAddButtonTapped = NO;
     isReorder = NO;
-    
-    
+      
     if (formProgramDetail) {
         
         self.navigationItem.rightBarButtonItem = nil;
@@ -223,8 +222,7 @@ BOOL formProgramDetail;
 #pragma mark -
 
 -(void)configureFavoriteChannelView {
-    
-    
+        
     self.navigationController.navigationBar.barStyle = UIBarStyleBlack;
     if ([self.navigationController.navigationBar respondsToSelector:@selector(setBackgroundImage:forBarMetrics:)] )
     {
@@ -274,8 +272,6 @@ BOOL formProgramDetail;
 -(void) createTableView {
     
 	UITableView *channelTableView = [[UITableView alloc] init];
-    
-    // ABP
     channelTableView.autoresizingMask=(UIViewAutoresizingFlexibleWidth|UIViewAutoresizingFlexibleHeight);
     NSLog(@"%f", CGRectGetHeight(self.view.bounds)-CGRectGetHeight(self.menuBarView.frame)-CGRectGetHeight(self.searchBarForChannels.frame));
 
@@ -284,7 +280,6 @@ BOOL formProgramDetail;
 	self.favoriteChannelsTableView = channelTableView;	
     self.favoriteChannelsTableView.frame = CGRectMake(0,0,self.view.bounds.size.width,self.view.bounds.size.height);
     self.favoriteChannelsTableView.contentOffset = CGPointMake(0.0, 44.0);
-
     self.favoriteChannelsTableView.delegate = self;
 	self.favoriteChannelsTableView.dataSource = self;	
 	[self.view addSubview:self.favoriteChannelsTableView];
@@ -293,7 +288,6 @@ BOOL formProgramDetail;
 
 -(void)scrollViewDidEndDragging:(UIScrollView *)scrollView willDecelerate:(BOOL)decelerate{
     CGPoint offset=self.favoriteChannelsTableView.contentOffset;
-    
     CGFloat barHeight=self.searchDisplayController.searchBar.frame.size.height;
     if (self.favoriteChannelsTableView.contentOffset.y <= barHeight/2.0f) {
         self.favoriteChannelsTableView.contentInset=UIEdgeInsetsZero;
@@ -323,8 +317,7 @@ BOOL formProgramDetail;
     }
 	
 	if(appDelegate.isGuest == NO) {
-        
-        
+                
 		for(Channel *newChannel in self.favoriteChannelArray) {
 			for (int i = 0; i < [appDelegate.user.channels count]; i++) {
 				FavoriteChannel *favChannel = [appDelegate.user.channels objectAtIndex:i];
@@ -399,8 +392,7 @@ BOOL formProgramDetail;
 -(void) addSearchBar {
     
 	UISearchBar *tempSearchbar = [[UISearchBar alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, 44)];
-  
-	self.searchBarForChannels = tempSearchbar;
+    self.searchBarForChannels = tempSearchbar;
     UIImageView *im=[[UIImageView alloc]init];
     [im setImage:[UIImage imageNamed:@"bg_bartop"]];
     [im setFrame:CGRectMake(0, 0, tempSearchbar.frame.size.width, tempSearchbar.frame.size.height)];
@@ -465,9 +457,7 @@ BOOL formProgramDetail;
         }   
         
 	}
-
-    
-	
+    	
 }
 
 -(NSDictionary *)createValueDictionary:(NSString *)value {
@@ -540,17 +530,11 @@ BOOL formProgramDetail;
         
     }
     
-    
-    
+        
     [self createProgramProxy];
-    
     [self.programProxy getProgramsWithProgramName:self.searchBarForChannels.text andChannelIds:channelsIDs andStartDate:self.startDateString  andEndtDate:self.endDateString];
     
-
-
 }
-
-
 
 - (void)callChannelProxyForReordering {
     
@@ -562,11 +546,9 @@ BOOL formProgramDetail;
 }
 
 
-
 #pragma mark -
 #pragma mark Channel proxy delegate methods
 #pragma mark -
-
 
 
 -(void)channelDataFailed:(NSString *)error {
@@ -616,21 +598,17 @@ BOOL formProgramDetail;
         NSMutableArray *arrIDs = [[NSMutableArray alloc] init];
         
         [arrIDs addObjectsFromArray:[NSArray arrayWithObjects:[NSNumber numberWithInt:1],[NSNumber numberWithInt:2],[NSNumber numberWithInt:3],[NSNumber numberWithInt:4],[NSNumber numberWithInt:31],[NSNumber numberWithInt:5],[NSNumber numberWithInt:6],[NSNumber numberWithInt:10093],[NSNumber numberWithInt:8],[NSNumber numberWithInt:7],[NSNumber numberWithInt:10066],[NSNumber numberWithInt:10111],[NSNumber numberWithInt:15],[NSNumber numberWithInt:10155],nil]];
-            
-        
+               
         
         [self.channelProxy getChannelsWithChannelIds:arrIDs];
-        
-    
+            
     }
     
 }
 
-
 #pragma mark -
 #pragma mark Program proxy delegate methods
 #pragma mark -
-
 
 - (void)programProUserRequired {
    
@@ -648,11 +626,8 @@ BOOL formProgramDetail;
     NSMutableArray *array = (NSMutableArray*)objects;
     
     [self.searchDictionary removeAllObjects];
-    
     [self.dicKeys removeAllObjects];
-    
-    
-    
+            
     if (!self.dicKeys) {
         
         NSMutableArray *tempArray = [[NSMutableArray alloc] init];
@@ -669,9 +644,6 @@ BOOL formProgramDetail;
     for (int i = 0; i < [array count]; i++) {
         
         Program *programObject = [array objectAtIndex:i];
-        
-        //Tue, 14 Feb 2012 10:10:00 GMT
-        //Tue, 14 Feb 2012 09:45:00 GMT
         
         NSDate *startDate = [UIUtils dateFromGivenGMTString:programObject.start WithFormat:@"EEE,ddMMMyyyyHH:mm:ss z"];         
         
@@ -793,7 +765,8 @@ BOOL formProgramDetail;
 
 
 -(NSString *) getTimeIntervalForTheProgramWithStartTime : (NSString *)programStartTime andEndTime : (NSString *) programEndTime {
-	NSArray *startDateTime = [programStartTime componentsSeparatedByString:@" "];
+	
+    NSArray *startDateTime = [programStartTime componentsSeparatedByString:@" "];
 	NSString *getStartTime= [startDateTime objectAtIndex:4];
 	
 	NSArray *startHours = [getStartTime componentsSeparatedByString:@":"];
@@ -806,8 +779,7 @@ BOOL formProgramDetail;
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{    
     static NSString *CellIdentifier = @"Cell";
-    
-     
+         
     if(noRecordFound) {
         
         UITableViewCell  *cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"norecords"];
@@ -1439,9 +1411,7 @@ BOOL formProgramDetail;
 } 
 
 - (void)searchBarSearchButtonClicked:(UISearchBar *)searchBar{
-	
-    
-    
+
     self.startDateString = [UIUtils startTimeFromGivenDate:[NSDate date]];
     
     AppDelegate_iPhone *appDelegate = DELEGATE;
@@ -1456,8 +1426,6 @@ BOOL formProgramDetail;
     NSDate *newDate = [[NSDate date] dateByAddingTimeInterval:86400*newdateDaysFromCurrentDate];
     
     self.endDateString = [UIUtils endTimeFromGivenDate:newDate];
-    
-    
 	searchFlag=1;
 	[self.searchBarForChannels resignFirstResponder];
 
@@ -1471,10 +1439,10 @@ BOOL formProgramDetail;
     
     self.searchBarForChannels.tintColor = [UIUtils colorFromHexColor:@"b00a4f"];
     
-   // self.navigationItem.rightBarButtonItem = nil;
-    UIButton *save = [UIUtils createBackButtonWithTarget:self action:@selector(swithToHomeFromSearchScreen)];
-    UIBarButtonItem *backButton = [[UIBarButtonItem alloc] initWithCustomView:save];
-	self.navigationItem.leftBarButtonItem = backButton;
+   self.navigationItem.leftBarButtonItem = nil;
+   // UIButton *save = [UIUtils createBackButtonWithTarget:self action:@selector(swithToHomeFromSearchScreen)];
+   // UIBarButtonItem *backButton = [[UIBarButtonItem alloc] initWithCustomView:save];
+	//self.navigationItem.leftBarButtonItem = backButton;
 	[self dismissModalViewControllerAnimated:YES];
     
 }
@@ -1551,8 +1519,7 @@ BOOL formProgramDetail;
     self.navigationItem.leftBarButtonItem = nil;
 
     CategoryView *categoryView = [[CategoryView alloc] initWithFrame:frame];
-    
-    // ABP
+
     categoryView.autoresizingMask=(UIViewAutoresizingFlexibleWidth|UIViewAutoresizingFlexibleHeight); 
     
     [categoryView setTag:Categories];
@@ -1695,7 +1662,6 @@ BOOL formProgramDetail;
     [[self.view viewWithTag:Categories] removeFromSuperview];
     [[self.view viewWithTag:Recommendation] removeFromSuperview];
     [[self.view viewWithTag:Plan] removeFromSuperview];
-    
     [[self.view  viewWithTag:Users] removeFromSuperview];
     
     return  NO;
@@ -1707,9 +1673,7 @@ BOOL formProgramDetail;
 - (void)addSubViews:(MenuBarButton)buttonType {
     
   self.navigationItem.leftBarButtonItem = nil;
-
-   // CGRect frame = CGRectMake(0, 0, self.view.frame.size.width, 416);
-    
+  
     CGRect frame = CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height);
     
     switch (buttonType) {
@@ -1753,17 +1717,12 @@ BOOL formProgramDetail;
 }
 
 
-
 #pragma mark -
 #pragma mark Create Summary View 
 
-
-// it 
-
 - (void)showSummaryViewForProgram:(NSString*)progID andChannels:(Channel*)chan forPush:(BOOL)push
 {
-    
-    
+
     SummaryScreenViewController *summaryVC = [[SummaryScreenViewController alloc] init];
     summaryVC.programId = progID;
     summaryVC.channel = chan;
@@ -1782,11 +1741,6 @@ BOOL formProgramDetail;
     [self.navigationController pushViewController:summaryVC animated:YES];
     
 }
-
-
-
-
-
 
 - (void)noChannelsRecordsFound {
     
@@ -1952,19 +1906,6 @@ BOOL formProgramDetail;
     
     [self.loginProxy setLoginProxyDelegate:self];
 }
-
-
-
-//#pragma mark -
-//#pragma mark - Device rotation
-//
-//- (void)willRotateToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation duration:(NSTimeInterval)duration{
-//    [super willRotateToInterfaceOrientation:toInterfaceOrientation duration:duration];
-//    
-//    if (!self.containmentAPISupported) {
-//        [self.ontvNavigationController willRotateToInterfaceOrientation:toInterfaceOrientation duration:duration];
-//    }
-//}
 
 
 @end

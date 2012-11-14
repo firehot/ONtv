@@ -9,6 +9,7 @@
 #import "SummaryScreenViewController.h"
 #import "UIUtils.h"
 #import <SDWebImage/UIImageView+WebCache.h>
+#import "FPPopoverController.h"
 
 @interface ProgramListViewController()
 
@@ -166,8 +167,7 @@ NSString *searchHeaderTodayLabelStr;
 // display custom date picker of with next 15 days if the user is PRO OR PLUS user.
 
 -(void) dayButtonTapped : (UIButton *) sender {
-    
-    
+        
     AppDelegate_iPhone *appDelegate = DELEGATE;
     
     if ([appDelegate.user.subscription isEqualToString:PRO_USER] || [appDelegate.user.subscription isEqualToString:PLUS_USER]  ) {    
@@ -189,7 +189,11 @@ NSString *searchHeaderTodayLabelStr;
         
         customListViewController.listType = @"DATE";
        
-        [self.navigationController pushViewController:customListViewController animated:YES];
+       // [self.navigationController pushViewController:customListViewController animated:YES];
+        FPPopoverController *popover = [[FPPopoverController alloc] initWithViewController:customListViewController];
+        
+        //the popover will be presented from the okButton view
+        [popover presentPopoverFromView:sender];
         
         
 

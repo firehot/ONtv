@@ -62,7 +62,7 @@
 
 - (void)createUI; {
     
-    [self.view setBackgroundColor:[UIUtils colorFromHexColor:LIGHTGRAY]];
+    [self.view setBackgroundColor:[UIUtils colorFromHexColor:White]];
     
     if ([self.listType  isEqualToString:@"VIA"]) {
        
@@ -139,7 +139,7 @@
 - (void)createTableView {
     
     
-    UITableView *tableView = [[UITableView alloc]initWithFrame:CGRectMake(0,10,self.view.bounds.size.width,self.view.bounds.size.height) style:UITableViewStyleGrouped];
+    UITableView *tableView = [[UITableView alloc]initWithFrame:CGRectMake(0,10,self.view.bounds.size.width,self.view.bounds.size.height) style:UITableViewStylePlain];
     
     _listTableView = tableView;
 
@@ -247,7 +247,7 @@
         
         NSDate *dateObj = [_listArray objectAtIndex:[indexPath row]];
         
-        NSString *dateStr = [UIUtils dateStringWithFormat:dateObj format:@"EEEE : dd-MMM-yyyy"];
+        NSString *dateStr = [UIUtils dateStringWithFormat:dateObj format:@"dd.MM.yyyy"];
         
         [cell.programTitleLabel setText:dateStr];
         
@@ -285,7 +285,7 @@
     
         NSDate *dateObj = [_listArray objectAtIndex:[indexPath row]];
         
-        NSString *dateStr = [UIUtils dateStringWithFormat:dateObj format:@"EEEE : dd-MMM-yyyy"];
+        NSString *dateStr = [UIUtils dateStringWithFormat:dateObj format:@"dd.MM.yyyy"];
         
         [cell.programTitleLabel setText:dateStr];
         

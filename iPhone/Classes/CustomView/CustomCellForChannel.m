@@ -208,8 +208,9 @@
                 } else if ([tableType isEqualToString:@"CUSTOMLIST"]) {
                     
                     @autoreleasepool {
+                        
                     
-                        [self createProgramTitleLabelWithFrame:CGRectMake(30, 4, 200, 30)];
+                        [self createProgramTitleLabelWithFrame:CGRectMake(10, 4, 300, 30)];
                         
                         [self createAccessoryImageViewWithFrame:CGRectMake(self.contentView.bounds.size.width-35, 12, 13, 13)];
                         
@@ -224,7 +225,6 @@
                 
                     UIImageView *logoBackgroundImageViewTemp = [[UIImageView alloc] initWithFrame:CGRectMake(10, 5, 84, 40)];
                     self.logoBackgroundImageView = logoBackgroundImageViewTemp;
-                    //self.logoBackgroundImageView.image = [UIImage imageNamed:@"imageBackground.png"];
                     [self.contentView addSubview:self.logoBackgroundImageView];
                     
                     UIImageView  *accessoryView = [[UIImageView alloc] initWithFrame:CGRectMake(self.contentView.bounds.size.width-17, 20, 8, 11)];

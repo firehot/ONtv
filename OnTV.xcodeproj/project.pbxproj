@@ -363,6 +363,9 @@
 		46F538CD14BC2F4D009C88A6 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 46F538CC14BC2F4D009C88A6 /* AudioToolbox.framework */; };
 		46F538CF14BC2F68009C88A6 /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 46F538CE14BC2F68009C88A6 /* MessageUI.framework */; };
 		46F5FFCC150F68E600FE60DC /* CacheRepository.m in Sources */ = {isa = PBXBuildFile; fileRef = 46F5FFCB150F68E600FE60DC /* CacheRepository.m */; };
+		7BD9503C1654332800A014A4 /* FPPopoverController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7BD950371654332800A014A4 /* FPPopoverController.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		7BD9503D1654332800A014A4 /* FPPopoverView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7BD950391654332800A014A4 /* FPPopoverView.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		7BD9503E1654332800A014A4 /* FPTouchView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7BD9503B1654332800A014A4 /* FPTouchView.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		9AB912BA158A507B005526C3 /* ONTVUIViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9AB912B9158A507A005526C3 /* ONTVUIViewController.m */; };
 		A7EDD41D146A9BF200625D59 /* CustomDatePicker.m in Sources */ = {isa = PBXBuildFile; fileRef = A7EDD41C146A9BF200625D59 /* CustomDatePicker.m */; };
 		A7F019CA1487A6210086487C /* CreateNewAccountViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A7F019C91487A6200086487C /* CreateNewAccountViewController.m */; };
@@ -898,6 +901,12 @@
 		46F538CE14BC2F68009C88A6 /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
 		46F5FFCA150F68E600FE60DC /* CacheRepository.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CacheRepository.h; sourceTree = "<group>"; };
 		46F5FFCB150F68E600FE60DC /* CacheRepository.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CacheRepository.m; sourceTree = "<group>"; };
+		7BD950361654332800A014A4 /* FPPopoverController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FPPopoverController.h; sourceTree = "<group>"; };
+		7BD950371654332800A014A4 /* FPPopoverController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FPPopoverController.m; sourceTree = "<group>"; };
+		7BD950381654332800A014A4 /* FPPopoverView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FPPopoverView.h; sourceTree = "<group>"; };
+		7BD950391654332800A014A4 /* FPPopoverView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FPPopoverView.m; sourceTree = "<group>"; };
+		7BD9503A1654332800A014A4 /* FPTouchView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FPTouchView.h; sourceTree = "<group>"; };
+		7BD9503B1654332800A014A4 /* FPTouchView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FPTouchView.m; sourceTree = "<group>"; };
 		8D1107310486CEB800E47090 /* OnTV-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "OnTV-Info.plist"; plistStructureDefinitionIdentifier = "com.apple.xcode.plist.structure-definition.iphone.info-plist"; sourceTree = "<group>"; };
 		9AB912B8158A507A005526C3 /* ONTVUIViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ONTVUIViewController.h; sourceTree = "<group>"; };
 		9AB912B9158A507A005526C3 /* ONTVUIViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ONTVUIViewController.m; sourceTree = "<group>"; };
@@ -1539,6 +1548,7 @@
 		463638A714EA46A700FBE518 /* 3rdPartyFrameworks */ = {
 			isa = PBXGroup;
 			children = (
+				7BD9503F1654332F00A014A4 /* FFPopoverController */,
 				E0ECF3B1163485BF002D907C /* JSON */,
 				E4A06449157CAB77007C83CF /* GoogleAdMobAds */,
 				463638A814EA46A700FBE518 /* AsiHttpRequest */,
@@ -1909,6 +1919,19 @@
 				0450A8F4164A655C00657C03 /* CellProScreen.xib */,
 			);
 			path = UserScreen;
+			sourceTree = "<group>";
+		};
+		7BD9503F1654332F00A014A4 /* FFPopoverController */ = {
+			isa = PBXGroup;
+			children = (
+				7BD950361654332800A014A4 /* FPPopoverController.h */,
+				7BD950371654332800A014A4 /* FPPopoverController.m */,
+				7BD950381654332800A014A4 /* FPPopoverView.h */,
+				7BD950391654332800A014A4 /* FPPopoverView.m */,
+				7BD9503A1654332800A014A4 /* FPTouchView.h */,
+				7BD9503B1654332800A014A4 /* FPTouchView.m */,
+			);
+			name = FFPopoverController;
 			sourceTree = "<group>";
 		};
 		E0ECF3B1163485BF002D907C /* JSON */ = {
@@ -2470,6 +2493,9 @@
 				04A0D02B164846BB0069DF1C /* SearchBarForFav.m in Sources */,
 				0450A8EE164A62A000657C03 /* CellHeader.m in Sources */,
 				0450A8F3164A654900657C03 /* CellProScreen.m in Sources */,
+				7BD9503C1654332800A014A4 /* FPPopoverController.m in Sources */,
+				7BD9503D1654332800A014A4 /* FPPopoverView.m in Sources */,
+				7BD9503E1654332800A014A4 /* FPTouchView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
