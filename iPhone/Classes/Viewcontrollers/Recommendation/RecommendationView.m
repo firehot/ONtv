@@ -6,6 +6,7 @@
 #import "NSString+utility.h"
 #import "SummaryScreenViewController.h"
 #import <SDWebImage/UIImageView+WebCache.h>
+#import "FPPopoverController.h"
 
 @interface RecommendationView()
 
@@ -171,11 +172,11 @@ NSString *recommendationHeaderTitle;
         
         customListViewController.listType = @"DATE";
         
-        AppDelegate_iPhone *appDelegate = DELEGATE;
-   
-        [appDelegate.rootNavController pushViewController:customListViewController animated:YES];
+        // [self.navigationController pushViewController:customListViewController animated:YES];
+        FPPopoverController *popover = [[FPPopoverController alloc] initWithViewController:customListViewController];
         
-        
+        //the popover will be presented from the okButton view
+        [popover presentPopoverFromView:sender];
         
     } else {
         
