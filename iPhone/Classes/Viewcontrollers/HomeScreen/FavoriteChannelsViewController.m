@@ -180,7 +180,7 @@ BOOL formProgramDetail;
       
     if (formProgramDetail) {
         
-        self.navigationItem.rightBarButtonItem = nil;
+      //  self.navigationItem.leftBarButtonItem = nil;
         formProgramDetail = NO;
     }
     
@@ -376,7 +376,7 @@ BOOL formProgramDetail;
 
 -(void) addAddChannelButton {
     
-    self.navigationItem.rightBarButtonItem = nil;
+    self.navigationItem.leftBarButtonItem = nil;
     UIButton *add = [UIButton buttonWithType:UIButtonTypeCustom];
     add.frame = CGRectMake(0, 0, 35, 30);
     [add addTarget:self action:@selector(addButtonTapped:) forControlEvents:UIControlEventTouchUpInside];
@@ -1439,14 +1439,17 @@ BOOL formProgramDetail;
     
     self.searchBarForChannels.tintColor = [UIUtils colorFromHexColor:@"b00a4f"];
     
-   self.navigationItem.leftBarButtonItem = nil;
-   // UIButton *save = [UIUtils createBackButtonWithTarget:self action:@selector(swithToHomeFromSearchScreen)];
-   // UIBarButtonItem *backButton = [[UIBarButtonItem alloc] initWithCustomView:save];
-	//self.navigationItem.leftBarButtonItem = backButton;
-	[self dismissModalViewControllerAnimated:YES];
+    self.navigationItem.leftBarButtonItem = nil;
+    UIButton *back = [UIUtils createBackButtonWithTarget:self action:@selector(backButtonTapped)];
+    UIBarButtonItem *backButton = [[UIBarButtonItem alloc] initWithCustomView:back];
+    self.navigationItem.leftBarButtonItem=backButton;
+    [self dismissModalViewControllerAnimated:YES];
     
 }
-
+-(void)backButtonTapped {
+    searchFlag=0;
+    [self configureFavoriteChannelView];
+}
 
 - (void)searchBarTextDidBeginEditing:(UISearchBar *)searchBar{
 
