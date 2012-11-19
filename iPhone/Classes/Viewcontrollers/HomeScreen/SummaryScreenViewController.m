@@ -10,6 +10,7 @@
 #import "AppDelegate_iPhone.h"
 #import "MBProgressHUD.h"
 #import <SDWebImage/UIImageView+WebCache.h>
+#import <Twitter/Twitter.h>
 
 @interface SummaryScreenViewController (){
     BOOL _shouldCreateUI;
@@ -44,6 +45,8 @@
 - (void)createRecommendationProxy;
 
 - (void)imageViewBackGroundTapped:(UITapGestureRecognizer*)recognizer;
+
+- (void)twitterButtonClicked;
 
 @end
 
@@ -266,7 +269,11 @@
     currentPoint.y += 45;
     
     [topView setFrame:CGRectMake(0, 0, self.view.bounds.size.width, currentPoint.y)];
-
+    topView.layer.shadowColor = [UIColor blackColor].CGColor;
+    topView.layer.shadowOffset = CGSizeMake(1, 0);
+    topView.layer.shadowOpacity = 0.8;
+    topView.layer.shadowRadius = 1.3;
+    topView.clipsToBounds = NO;
     
     
     [self createBottomScreenAtYPosition:currentPoint.y];
@@ -287,11 +294,6 @@
     UIScrollView *scrollView = [[UIScrollView alloc] initWithFrame:CGRectMake(0,yCoordinate,self.view.bounds.size.width,self.view.bounds.size.height - yCoordinate)];
     scrollView.backgroundColor=[UIUtils colorFromHexColor:@"e6e5e4"];
     _summaryScrollView = scrollView;
-    _summaryScrollView.layer.shadowColor = [UIColor blackColor].CGColor;
-    _summaryScrollView.layer.shadowOffset = CGSizeMake(1, 0);
-    _summaryScrollView.layer.shadowOpacity = 0.8;
-    _summaryScrollView.layer.shadowRadius = 1.3;
-    _summaryScrollView.clipsToBounds = NO;
     
     [_summaryScrollView setUserInteractionEnabled:YES];
     
@@ -544,7 +546,7 @@
  
             if ([self.program.link isStringPresent]) {
                 
-                UIButton *linkButton  = [UIControls  createUIButtonWithFrame:CGRectMake(10,currentPoint.y, _summaryScrollView.bounds.size.width, 50)];    
+                UIButton *linkButton  = [UIControls  createUIButtonWithFrame:CGRectMake(39,currentPoint.y, _summaryScrollView.bounds.size.width, 50)];
                 [linkButton addTarget:self action:@selector(linkButtonClicked) forControlEvents:UIControlEventTouchUpInside];
                 [linkButton setTitle: NSLocalizedString(@"Find on IMDB", nil) forState:UIControlStateNormal];
                 linkButton.contentVerticalAlignment = UIControlContentVerticalAlignmentCenter;
@@ -560,7 +562,11 @@
                 [accessoryView setImage:[UIImage imageNamed:@"ic_arrow_right"]];
                 accessoryView.autoresizingMask = UIViewAutoresizingFlexibleLeftMargin;
                 [_summaryScrollView addSubview:accessoryView];
-
+                
+                UIImageView *searchImage =[UIControls createUIImageViewWithFrame:CGRectMake(10, currentPoint.y+15.5, 19, 19)];
+                [searchImage setImage:[UIImage imageNamed:@"ic_search~ipad.png"]];
+                searchImage.autoresizingMask =UIViewAutoresizingFlexibleRightMargin;
+                [_summaryScrollView addSubview:searchImage];
                 
                 currentPoint.y += 50;
                 
@@ -575,11 +581,11 @@
     }
     
     
-    UIButton *faceBookButton  = [UIControls createUIButtonWithFrame:CGRectMake(30,currentPoint.y+15,260, 41)]; 
+    UIButton *faceBookButton  = [UIControls createUIButtonWithFrame:CGRectMake(10,currentPoint.y+15,145, 31)];
     
     [faceBookButton addTarget:self action:@selector(facebookButtonClicked) forControlEvents:UIControlEventTouchUpInside];
-    
-    [faceBookButton setBackgroundImage:[UIImage imageNamed:@"FacebookButton"] forState:UIControlStateNormal];
+    [faceBookButton.titleLabel setFont:[UIFont boldSystemFontOfSize:12.0f]];
+    [faceBookButton setBackgroundImage:[UIImage imageNamed:@"facebook"] forState:UIControlStateNormal];
     [faceBookButton setTitle: NSLocalizedString(@"Share on Facebook", nil) forState:UIControlStateNormal];
     [faceBookButton setTitleColor:[UIColor whiteColor] forState: UIControlStateNormal];
     [faceBookButton setTitleShadowColor:[UIColor blackColor] forState: UIControlStateNormal];
@@ -588,12 +594,24 @@
      
     faceBookButton.autoresizingMask = UIViewAutoresizingFlexibleLeftMargin|UIViewAutoresizingFlexibleRightMargin;
     
-    currentPoint.y += 15+41+15;
+    UIButton *twitterButton=[UIControls createUIButtonWithFrame:CGRectMake(165, currentPoint.y+15, 146, 28)];
+    [twitterButton.titleLabel setFont:[UIFont boldSystemFontOfSize:12.0f]];
+    [twitterButton addTarget:self action:@selector(twitterButtonClicked) forControlEvents:UIControlEventTouchUpInside];
+    [twitterButton setBackgroundImage:[UIImage imageNamed:@"twitter"] forState:UIControlStateNormal];
+    [twitterButton setTitle: NSLocalizedString(@"Share on Twitter", nil) forState:UIControlStateNormal];
+    twitterButton.titleLabel.shadowOffset = CGSizeMake(1.0f, 1.0f);
+    twitterButton.titleEdgeInsets = UIEdgeInsetsMake(0.0f, 25.0f, 0.0f, 0.0f);
+    twitterButton.autoresizingMask = UIViewAutoresizingFlexibleLeftMargin|UIViewAutoresizingFlexibleRightMargin;
+    
+    currentPoint.y += 15+31+15;
     
     UIView *bottomLineSeperatorLine3  = [UIControls createUIViewWithFrame:CGRectMake(0, currentPoint.y, self.view.bounds.size.width, 1) BackGroundColor:LIGHTGRAY];
     [_summaryScrollView addSubview:bottomLineSeperatorLine3];
     
     [_summaryScrollView addSubview:faceBookButton];
+    [_summaryScrollView addSubview:twitterButton];
+    
+    
     
     currentPoint.y += 70;
     
@@ -606,7 +624,7 @@
     NSLog(@"###### after %@", NSStringFromCGRect(_summaryScrollView.frame));
     
     
-
+    
 
     
 }
@@ -1043,6 +1061,49 @@
    
     
 }
+
+
+- (void)twitterButtonClicked {
+    if ([TWTweetComposeViewController canSendTweet])
+    {
+                
+        NSArray *localArray = [[[NSLocale currentLocale] localeIdentifier] componentsSeparatedByString:@"_"];
+        NSString *currentRegion = [[localArray objectAtIndex:1] lowercaseString];
+        if (![currentRegion isEqualToString:@"de"] && ![currentRegion isEqualToString:@"se"]) {
+            currentRegion = @"dk";
+        }
+        
+        NSString *urlString = [NSString stringWithFormat:@"http://ontv.%@/info/%@/?utm_source=facebook&utm_medium=share_on_facebook&utm_campaign=facebook",currentRegion,self.program.programId];
+        
+        DLog(@"%@",urlString);
+        
+        NSString *imageURL = [[NSMutableString alloc] init];
+        if ([self.program.imgSrc isStringPresent]) {
+            imageURL = self.program.imgSrc;
+        } else {
+            imageURL= @"https://dl.dropbox.com/u/7947878/Icon%402x.png";
+            
+        }
+                
+        TWTweetComposeViewController *tweetSheet = [[TWTweetComposeViewController alloc] init];
+        [tweetSheet setInitialText:[NSString stringWithFormat:@"I watch %@",self.program.title]];
+        
+        [tweetSheet addImage:[UIImage imageWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:imageURL]]]];
+        [tweetSheet addURL:[NSURL URLWithString:urlString]];
+        
+	    [self presentModalViewController:tweetSheet animated:YES];
+    }
+    else
+    {
+        UIAlertView *alertView = [[UIAlertView alloc]
+                                  initWithTitle:@"Sorry"
+                                  message:@"You can't send a tweet right now, make sure your device has an internet connection and you have                                 at least one Twitter account setup"
+                                  delegate:self
+                                  cancelButtonTitle:@"OK"
+                                  otherButtonTitles:nil];
+        [alertView show];
+    }
+}
     
 
 
@@ -1081,7 +1142,5 @@
     [self.recommendProxy setRecommendProxyDelegate:self];
     
 }
-
-
 
 @end

@@ -458,13 +458,14 @@ NSString *const FBSessionStateChangedNotification = @"com.example.Login:FBSessio
     
 #if !TARGET_IPHONE_SIMULATOR
 	
-	// Add registration for remote notifications		
+	// Add registration for remote notifications
+    [[UIApplication sharedApplication] registerForRemoteNotificationTypes:
+     (UIRemoteNotificationTypeBadge | UIRemoteNotificationTypeSound | UIRemoteNotificationTypeAlert)];
+    
 
-	[[UIApplication sharedApplication] 
-     registerForRemoteNotificationTypes:(UIRemoteNotificationTypeAlert | UIRemoteNotificationTypeBadge | UIRemoteNotificationTypeSound)];
 	NSDictionary *remoteNotif = [launchOption objectForKey: UIApplicationLaunchOptionsRemoteNotificationKey];
     
-    if (remoteNotif) {	
+    if (remoteNotif) {	   
         
         [self handleRemoteNotification:remoteNotif appState:APP_LAUNCH];
     }   

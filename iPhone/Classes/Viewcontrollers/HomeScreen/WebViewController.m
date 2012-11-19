@@ -44,11 +44,23 @@
     // Release any retained subviews of the main view.
     // e.g. self.myOutlet = nil;
 }
+- (void)backbuttonClicked {
+    
+    [self.navigationController popViewControllerAnimated:YES];
+    
+}
 
 
 - (void)createUI {
     
     [self.view setBackgroundColor:[UIColor whiteColor]];
+    
+    UIButton *backBtn = [UIUtils createBackButtonWithTarget:self action:@selector(backbuttonClicked)];
+    
+    UIBarButtonItem *rightBarButton = [[UIBarButtonItem alloc] initWithCustomView:backBtn];
+	
+    self.navigationItem.leftBarButtonItem = rightBarButton;
+    
     
     DLog (@"LINK TO BE SHARE ON FACE BOOK%@",self.urlString);
     
